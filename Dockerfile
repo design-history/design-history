@@ -1,74 +1,135 @@
-# This template builds two images, to optimise caching:
-# builder: builds gems and node modules
-# production: runs the actual app
+# syntax = docker/dockerfile:experimental
 
-# Build builder image
-FROM ruby:3.1.2-alpine as builder
+# Dockerfile used to build a deployable image for a Rails application.
+# Adjust as required.
+#
+# Common adjustments you may need to make over time:
+#  * Modify version numbers for Ruby, Bundler, and other products.
+#  * Add library packages needed at build time for your gems, node modules.
+#  * Add deployment packages needed by your application
+#  * Add (often fake) secrets needed to compile your assets
 
-# RUN apk -U upgrade && \
-#     apk add --update --no-cache gcc git libc6-compat libc-dev make nodejs \
-#     postgresql13-dev yarn
+#######################################################################
 
+# Learn more about the chosen Ruby stack, Fullstaq Ruby, here:
+#   https://github.com/evilmartians/fullstaq-ruby-docker.
+#
+# We recommend using the highest patch level for better security and
+# performance.
+
+ARG RUBY_VERSION=3.1.2
+ARG VARIANT=jemalloc-slim
+FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
+
+LABEL fly_launch_runtime="rails"
+
+ARG NODE_VERSION=18.1.0
+ARG BUNDLER_VERSION=2.3.13
+
+ARG RAILS_ENV=production
+ENV RAILS_ENV=${RAILS_ENV}
+
+ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_LOG_TO_STDOUT true
+
+ARG BUNDLE_WITHOUT=development:test
+ARG BUNDLE_PATH=vendor/bundle
+ENV BUNDLE_PATH ${BUNDLE_PATH}
+ENV BUNDLE_WITHOUT ${BUNDLE_WITHOUT}
+
+RUN mkdir /app
 WORKDIR /app
+RUN mkdir -p tmp/pids
 
-# Add the timezone (builder image) as it's not configured by default in Alpine
-RUN apk add --update --no-cache tzdata && \
-    cp /usr/share/zoneinfo/Europe/London /etc/localtime && \
-    echo "Europe/London" > /etc/timezone
+RUN curl https://get.volta.sh | bash
+ENV VOLTA_HOME /root/.volta
+ENV PATH $VOLTA_HOME/bin:/usr/local/bin:$PATH
+RUN volta install node@${NODE_VERSION} yarn
 
-# build-base: dependencies for bundle
-# yarn: node package manager
-# postgresql-dev: postgres driver and libraries
-RUN apk add --no-cache build-base yarn postgresql13-dev
+#######################################################################
 
-# Install gems defined in Gemfile
-COPY .ruby-version Gemfile Gemfile.lock ./
+# install packages only needed at build time
 
-# Install gems and remove gem cache
-RUN bundler -v && \
-    bundle config set no-cache 'true' && \
-    bundle config set no-binstubs 'true' && \
-    bundle config set without 'development test' && \
-    bundle install --retry=5 --jobs=4 && \
-    rm -rf /usr/local/bundle/cache
+FROM base as build_deps
 
-# Install node packages defined in package.json
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --check-files
+ARG BUILD_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev"
+ENV BUILD_PACKAGES ${BUILD_PACKAGES}
 
-# Copy all files to /app (except what is defined in .dockerignore)
+RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
+    --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y ${BUILD_PACKAGES} \
+    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+#######################################################################
+
+# install gems
+
+FROM build_deps as gems
+
+RUN gem update --system --no-document && \
+    gem install -N bundler -v ${BUNDLER_VERSION}
+
+COPY Gemfile* ./
+RUN bundle install &&  rm -rf vendor/bundle/ruby/*/cache
+
+#######################################################################
+
+# install node modules
+
+FROM build_deps as node_modules
+
+COPY package*json ./
+COPY yarn.* ./
+RUN yarn install
+
+#######################################################################
+
+# install deployment packages
+
+FROM base
+
+ARG DEPLOY_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0"
+ENV DEPLOY_PACKAGES=${DEPLOY_PACKAGES}
+
+RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
+    --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+    ${DEPLOY_PACKAGES} \
+    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# copy installed gems
+COPY --from=gems /app /app
+COPY --from=gems /usr/lib/fullstaq-ruby/versions /usr/lib/fullstaq-ruby/versions
+COPY --from=gems /usr/local/bundle /usr/local/bundle
+
+# copy installed node modules
+COPY --from=node_modules /app/node_modules /app/node_modules
+
+#######################################################################
+
+# Deploy your application
 COPY . .
 
-# Precompile assets
-RUN RAILS_ENV=production SECRET_KEY_BASE=required-to-run-but-not-used \
-    bundle exec rails assets:precompile
+# Adjust binstubs to run on Linux and set current working directory
+RUN chmod +x /app/bin/* && \
+    sed -i 's/ruby.exe/ruby/' /app/bin/* && \
+    sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)' /app/bin/*
 
-# Cleanup to save space in the production image
-RUN rm -rf node_modules log/* tmp/* /tmp && \
-    rm -rf /usr/local/bundle/cache && \
-    rm -rf .env && \
-    find /usr/local/bundle/gems -name "*.c" -delete && \
-    find /usr/local/bundle/gems -name "*.h" -delete && \
-    find /usr/local/bundle/gems -name "*.o" -delete && \
-    find /usr/local/bundle/gems -name "*.html" -delete
+# The following enable assets to precompile on the build server.  Adjust
+# as necessary.  If no combination works for you, see:
+# https://fly.io/docs/rails/getting-started/existing/#access-to-environment-variables-at-build-time
+ENV SECRET_KEY_BASE 1
+# ENV AWS_ACCESS_KEY_ID=1
+# ENV AWS_SECRET_ACCESS_KEY=1
 
-# Build runtime image
-FROM ruby:3.1.2-alpine as production
+# Run build task defined in lib/tasks/fly.rake
+ARG BUILD_COMMAND="bin/rails fly:build"
+RUN ${BUILD_COMMAND}
 
-# The application runs from /app
-WORKDIR /app
-
-# Add the timezone (prod image) as it's not configured by default in Alpine
-RUN apk add --update --no-cache tzdata && \
-    cp /usr/share/zoneinfo/Europe/London /etc/localtime && \
-    echo "Europe/London" > /etc/timezone
-
-# libpq: required to run postgres
-RUN apk add --no-cache libpq
-
-# Copy files generated in the builder image
-COPY --from=builder /app /app
-COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
-
-CMD bundle exec rails db:migrate && \
-    bundle exec rails server -b 0.0.0.0
+# Default server start instructions.  Generally Overridden by fly.toml.
+ENV PORT 8080
+ARG SERVER_COMMAND="bin/rails fly:server"
+ENV SERVER_COMMAND ${SERVER_COMMAND}
+CMD ${SERVER_COMMAND}
