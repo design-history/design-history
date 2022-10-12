@@ -7,6 +7,7 @@ gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
+gem "hotwire-livereload"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "propshaft"

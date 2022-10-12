@@ -98,6 +98,7 @@ GEM
     diff-lcs (1.5.0)
     e2mmap (0.1.0)
     erubi (1.11.0)
+    ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
     govuk-components (3.2.1)
@@ -116,6 +117,9 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
+    hotwire-livereload (1.2.2)
+      listen (>= 3.0.0)
+      rails (>= 6.0.0)
     html-attributes-utils (0.9.2)
       activesupport (>= 6.1.4.4)
     i18n (1.12.0)
@@ -131,6 +135,9 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    listen (3.7.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.19.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -200,6 +207,9 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rbs (2.7.0)
     regexp_parser (2.6.0)
     reline (0.3.1)
@@ -336,6 +346,7 @@ DEPENDENCIES
   debug
   govuk-components
   govuk_design_system_formbuilder
+  hotwire-livereload
   jsbundling-rails
   pg (~> 1.1)
   prettier_print
