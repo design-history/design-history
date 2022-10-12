@@ -15,26 +15,16 @@ bin/bundle exec rladr new title
 
 ## Setup
 
-Install dependencies using your preferred method, using `asdf` or `rbenv` or
-`nvm`. Example with `asdf`:
+Standard Rails 7 / Ruby 3 project. Example:
 
 ```bash
-# The first time
-brew install asdf # Mac-specific
-asdf plugin add ruby
-asdf plugin add nodejs
-asdf plugin add yarn
+asdf install # Install optimal ruby/nodejs/etc versions, see .tool-versions
+pg_ctl start # If not already running postgres
 
-# To install (or update, following a change to .tool-versions)
-asdf install
-```
+bin/setup    # bundle / yarn / database setup
 
-### Linting
-
-To run the linters:
-
-```bash
-bin/lint
+bin/dev      # Local development on http://localhost:3000
+bin/lint     # Run linters
 ```
 
 ### Intellisense
