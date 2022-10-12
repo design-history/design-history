@@ -1,0 +1,5 @@
+- [ ] Bring in x-govuk for the masthead
+- [ ] Customise the index/show pages further, make it look right
+- [ ] Use markdown for the post.body
+- [ ] Better edit page
+- [ ] Auth/auth and ownership/access controls of posts
