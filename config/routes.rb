@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
   root to: "pages#home"
+
+  resources :posts
 
   scope via: :all do
     get "/404", to: "errors#not_found"
