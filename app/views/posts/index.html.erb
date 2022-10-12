@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1 class="govuk-heading-l">Apply for a Juggling Licence</h1>
+<p>A service that allows users to become qualified jugglers</p>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div class="govuk-grid-row">
+  <section class="govuk-grid-column-two-thirds-from-desktop">
+    <% @posts.each do |post| %>
+      <%= link_to post do %>
+        <h2 class="govuk-heading-m"><%= post.title %></h2>
+      <% end %>
+      <p><%= post.updated_at %></p>
+    <% end %>
+  </section>
 </div>
 
 <%= link_to "New post", new_post_path %>

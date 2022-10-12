@@ -1,17 +1,7 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+<h1 class="govuk-heading-xl"><%= post.title %></h1>
 
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
+<p><%= post.updated_at %></p>
 
-  <p>
-    <strong>Published:</strong>
-    <%= post.published %>
-  </p>
-
-</div>
+<p>
+  <%= post.body %>
+</p>
