@@ -1,3 +1,2 @@
-- [ ] Use markdown for the post.body
 - [ ] Better edit page
 - [ ] Auth/auth and ownership/access controls of posts
