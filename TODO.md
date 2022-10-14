@@ -1,2 +1,1 @@
-- [ ] Better edit page
 - [ ] Auth/auth and ownership/access controls of posts
