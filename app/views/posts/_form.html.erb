@@ -1,32 +1,10 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<%= form_with(model: post) do |f| %>
+  <%= f.govuk_error_summary %>
+  <%= f.govuk_text_field :title %>
+  <%= f.govuk_text_area :body, rows: 14 %>
+  <%= f.govuk_check_boxes_fieldset :published, multiple: false,
+    legend: { text: 'Publish', size: 'm' } do %>
+    <%= f.govuk_check_box :published, 1, 0, label: { text: "Published" } %>
   <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.label :published, style: "display: block" %>
-    <%= form.check_box :published %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= f.govuk_submit "Save" %>
 <% end %>
