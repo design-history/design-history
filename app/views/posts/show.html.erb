@@ -1,10 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <header class="app-document-header">
+      <h1 class="app-document-header__title govuk-heading-xl">
+        <%= @post.title %>
+      </h1>
+    </header>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+    <footer>
+      <p class="app-metadata">
+        <span class="govuk-visually-hidden">Posted on: </span>
+        <time datetime="<%= @post.updated_at.iso8601 %>">
+          <%= @post.updated_at.strftime("%d %B %Y") %>
+        </time>
+      </p>
+    </footer>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+    <p>
+      <%= @post.body %>
+    </p>
+  </div>
 </div>
