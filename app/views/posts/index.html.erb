@@ -1,4 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :masthead do %>
+  <%= render(XGovukMastheadComponent.new(
+    title: { text: 'Apply for a Juggling licence' },
+    description: { text: 'A placeholder service that does not exist, but is commonly used in prototypes' }
+  )) %>
+<% end %>
+
+<% if notice %>
+  <p style="color: green"><%= notice %></p>
+<% end %>
 
 <div class="govuk-grid-row">
   <section class="govuk-grid-column-two-thirds-from-desktop">

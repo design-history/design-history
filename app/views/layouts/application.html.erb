@@ -30,10 +30,7 @@
 
     <%= govuk_header(service_name: t("service.name")) %>
 
-    <%= render(XGovukMastheadComponent.new(
-      title: { text: 'Apply for a Juggling licence' },
-      description: { text: 'A placeholder service that does not exist, but is commonly used in prototypes' }
-    )) %>
+    <%= yield :masthead %>
 
     <div class="govuk-width-container">
       <main class="govuk-main-wrapper" id="main-content" role="main">
