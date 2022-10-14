@@ -2,12 +2,23 @@
 
 <div class="govuk-grid-row">
   <section class="govuk-grid-column-two-thirds-from-desktop">
-    <% @posts.each do |post| %>
-      <%= link_to post do %>
-        <h2 class="govuk-heading-m"><%= post.title %></h2>
+    <ol class="app-document-list app-document-list--large">
+      <% @posts.each do |post| %>
+        <li class="app-document-list__item">
+          <%= link_to post do %>
+            <h2 class="app-document-list__item-title"><%= post.title %></h2>
+          <% end %>
+          <ul class="app-document-list__item-metadata">
+            <li class="app-document-list__attribute">
+              <time
+                class="app-document-list__attribute"
+                datetime="<%= post.updated_at.iso8601 %>">
+                <%= post.updated_at.strftime("%d %B %Y") %></time>
+            </li>
+          </ul>
+        </li>
       <% end %>
-      <p><%= post.updated_at %></p>
-    <% end %>
+    </ol>
   </section>
 </div>
 

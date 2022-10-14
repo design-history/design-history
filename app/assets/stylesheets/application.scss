@@ -3,4 +3,5 @@ $govuk-new-link-styles: true;
 $govuk-assets-path: "/";
 
 @import "govuk-frontend/govuk/all";
+@import "document-list";
 @import "masthead";
