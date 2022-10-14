@@ -16,9 +16,9 @@
         </time>
       </p>
     </footer>
+  </div>
 
-    <p>
-      <%= @post.body %>
-    </p>
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <%= GovukMarkdown.render(@post.body).html_safe %>
   </div>
 </div>
