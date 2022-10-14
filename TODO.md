@@ -1,1 +1,0 @@
-- [ ] Auth/auth and ownership/access controls of posts

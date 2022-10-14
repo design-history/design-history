@@ -1,0 +1,12 @@
+- [ ] "Project" model that has_many posts
+- [ ] Sign up/sign in with username/password
+- [ ] "Team" model that has_many users
+- [ ] Add ownership to projects
+- [ ] Allow editing the publish date
+- [ ] Use the `:published` field
+- [ ] Previewing draft posts with a special URL
+- [ ] Post slugs
+- [ ] Drag and drop screenshots into posts
+- [ ] Settings projects as public/private
+- [ ] Writer vs admin role
+- [ ] Subdomains for teams
