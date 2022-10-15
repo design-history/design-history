@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: redirect("/posts")
 
-  resources :posts
+  resources :projects do
+    resources :posts
+  end
 
   scope via: :all do
     get "/404", to: "errors#not_found"
