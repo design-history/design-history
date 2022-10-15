@@ -10,3 +10,19 @@ $govuk-assets-path: "/";
   @include govuk-font($size: 16, $line-height: 1.5);
   color: $govuk-secondary-text-colour;
 }
+
+h1:not([class]) {
+  @extend .govuk-heading-xl;
+}
+
+h2:not([class]) {
+  @extend .govuk-heading-l;
+}
+
+h3:not([class]) {
+  @extend .govuk-heading-m;
+}
+
+h4:not([class]) {
+  @extend .govuk-heading-s;
+}
