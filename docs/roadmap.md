@@ -8,3 +8,4 @@
 - [ ] Settings projects as public/private
 - [ ] Writer vs admin role
 - [ ] Subdomains for teams
+- [ ] Validations
