@@ -1,0 +1,33 @@
+<% content_for :masthead do %>
+  <%= render(XGovukMastheadComponent.new(
+    classes: 'x-govuk-masthead--large',
+    title: { text: 'HM Digital design history' },
+    description: { text: 'How the HM Digital services have changed over time' }
+  )) %>
+<% end %>
+
+<% if notice %>
+  <p style="color: green"><%= notice %></p>
+<% end %>
+
+<div class="govuk-grid-row">
+  <section class="govuk-grid-column-two-thirds-from-desktop">
+    <% if @projects.empty? %>
+      <h2 class="govuk-heading-l">You have no services</h2>
+      <p>Add a service to start drafting posts.</p>
+    <% else %>
+      <h2 class="govuk-heading-l">Services</h2>
+    <% end %>
+
+    <% @projects.each do |project| %>
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+        <%= project.title %>
+      </h3>
+      <p><%= project.description %></p>
+    <% end %>
+  </section>
+</div>
+
+<p>
+  <%= govuk_start_button text: "Add a new service", href: new_project_path %>
+</p>

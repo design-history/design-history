@@ -1,14 +1,14 @@
-<div class="x-govuk-masthead<%= @classes&.join(' ')&.prepend(' ') %>">
+<div class="x-govuk-masthead<%= @classes&.prepend(' ') %>">
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds-from-desktop">
         <% if @title %>
-          <h1 class="x-govuk-masthead__title<%= @title.classes&.join(' ')&.prepend(' ') %>">
+          <h1 class="x-govuk-masthead__title<%= @title.classes&.prepend(' ') %>">
             <%= @title.html || @title.text %>
           </h1>
         <% end %>
         <% if @description %>
-          <p class="x-govuk-masthead__description<%= @description.classes&.join(' ')&.prepend(' ') %>">
+          <p class="x-govuk-masthead__description<%= @description.classes&.prepend(' ') %>">
             <%= @description.html || @description.text %>
           </p>
         <% end %>

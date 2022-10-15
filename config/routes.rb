@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect("/posts")
+  root to: redirect("/projects")
 
   resources :projects do
     resources :posts
