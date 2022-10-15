@@ -2,7 +2,6 @@
 - [ ] Sign up/sign in with username/password
 - [ ] "Team" model that has_many users
 - [ ] Add ownership to projects
-- [ ] Allow editing the publish date
 - [ ] Use the `:published` field
 - [ ] Previewing draft posts with a special URL
 - [ ] Post slugs
