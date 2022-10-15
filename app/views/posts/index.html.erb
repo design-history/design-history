@@ -14,8 +14,14 @@
     <ol class="app-document-list app-document-list--large">
       <% @posts.each do |post| %>
         <li class="app-document-list__item">
+          <% unless post.published? %>
+            <%= govuk_tag(classes: 'app-document-list__tag',
+                          text: 'Draft', colour: 'grey') %>
+          <% end %>
           <%= link_to post do %>
-            <h2 class="app-document-list__item-title"><%= post.title %></h2>
+            <h2 class="app-document-list__item-title">
+              <%= post.title %>
+            </h2>
           <% end %>
           <ul class="app-document-list__item-metadata">
             <li class="app-document-list__attribute">

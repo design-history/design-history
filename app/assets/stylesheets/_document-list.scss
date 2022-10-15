@@ -10,6 +10,12 @@
   padding-top: govuk-spacing(2);
 }
 
+.app-document-list__tag {
+  float: left;
+  margin-right: 6px;
+  margin-top: 3px;
+}
+
 .app-document-list__item-title {
   @include govuk-font($size: 19, $weight: "bold");
   margin: 0 0 govuk-spacing(1);
