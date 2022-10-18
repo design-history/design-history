@@ -18,7 +18,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module KeepADesignHistory
+module DesignHistory
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -32,7 +32,7 @@ module KeepADesignHistory
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.assets.paths << Rails.root.join(
-      "node_modules/govuk-frontend/govuk/assets"
+      "node_modules/govuk-frontend/govuk/assets",
     )
 
     config.exceptions_app = routes

@@ -1,4 +1,4 @@
-# Keep a record of your designs
+# Design history
 
 A service that helps you build a design history.
 
