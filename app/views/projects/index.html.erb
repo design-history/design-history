@@ -21,7 +21,7 @@
 
     <% @projects.each do |project| %>
       <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
-        <%= project.title %>
+        <%= govuk_link_to project.title, project_path(project) %>
       </h3>
       <p><%= project.description %></p>
     <% end %>
