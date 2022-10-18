@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: keep_a_design_history_development
+  database: design_history_development
 
 test:
   <<: *default
-  database: keep_a_design_history_test
+  database: design_history_test
 
 production:
   <<: *default
-  database: keep_a_design_history_production
+  database: design_history_production
