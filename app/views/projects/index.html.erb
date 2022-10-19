@@ -13,8 +13,8 @@
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
     <% if @projects.empty? %>
-      <h2 class="govuk-heading-l">You have no services</h2>
-      <p>Add a service to start drafting posts.</p>
+      <h2 class="govuk-heading-l">Create your first design history</h2>
+      <p>Create a design history to start drafting posts.</p>
     <% else %>
       <h2 class="govuk-heading-l">Services</h2>
     <% end %>
@@ -28,11 +28,11 @@
 
     <% if @projects.empty? %>
       <p>
-        <%= govuk_start_button text: "Add a new service", href: new_project_path %>
+        <%= govuk_start_button text: "Create a design history", href: new_project_path %>
       </p>
     <% else %>
       <p>
-        <%= govuk_link_to "Add a new service", href: new_project_path %>
+        <%= govuk_link_to "Create a new design history", new_project_path %>
       </p>
     <% end %>
   <% end %>
