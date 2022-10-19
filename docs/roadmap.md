@@ -1,4 +1,4 @@
-- [ ] "Project" model that has_many posts
+- [ ] Back links and breadcrumbs
 - [ ] Sign up/sign in with username/password
 - [ ] "Team" model that has_many users
 - [ ] Add ownership to projects

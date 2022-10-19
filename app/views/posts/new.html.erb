@@ -1,7 +1,7 @@
 <h1 class="govuk-heading-xl">New post</h1>
 
-<%= render "form", post: @post %>
+<%= render "form", project: @project, post: @post %>
 
 <div>
-  <%= link_to "Back to posts", posts_path %>
+  <%= link_to "Back to posts", project_posts_path(@project) %>
 </div>

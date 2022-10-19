@@ -1,7 +1,7 @@
 <% content_for :masthead do %>
   <%= render(XGovukMastheadComponent.new(
-    title: { text: 'Apply for a Juggling licence' },
-    description: { text: 'A placeholder service that does not exist, but is commonly used in prototypes' }
+    title: { text: @project.title },
+    description: { text: @project.description }
   )) %>
 <% end %>
 
@@ -18,7 +18,7 @@
             <%= govuk_tag(classes: 'app-document-list__tag',
                           text: 'Draft', colour: 'grey') %>
           <% end %>
-          <%= link_to post do %>
+          <%= link_to [@project, post] do %>
             <h2 class="app-document-list__item-title">
               <%= post.title %>
             </h2>
@@ -37,4 +37,4 @@
   </section>
 </div>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_project_post_path(@project) %>
