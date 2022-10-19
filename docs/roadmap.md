@@ -1,3 +1,4 @@
+- [ ] Use breadcrumbs in project masthead
 - [ ] Back links and breadcrumbs
 - [ ] Sign up/sign in with username/password
 - [ ] "Team" model that has_many users

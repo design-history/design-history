@@ -1,3 +1,10 @@
+<% content_for :breadcrumbs do %>
+  <%= govuk_breadcrumbs(breadcrumbs: {
+    'HM Digital design history' => '/',
+    @project.title => project_path(@project),
+    @post.title => nil }) %>
+<% end %>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <header class="app-document-header">
