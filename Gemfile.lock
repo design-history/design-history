@@ -116,7 +116,7 @@ GEM
     govuk_markdown (1.0.0)
       activesupport
       redcarpet
-    haml (6.0.6)
+    haml (6.0.7)
       temple (>= 0.8.2)
       thor
       tilt
