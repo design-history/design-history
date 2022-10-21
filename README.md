@@ -48,4 +48,4 @@ You'll also need to configure your editor's `solargraph` plugin to
 
 ### Licence
 
-[MIT](LICENCE.md).
+[AGPLv3](LICENSE).
