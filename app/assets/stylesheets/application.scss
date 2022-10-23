@@ -2,6 +2,10 @@ $govuk-global-styles: true;
 $govuk-new-link-styles: true;
 $govuk-assets-path: "/";
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+$govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
+  "Helvetica", sans-serif;
+
 @import "govuk-frontend/govuk/all";
 @import "document-list";
 @import "masthead";
