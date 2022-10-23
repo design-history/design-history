@@ -1,4 +1,6 @@
-<h1 class="govuk-heading-xl">Editing post</h1>
+<% title = "Editing post" %>
+<%= content_for :page_title, title %>
+<h1 class="govuk-heading-xl"><%= title %></h1>
 
 <%= render "form", project: @project, post: @post %>
 
