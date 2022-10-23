@@ -28,7 +28,11 @@
 
     <%= govuk_skip_link %>
 
-    <%= govuk_header(service_name: t("service.name")) %>
+    <div class="app-header">
+      <%= govuk_header() do |header|
+        header.custom_logo do %><%= t("service.name") %>
+      <% end; end %>
+    </div>
 
     <%= yield :masthead %>
 

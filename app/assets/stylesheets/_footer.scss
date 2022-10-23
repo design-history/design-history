@@ -1,0 +1,12 @@
+.app-footer {
+  .govuk-footer {
+    border-width: 0;
+    background-color: $app-tint-colour;
+  }
+
+  // Reset display: flex and margins
+  .govuk-footer__meta {
+    margin: 0;
+    display: block;
+  }
+}
