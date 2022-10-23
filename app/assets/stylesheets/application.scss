@@ -20,7 +20,7 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 @import "header";
 @import "masthead";
 
-.govuk-template {
+.app-design-history {
   background-color: $app-tint-colour;
 }
 
