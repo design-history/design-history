@@ -2,6 +2,11 @@
 
 A service that helps you build a design history.
 
+## 🚧 Under active construction 🚧
+
+This project isn't ready to see yet; we're building it in the open. Don't
+expect much.
+
 ## How the application works
 
 We keep track of architecture decisions in [Architecture Decision Records
