@@ -1,6 +1,6 @@
-$x-govuk-masthead-background-colour: $govuk-brand-colour;
+$x-govuk-masthead-background-colour: $app-masthead-colour;
 $x-govuk-masthead-border-colour: govuk-tint($govuk-brand-colour, 25%);
-$x-govuk-masthead-colour: govuk-colour("white");
+$x-govuk-masthead-colour: govuk-colour("black");
 
 .x-govuk-masthead {
   @include govuk-responsive-padding(7, "bottom");

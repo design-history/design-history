@@ -7,13 +7,21 @@ $govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
   "Helvetica", sans-serif;
 
 @import "govuk-frontend/govuk/all";
+
+$app-button-colour: #288080;
+$app-brand-colour: #c1dede;
+$app-header-bar-colour: $app-button-colour;
+$app-masthead-colour: $app-brand-colour;
+$app-tint-colour: govuk-tint($app-masthead-colour, 50%);
+
+@import "button";
 @import "document-list";
+@import "footer";
+@import "header";
 @import "masthead";
 
-.app-footer {
-  .govuk-footer__meta {
-    display: block;
-  }
+.govuk-template {
+  background-color: $app-tint-colour;
 }
 
 .app-metadata {

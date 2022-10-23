@@ -1,0 +1,13 @@
+// Temporary until govuk-frontend 4.4 is released
+// https://github.com/alphagov/govuk-frontend/pull/2752
+$app-button-hover-colour: govuk-shade($app-button-colour, 20%);
+$app-button-shadow-colour: govuk-shade($app-button-colour, 60%);
+
+.govuk-button {
+  background-color: $app-button-colour;
+  box-shadow: 0 $govuk-border-width-form-element 0 $app-button-shadow-colour;
+}
+
+.govuk-button:hover {
+  background-color: $app-button-hover-colour;
+}
