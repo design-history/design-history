@@ -20,4 +20,5 @@
 #  fk_rails_...  (project_id => projects.id)
 #
 class Post < ApplicationRecord
+  has_many_attached :images
 end
