@@ -17,5 +17,6 @@ db/*.sqlite3
 log/*
 node_modules
 public/assets
+storage
 tmp/*
 tmp/pids/*
