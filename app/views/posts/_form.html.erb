@@ -1,13 +1,22 @@
 <%= form_with(model: [project, post]) do |f| %>
-  <%= f.govuk_error_summary %>
-  <%= f.govuk_text_field :title %>
-  <%= f.govuk_text_area :body, rows: 14 %>
-  <%= f.govuk_check_boxes_fieldset :published, multiple: false,
-    legend: { text: 'Publish', size: 'm' } do %>
-    <%= f.govuk_check_box :published, 1, 0,
-      multiple: false,
-      label: { text: "Published" } %>
+  <%= govuk_row do %>
+    <%= govuk_two_thirds do %>
+      <%= f.govuk_error_summary %>
+      <%= f.govuk_text_field :title %>
+      <%= f.govuk_text_area :body, rows: 14 %>
+      <%= f.govuk_check_boxes_fieldset :published, multiple: false,
+        legend: { text: 'Publish', size: 'm' } do %>
+        <%= f.govuk_check_box :published, 1, 0,
+          multiple: false,
+          label: { text: "Published" } %>
+      <% end %>
+      <%= f.govuk_date_field :published_at, legend: { text: 'Published date' } %>
+    <% end %>
+
+    <%= govuk_one_third do %>
+      <%= f.file_field :images %>
+    <% end %>
+
   <% end %>
-  <%= f.govuk_date_field :published_at, legend: { text: 'Published date' } %>
   <%= f.govuk_submit "Save" %>
 <% end %>
