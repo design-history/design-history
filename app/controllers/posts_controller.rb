@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = @project.posts.find(params[:id])
+    @post = @project.posts.with_attached_images.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
