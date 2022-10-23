@@ -10,6 +10,12 @@ $govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
 @import "document-list";
 @import "masthead";
 
+.app-footer {
+  .govuk-footer__meta {
+    display: block;
+  }
+}
+
 .app-metadata {
   @include govuk-font($size: 16, $line-height: 1.5);
   color: $govuk-secondary-text-colour;

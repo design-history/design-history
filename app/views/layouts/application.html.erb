@@ -52,6 +52,11 @@
       </main>
     </div>
 
-    <%= govuk_footer %>
+    <div class="app-footer">
+      <%= render GovukComponent::FooterComponent.new do |footer|
+        footer.meta do %>
+          <p>© Design History 2022</p>
+      <% end; end %>
+    </div>
   </body>
 </html>
