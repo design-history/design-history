@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_project, only: %i[show edit update destroy]
+  before_action :set_project, only: %i[edit update destroy]
 
   # GET /projects
   def index
@@ -9,12 +9,12 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    redirect_to project_posts_path(@project)
+    redirect_to project_posts_path(project_id: params[:id])
   end
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = current_user.projects.new
   end
 
   # GET /projects/1/edit
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     if @project.save
       redirect_to @project, notice: "Project was successfully created"
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   private
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def project_params
