@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: redirect("/projects")
 
+  devise_for :users
+
   resources :projects do
     resources :posts
   end
