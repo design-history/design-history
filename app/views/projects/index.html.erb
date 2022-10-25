@@ -1,18 +1,10 @@
-<% content_for :masthead do %>
-  <%= render(XGovukMastheadComponent.new(
-    classes: 'x-govuk-masthead--large',
-    title: { text: 'HM Digital design history' },
-    description: { text: 'How the HM Digital services have changed over time' }
-  )) %>
-<% end %>
-
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
     <% if @projects.empty? %>
       <h2 class="govuk-heading-l">Create your first design history</h2>
       <p>Create a design history to start drafting posts.</p>
     <% else %>
-      <h2 class="govuk-heading-l">Services</h2>
+      <h2 class="govuk-heading-l">Published design histories</h2>
     <% end %>
 
     <% @projects.each do |project| %>
