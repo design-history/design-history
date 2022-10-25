@@ -3,7 +3,8 @@
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
     <%= form_for(resource, as: resource_name,
-                 url: session_path(resource_name)) do |f| %>
+                 url: session_path(resource_name),
+                 data: { turbo: false }) do |f| %>
       <%= f.govuk_error_summary %>
 
       <%= f.govuk_email_field :email, autofocus: true, autocomplete: "email" %>
