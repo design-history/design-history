@@ -3,6 +3,7 @@
     <%= govuk_two_thirds do %>
       <%= f.govuk_error_summary %>
       <%= f.govuk_text_field :title %>
+      <%= f.govuk_text_field :slug %>
       <%= f.govuk_text_area :body, rows: 14 %>
       <%= f.govuk_check_boxes_fieldset :published, multiple: false,
         legend: { text: 'Publish', size: 'm' } do %>
