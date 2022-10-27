@@ -22,9 +22,19 @@
     <%= govuk_skip_link %>
 
     <div class="app-header">
-      <%= govuk_header() do |header|
-        header.custom_logo do %><%= t("service.name") %>
-      <% end; end %>
+      <%= render AppHeaderComponent.new(
+        navigation_classes: 'app-header__navigation') do |header| %>
+        <% header.custom_logo do %><%= t("service.name") %><% end %>
+        <% if current_user %>
+          <% header.navigation_item(text: current_user.email,
+                                    classes: "app-header__navigation-item",
+                                    active: false) %>
+          <% header.navigation_item(text: "Sign out",
+                                    destroy: destroy_user_session_path,
+                                    options: { data: { turbo: false } },
+                                    active: false) %>
+        <% end %>
+      <% end %>
     </div>
 
     <%= yield :masthead %>
