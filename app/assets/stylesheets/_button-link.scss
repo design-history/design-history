@@ -1,0 +1,17 @@
+.app-button-link {
+  background: none;
+  border: none;
+  color: govuk-colour("white");
+  cursor: pointer;
+  font-family: $govuk-font-family;
+  font-size: $govuk-root-font-size;
+  font-weight: bold;
+  line-height: 1.25;
+
+  &:hover {
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: $govuk-link-hover-underline-thickness;
+    text-decoration-line: underline;
+    text-underline-offset: 0.1em;
+  }
+}
