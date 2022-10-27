@@ -6,7 +6,7 @@
       <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
         <%= govuk_link_to project.title, project_path(project) %>
       </h2>
-      <p><%= project.description %></p>
+      <p><%= govuk_link_to "Change details", edit_project_path(project) %>
     <% end %>
 
     <p>
