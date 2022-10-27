@@ -3,6 +3,7 @@
     <%= form_with(model: project) do |f| %>
       <%= f.govuk_error_summary %>
       <%= f.govuk_text_field :title %>
+      <%= f.govuk_text_field :subdomain %>
       <%= f.govuk_text_field :description %>
 
       <%= f.govuk_submit "Save" %>
