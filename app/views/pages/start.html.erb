@@ -1,0 +1,34 @@
+<% content_for :masthead do %>
+  <%= render(XGovukMastheadComponent.new(
+    classes: 'x-govuk-masthead--large',
+    title: { text: "Keep a design history" },
+    description: { text: "Document and share design decisions. Create a record
+                   \ of how your service has developed over time." }
+  )) %>
+<% end %>
+
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <h2>What is a design history</h2>
+
+    <p>A design history is like a blog. It features posts that describe the
+    development of new features, iterations of existing ones, or findings from
+    user research. It will contain anything that may be useful to return to
+    later.</p>
+
+    <p>Over time, a design history becomes a record of your designs. It tells
+    the story of what you designed and why.</p>
+
+    <%= govuk_start_button text: "Start now", href: projects_path %>
+
+    <h2>Why you should keep a design history</h2>
+
+    <p>Keeping a design history makes it easy to know why a service is the way
+    it is.</p>
+
+    <p>As services age, as they’re iterated, built and rebuilt, and team
+    members come and go, institutional memory fades and questions about why a
+    service is the way it is become hard to answer. Context gets lost, research
+    disappears, and the design becomes opaque.</p>
+  <% end %>
+<% end %>
