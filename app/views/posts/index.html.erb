@@ -1,8 +1,8 @@
-<% content_for :masthead do %>
-  <%= render(XGovukMastheadComponent.new(
-    title: { text: @project.title },
-    description: { text: @project.description }
-  )) %>
+<% content_for :breadcrumbs do %>
+  <%= govuk_breadcrumbs(breadcrumbs: {
+    "Your design histories" => projects_path,
+    @project.title => nil
+  }) %>
 <% end %>
 
 <%= govuk_row do %>

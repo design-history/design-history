@@ -1,7 +1,9 @@
 <% content_for :breadcrumbs do %>
   <%= govuk_breadcrumbs(breadcrumbs: {
+    "Your design histories" => projects_path,
     @project.title => project_path(@project),
-    @post.title => nil }) %>
+    @post.title => nil
+  }) %>
 <% end %>
 
 <%= govuk_row do %>
