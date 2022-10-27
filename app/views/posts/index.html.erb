@@ -5,8 +5,8 @@
   )) %>
 <% end %>
 
-<div class="govuk-grid-row">
-  <section class="govuk-grid-column-two-thirds-from-desktop">
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
     <ol class="app-document-list app-document-list--large">
       <% @posts.each do |post| %>
         <li class="app-document-list__item">
@@ -30,7 +30,7 @@
         </li>
       <% end %>
     </ol>
-  </section>
-</div>
+  <% end %>
+<% end %>
 
 <%= link_to "New post", new_project_post_path(@project) %>
