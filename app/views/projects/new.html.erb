@@ -1,3 +1,9 @@
+<% content_for :breadcrumbs do %>
+  <%= govuk_breadcrumbs(breadcrumbs: {
+    "Your design histories" => projects_path
+  }) %>
+<% end %>
+
 <% title = "New service" %>
 <%= content_for :page_title, title %>
 <h1 class="govuk-heading-xl"><%= title %></h1>
