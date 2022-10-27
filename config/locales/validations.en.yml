@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    errors:
+      models:
+        project:
+          attributes:
+            title:
+              blank: Enter a title
+              too_long: Enter a title that is less than 255 characters long
+            description:
+              blank: Enter a description
+              too_long: Enter a description that is less than 255 characters
+                long
