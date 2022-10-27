@@ -15,6 +15,7 @@ $app-masthead-colour: $app-brand-colour;
 $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 
 @import "button";
+@import "button-link";
 @import "document-list";
 @import "footer";
 @import "global";
