@@ -23,5 +23,6 @@ class Project < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 255 }
+  validates :subdomain, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 255 }
 end
