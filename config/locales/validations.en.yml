@@ -11,3 +11,12 @@ en:
               blank: Enter a description
               too_long: Enter a description that is less than 255 characters
                 long
+        post:
+          attributes:
+            title:
+              blank: Enter a title
+              too_long: Enter a title that is less than 255 characters long
+            body:
+              blank: Enter a body
+            published_at:
+              blank: Enter a published at date
