@@ -330,6 +330,8 @@ GEM
     solargraph-rails (0.3.1)
       activesupport
       solargraph (>= 0.41.1)
+    stimulus-rails (1.1.0)
+      railties (>= 6.0.0)
     syntax_tree (4.0.2)
       prettier_print (>= 1.0.2)
     syntax_tree-haml (2.0.0)
@@ -407,6 +409,7 @@ DEPENDENCIES
   selenium-webdriver
   solargraph
   solargraph-rails
+  stimulus-rails
   syntax_tree
   syntax_tree-haml
   syntax_tree-rbs
