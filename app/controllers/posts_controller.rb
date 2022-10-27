@@ -1,17 +1,15 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
-  before_action :set_project, except: %i[index show]
+  before_action :authenticate_user!
+  before_action :set_project
   before_action :set_post, only: %i[edit update destroy]
 
   # GET /posts
   def index
-    @project = Project.find(params[:project_id])
     @posts = @project.posts.all.order(published_at: :desc)
   end
 
   # GET /posts/1
   def show
-    @project = Project.find(params[:project_id])
     @post = @project.posts.with_attached_images.find(params[:id])
   end
 

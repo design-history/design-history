@@ -1,10 +1,10 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!
   before_action :set_project, only: %i[edit update destroy]
 
   # GET /projects
   def index
-    @projects = Project.all.order(:title)
+    @projects = current_user.projects.all.order(:title)
   end
 
   # GET /projects/1
