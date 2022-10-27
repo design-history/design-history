@@ -13,6 +13,6 @@
 <%= render "form", project: @project, post: @post %>
 
 <div>
-  <%= link_to "Show this post", [@project, @post] %> |
-  <%= link_to "Back to posts", project_posts_path(@project) %>
+  <%= govuk_link_to "Show this post", [@project, @post] %> |
+  <%= govuk_link_to "Back to posts", project_posts_path(@project) %>
 </div>

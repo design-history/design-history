@@ -14,7 +14,7 @@
             <%= govuk_tag(classes: 'app-document-list__tag',
                           text: 'Draft', colour: 'grey') %>
           <% end %>
-          <%= link_to [@project, post] do %>
+          <%= govuk_link_to [@project, post] do %>
             <h2 class="app-document-list__item-title">
               <%= post.title %>
             </h2>
