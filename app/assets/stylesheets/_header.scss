@@ -9,4 +9,15 @@
       margin-bottom: 0;
     }
   }
+
+  &__navigation {
+    float: right;
+    margin-bottom: 0;
+
+    &-item {
+      color: govuk-colour("white");
+      font-size: 1rem;
+      padding: govuk-spacing(2) 0 0 0;
+    }
+  }
 }
