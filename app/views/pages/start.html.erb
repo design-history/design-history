@@ -5,11 +5,17 @@
       has developed over time.
     </p>
 
-    <%= govuk_start_button text: "Start now", href: projects_path %>
+    <div class="govuk-button-group govuk-!-margin-bottom-0">
+      <%= govuk_start_button text: "Start now", href: new_user_registration_path %>
+      <p>or</p>
+      <p class="govuk-!-padding-left-2 govuk-!-margin-bottom-0">
+        <%= govuk_link_to "Sign in", new_user_session_path, text_colour: true, class: 'govuk-!-font-weight-bold' %>
+      </p>
+    </div>
   <% end %>
 
   <%= render(XGovukMastheadComponent.new(
-    classes: 'x-govuk-masthead--large govuk-!-padding-top-4 govuk-!-padding-bottom-2',
+    classes: 'x-govuk-masthead--large govuk-!-padding-top-4',
     title: { text: "Keep a design history" },
     description: { html: description }
   )) %>
