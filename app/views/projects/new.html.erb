@@ -4,8 +4,7 @@
   }) %>
 <% end %>
 
-<% title = "New service" %>
+<% title = "New design history" %>
 <%= content_for :page_title, title %>
-<h1 class="govuk-heading-xl"><%= title %></h1>
 
-<%= render "form", project: @project %>
+<%= render "form", project: @project, title: title, editing: false %>

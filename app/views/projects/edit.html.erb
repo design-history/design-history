@@ -5,13 +5,6 @@
   }) %>
 <% end %>
 
-<% title = "Editing project" %>
-<%= content_for :page_title, title %>
-<h1 class="govuk-heading-xl"><%= title %></h1>
+<%= content_for :page_title, "Change design history details" %>
 
-<%= render "form", project: @project %>
-
-<div>
-  <%= govuk_link_to "Show this project", @project %> |
-  <%= govuk_link_to "Back to projects", projects_path %>
-</div>
+<%= render "form", project: @project, title: "Change details", editing: true %>

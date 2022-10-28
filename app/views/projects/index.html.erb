@@ -2,11 +2,19 @@
   <%= govuk_two_thirds do %>
     <h1 class="govuk-heading-l">Your design histories</h1>
 
-    <% @projects.each do |project| %>
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
-        <%= govuk_link_to project.title, project_path(project) %>
-      </h2>
-      <p><%= govuk_link_to "Change details", edit_project_path(project) %>
+    <% if @projects.any? %>
+      <ul class="govuk-list govuk-!-margin-bottom-6">
+        <% @projects.each do |project| %>
+          <li>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+              <%= govuk_link_to project.title, project_path(project) %>
+            </h2>
+            <p>
+              <%= project.description %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
 
     <p>
