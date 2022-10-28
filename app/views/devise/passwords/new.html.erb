@@ -1,4 +1,6 @@
-<h2>Forgot your password?</h2>
+<% title = "Forgot your password?" %>
+<%= content_for :page_title, title %>
+<h1 class="govuk-heading-l"><%= title %></h1>
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
@@ -8,11 +10,12 @@
                  data: { turbo: false }) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <%= f.govuk_email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.govuk_email_field :email,
+        label: { text: "Email address" },
+        autofocus: true,
+        autocomplete: "email" %>
 
-      <%= f.govuk_submit "Send me reset password instructions" %>
+      <%= f.govuk_submit "Reset password" %>
     <% end %>
   <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>
