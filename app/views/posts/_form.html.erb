@@ -1,4 +1,8 @@
-<%= form_with(model: [project, post]) do |f| %>
+<%= form_with(model: [project, post], data: {
+  module: "auto-save",
+  auto_save_target: "form",
+  action: "change->auto-save#saveToLocalStorage
+         \ submit->auto-save#clearLocalStorage" }) do |f| %>
   <%= govuk_row do %>
     <%= govuk_two_thirds do %>
       <%= f.govuk_error_summary %>

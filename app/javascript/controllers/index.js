@@ -4,38 +4,41 @@
 
 import { application } from "./application";
 
-import GovukAccordionController from "./govuk_accordion_controller.js";
+import AutoSaveController from "./auto_save_controller";
+application.register("auto-save", AutoSaveController);
+
+import GovukAccordionController from "./govuk_accordion_controller";
 application.register("govuk-accordion", GovukAccordionController);
 
-import GovukButtonController from "./govuk_button_controller.js";
+import GovukButtonController from "./govuk_button_controller";
 application.register("govuk-button", GovukButtonController);
 
-import GovukCharacterCountController from "./govuk_character_count_controller.js";
+import GovukCharacterCountController from "./govuk_character_count_controller";
 application.register("govuk-character-count", GovukCharacterCountController);
 
-import GovukCheckboxesController from "./govuk_checkboxes_controller.js";
+import GovukCheckboxesController from "./govuk_checkboxes_controller";
 application.register("govuk-checkboxes", GovukCheckboxesController);
 
-import GovukDetailsController from "./govuk_details_controller.js";
+import GovukDetailsController from "./govuk_details_controller";
 application.register("govuk-details", GovukDetailsController);
 
-import GovukErrorSummaryController from "./govuk_error_summary_controller.js";
+import GovukErrorSummaryController from "./govuk_error_summary_controller";
 application.register("govuk-error-summary", GovukErrorSummaryController);
 
-import GovukHeaderController from "./govuk_header_controller.js";
+import GovukHeaderController from "./govuk_header_controller";
 application.register("govuk-header", GovukHeaderController);
 
-import GovukNotificationBannerController from "./govuk_notification_banner_controller.js";
+import GovukNotificationBannerController from "./govuk_notification_banner_controller";
 application.register(
   "govuk-notification-banner",
   GovukNotificationBannerController
 );
 
-import GovukRadiosController from "./govuk_radios_controller.js";
+import GovukRadiosController from "./govuk_radios_controller";
 application.register("govuk-radios", GovukRadiosController);
 
-import GovukSkipLinkController from "./govuk_skip_link_controller.js";
+import GovukSkipLinkController from "./govuk_skip_link_controller";
 application.register("govuk-skip-link", GovukSkipLinkController);
 
-import GovukTabsController from "./govuk_tabs_controller.js";
+import GovukTabsController from "./govuk_tabs_controller";
 application.register("govuk-tabs", GovukTabsController);
