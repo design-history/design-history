@@ -1,6 +1,5 @@
 <% title = "Forgot your password?" %>
 <%= content_for :page_title, title %>
-<h1 class="govuk-heading-l"><%= title %></h1>
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
@@ -9,6 +8,7 @@
                  html: { method: :post },
                  data: { turbo: false }) do |f| %>
       <%= f.govuk_error_summary %>
+      <h1 class="govuk-heading-l"><%= title %></h1>
 
       <%= f.govuk_email_field :email,
         label: { text: "Email address" },
