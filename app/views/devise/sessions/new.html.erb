@@ -7,7 +7,10 @@
                  data: { turbo: false }) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <%= f.govuk_email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.govuk_email_field :email,
+        label: { text: "Email address" },
+        autofocus: true,
+        autocomplete: "email" %>
 
       <%= f.govuk_password_field :password, autocomplete: "current-password" %>
 
