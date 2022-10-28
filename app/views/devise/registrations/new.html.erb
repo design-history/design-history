@@ -1,4 +1,6 @@
-<h2>Sign up</h2>
+<% title = "Create a design history account" %>
+<%= content_for :page_title, title %>
+<h1 class="govuk-heading-l"><%= title %></h1>
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
@@ -17,9 +19,12 @@
       <%= f.govuk_password_field :password_confirmation,
         autocomplete: "new-password", label: { text: "Confirm password" } %>
 
-      <%= f.govuk_submit "Sign up" %>
+      <%= f.govuk_submit "Create account" %>
     <% end %>
   <% end %>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<p>
+  If you already have an account you can
+  <%= govuk_link_to "sign in", new_session_path(resource_name) %>.
+</p>
