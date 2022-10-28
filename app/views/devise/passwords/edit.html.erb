@@ -1,4 +1,6 @@
-<h2>Change your password</h2>
+<% title = "Change your password" %>
+<%= content_for :page_title, title %>
+<h1 class="govuk-heading-l"><%= title %></h1>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
