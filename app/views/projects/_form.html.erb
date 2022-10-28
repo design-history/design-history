@@ -2,11 +2,35 @@
   <%= govuk_two_thirds do %>
     <%= form_with(model: project) do |f| %>
       <%= f.govuk_error_summary %>
-      <%= f.govuk_text_field :title %>
-      <%= f.govuk_text_field :subdomain %>
-      <%= f.govuk_text_field :description %>
+      <h1 class="govuk-heading-l">
+        <% if editing %>
+          <span class="govuk-caption-l"><%= project.title %></span>
+        <% end %>
+        <%= title %>
+      </h1>
+      <%= f.govuk_text_field :title,
+        label: {
+          class: 'govuk-label govuk-label--s'
+        },
+        hint: {
+          text: 'Usually your service or website name'
+        } %>
+      <%= f.govuk_text_field :subdomain,
+        label: {
+          text: 'Design history subdomain',
+          class: 'govuk-label govuk-label--s'
+        },
+        hint: {
+          text: '[your-subdomain].designhistory.app'
+        }
+      %>
+      <%= f.govuk_text_field :description,
+        label: {
+          class: 'govuk-label govuk-label--s'
+        }
+      %>
 
-      <%= f.govuk_submit "Save" %>
+      <%= f.govuk_submit editing ? "Save changes" : "Create design history" %>
     <% end %>
   <% end %>
 <% end %>
