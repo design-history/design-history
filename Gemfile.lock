@@ -332,7 +332,7 @@ GEM
       solargraph (~> 0.44.2)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
-    syntax_tree (4.0.2)
+    syntax_tree (4.3.0)
       prettier_print (>= 1.0.2)
     syntax_tree-haml (2.0.0)
       haml (>= 5.2, != 6.0.0)
