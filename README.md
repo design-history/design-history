@@ -32,6 +32,15 @@ bin/dev      # Local development on http://localhost:3000
 bin/lint     # Run linters
 ```
 
+### Testing subdomains locally
+
+You'll need to append these entries to your `/etc/hosts`:
+
+```bash
+127.0.0.1	app.local
+127.0.0.1	this.app.local
+```
+
 ### Intellisense
 
 [solargraph](https://github.com/castwide/solargraph) is bundled as part of the
