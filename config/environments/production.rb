@@ -78,4 +78,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.hosts << "designhistory.app"
+  config.app_domain = "designhistory.app"
+
+  config.hosts << "this.designhistory.app" # TODO: Make this database-driven
 end
