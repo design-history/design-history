@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  root to: "pages#start"
+  constraints domain: "localhost" do
+    root to: "pages#start"
 
-  devise_for :users
+    devise_for :users
 
-  resources :projects do
-    resources :posts
+    resources :projects do
+      resources :posts
+    end
   end
 
   constraints domain: Rails.application.config.app_domain do
-    get "/test", to: "pages#working"
+    get "/", to: "pages#working"
   end
 
   scope via: :all do
