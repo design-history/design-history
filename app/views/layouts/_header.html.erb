@@ -1,0 +1,36 @@
+<div class="app-header">
+  <header role="banner" data-module="govuk-header" class="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__logo">
+        <a class="govuk-header__link govuk-header__link--homepage" href="/">
+          <span class="govuk-header__logotype"><%= t("service.name") %></span>
+        </a>
+      </div>
+
+      <div class="govuk-header__content">
+        <nav class="govuk-header__navigation app-header__navigation"
+             aria-label="Navigation menu">
+          <button
+            type="button"
+            class="govuk-header__menu-button govuk-js-header-toggle"
+            aria-controls="navigation"
+            aria-label="Show or hide navigation menu"
+            hidden="">Menu</button>
+
+          <% if current_user %>
+            <ul id="navigation" class="govuk-header__navigation-list">
+              <li class="govuk-header__navigation-item app-header__navigation-item">
+                <%= current_user.email %>
+              </li>
+              <li class="govuk-header__navigation-item">
+                <%= button_to("Sign out", destroy_user_session_path,
+                              data: { turbo: false }, method: :delete,
+                              class: "app-button-link") %>
+              </li>
+            </ul>
+          <% end %>
+        </nav>
+      </div>
+    </div>
+  </header>
+</div>
