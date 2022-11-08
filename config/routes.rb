@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  constraints domain: "localhost" do
+  constraints domain: Rails.application.config.main_domain do
     root to: "pages#start"
 
     devise_for :users
