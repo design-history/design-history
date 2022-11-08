@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
 
   constraints domain: Rails.application.config.app_domain do
-    get "/", to: "pages#working"
+    get "/", to: "app#index", as: "app_posts"
+    get "/:post_id", to: "app#show", as: "app_post"
   end
 
   scope via: :all do
