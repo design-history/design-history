@@ -1,0 +1,25 @@
+<h1 class="govuk-heading-l govuk-!-margin-bottom-8"><%= @project.title %></h1>
+
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <ol class="app-document-list app-document-list--large">
+      <% @posts.each do |post| %>
+        <li class="app-document-list__item">
+          <%= govuk_link_to app_post_path(post.id) do %>
+            <h2 class="app-document-list__item-title">
+              <%= post.title %>
+            </h2>
+          <% end %>
+          <ul class="app-document-list__item-metadata">
+            <li class="app-document-list__attribute">
+              <time
+                class="app-document-list__attribute"
+                datetime="<%= post.updated_at.iso8601 %>">
+                <%= post.published_at.strftime("%d %B %Y") %></time>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+<% end %>
