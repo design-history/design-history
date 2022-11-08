@@ -51,6 +51,8 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
+  config.main_domain = "localhost"
+
   config.hosts << "app.local"
   config.app_domain = "app.local"
 
