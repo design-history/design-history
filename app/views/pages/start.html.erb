@@ -6,10 +6,13 @@
     </p>
 
     <div class="govuk-button-group govuk-!-margin-bottom-0">
-      <%= govuk_start_button text: "Start now", href: new_user_registration_path %>
+      <%= govuk_start_button text: "Start now",
+        href: current_user ? projects_path : new_user_registration_path %>
       <p>or</p>
       <p class="govuk-!-padding-left-2 govuk-!-margin-bottom-0">
-        <%= govuk_link_to "Sign in", new_user_session_path, text_colour: true, class: 'govuk-!-font-weight-bold' %>
+      <%= govuk_link_to "Sign in",
+        current_user ? projects_path : new_user_session_path,
+        text_colour: true, class: 'govuk-!-font-weight-bold' %>
       </p>
     </div>
   <% end %>
