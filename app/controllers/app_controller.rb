@@ -12,6 +12,6 @@ class AppController < ApplicationController
   private
 
   def set_project
-    @project = Project.find_by(subdomain: request.subdomain)
+    @project = Project.find_by!(subdomain: request.subdomain)
   end
 end
