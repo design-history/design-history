@@ -63,7 +63,7 @@ Rails.application.configure do
   # Required by devise
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
-  config.main_domain = "localhost"
+  config.admin_domain = "localhost"
 
   config.hosts << "app.local"
   config.app_domain = "app.local"
