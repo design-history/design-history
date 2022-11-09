@@ -65,8 +65,7 @@ Rails.application.configure do
 
   config.admin_domain = "localhost"
 
-  config.hosts << "app.local"
   config.app_domain = "app.local"
-
-  config.hosts << "this.app.local"
+  config.hosts << "app.local"
+  config.hosts << ".app.local"
 end
