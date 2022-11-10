@@ -21,7 +21,7 @@
 
     <%= govuk_skip_link %>
 
-    <%= render "layouts/header" %>
+    <%= render "layouts/header", admin: is_admin? %>
 
     <%= yield :masthead %>
 
