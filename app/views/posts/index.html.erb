@@ -6,7 +6,9 @@
 <% end %>
 
 <h1 class="govuk-heading-l govuk-!-margin-bottom-2"><%= @project.title %></h1>
-<p class="govuk-!-margin-bottom-8">
+<p class="govuk-!-margin-bottom-6">
+  <%= govuk_link_to design_history_link(@project), design_history_link(@project) %>
+  –
   <%= govuk_link_to "Change details", edit_project_path(@project) %>
 </p>
 
