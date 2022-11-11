@@ -66,7 +66,7 @@ class PostsController < ApplicationController
       :body,
       :published,
       :published_at,
-      :images
+      images: []
     )
   end
 end
