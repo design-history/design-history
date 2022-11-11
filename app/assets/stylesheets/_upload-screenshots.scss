@@ -1,0 +1,9 @@
+.app-upload-screenshots {
+  background-color: govuk-tint($app-brand-colour, 80%);
+  border: 2px dashed $app-button-colour;
+  max-height: 1000px;
+  min-height: 500px;
+  overflow-y: scroll;
+  padding: govuk-spacing(4);
+  position: relative;
+}
