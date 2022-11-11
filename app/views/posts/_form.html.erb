@@ -19,7 +19,8 @@
     <% end %>
 
     <%= govuk_one_third do %>
-      <%= f.file_field :images, accept: 'image/png,image/jpeg' %>
+      <%= f.file_field :images,
+        multiple: true, accept: 'image/png,image/jpeg' %>
     <% end %>
 
   <% end %>
