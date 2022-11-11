@@ -1,4 +1,13 @@
-<h1 class="govuk-heading-l govuk-!-margin-bottom-8"><%= @project.title %></h1>
+
+<% content_for :masthead do %>
+  <%= render(XGovukMastheadComponent.new(
+    classes: 'x-govuk-masthead--large govuk-!-padding-top-4',
+    title: { text: @project.title + " design history" },
+    description: { html: @project.description }
+  )) %>
+<% end %>
+
+<h2 class="govuk-heading-l">Posts</h2>
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
