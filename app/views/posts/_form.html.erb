@@ -20,6 +20,7 @@
 
     <%= govuk_one_third do %>
       <%= f.file_field :images,
+        class: "app-upload-screenshots",
         multiple: true, accept: 'image/png,image/jpeg' %>
     <% end %>
 

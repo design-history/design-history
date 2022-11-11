@@ -19,6 +19,7 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 @import "footer";
 @import "global";
 @import "header";
+@import "upload-screenshots";
 @import "masthead";
 @import "posts";
 
