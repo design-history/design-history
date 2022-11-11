@@ -30,6 +30,10 @@ class Project < ApplicationRecord
             },
             exclusion: {
               in: %w[www the our]
-            }
+            },
+            format: {
+              with: /\A[a-z0-9-]+\z/
+            },
+            uniqueness: true
   validates :description, presence: true, length: { maximum: 255 }
 end
