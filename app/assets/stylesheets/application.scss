@@ -16,11 +16,11 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 
 @import "button";
 @import "button-link";
-@import "document-list";
 @import "footer";
 @import "global";
 @import "header";
 @import "masthead";
+@import "posts";
 
 .app-design-history {
   background-color: $app-tint-colour;

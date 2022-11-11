@@ -1,0 +1,11 @@
+.app-posts {
+  .app-posts__item {
+    border-bottom: 1px solid $govuk-border-colour;
+    margin-bottom: govuk-spacing(4);
+  }
+
+  .app-posts__date {
+    margin-top: govuk-spacing(4);
+    color: $govuk-secondary-text-colour;
+  }
+}

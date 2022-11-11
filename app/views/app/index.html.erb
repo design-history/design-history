@@ -11,22 +11,19 @@
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
-    <ol class="app-document-list app-document-list--large">
+    <ol class="govuk-list app-posts">
       <% @posts.each do |post| %>
-        <li class="app-document-list__item">
-          <%= govuk_link_to app_post_path(post.id) do %>
-            <h2 class="app-document-list__item-title">
+        <li class="app-posts__item">
+          <h2 class="govuk-heading-m">
+            <%= govuk_link_to app_post_path(post.id) do %>
               <%= post.title %>
-            </h2>
-          <% end %>
-          <ul class="app-document-list__item-metadata">
-            <li class="app-document-list__attribute">
-              <time
-                class="app-document-list__attribute"
-                datetime="<%= post.updated_at.iso8601 %>">
-                <%= post.published_at.strftime("%d %B %Y") %></time>
-            </li>
-          </ul>
+            <% end %>
+          </h2>
+          <p class="app-posts__date govuk-!-font-size-16">
+            <time
+              datetime="<%= post.updated_at.iso8601 %>">
+              <%= post.published_at.strftime("%d %B %Y") %></time>
+          </p>
         </li>
       <% end %>
     </ol>
