@@ -5,39 +5,35 @@
   }) %>
 <% end %>
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-2"><%= @project.title %></h1>
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-3"><%= @project.title %></h1>
 <p class="govuk-!-margin-bottom-6">
   <%= govuk_link_to design_history_link(@project), design_history_link(@project) %>
   –
   <%= govuk_link_to "Change details", edit_project_path(@project) %>
 </p>
 
+<%= govuk_button_link_to "New post", new_project_post_path(@project) %>
+
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
-    <ol class="app-document-list app-document-list--large">
+    <ol class="govuk-list app-posts">
       <% @posts.each do |post| %>
-        <li class="app-document-list__item">
-          <% unless post.published? %>
-            <%= govuk_tag(classes: 'app-document-list__tag',
-                          text: 'Draft', colour: 'grey') %>
-          <% end %>
-          <%= govuk_link_to [@project, post] do %>
-            <h2 class="app-document-list__item-title">
+        <li class="app-posts__item">
+          <h2 class="govuk-heading-m">
+            <% unless post.published? %>
+              <%= govuk_tag(text: 'Draft', colour: 'grey') %>
+            <% end %>
+            <%= govuk_link_to [@project, post] do %>
               <%= post.title %>
-            </h2>
-          <% end %>
-          <ul class="app-document-list__item-metadata">
-            <li class="app-document-list__attribute">
-              <time
-                class="app-document-list__attribute"
-                datetime="<%= post.updated_at.iso8601 %>">
-                <%= post.published_at.strftime("%d %B %Y") %></time>
-            </li>
-          </ul>
+            <% end %>
+          </h2>
+          <p class="app-posts__date govuk-!-font-size-16">
+            <time
+              datetime="<%= post.updated_at.iso8601 %>">
+              <%= post.published_at.strftime("%d %B %Y") %></time>
+          </p>
         </li>
       <% end %>
     </ol>
   <% end %>
 <% end %>
-
-<%= govuk_button_link_to "New post", new_project_post_path(@project) %>
