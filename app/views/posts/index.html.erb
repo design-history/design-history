@@ -23,7 +23,7 @@
             <% unless post.published? %>
               <%= govuk_tag(text: 'Draft', colour: 'grey') %>
             <% end %>
-            <%= govuk_link_to [@project, post] do %>
+            <%= govuk_link_to edit_project_post_path(@project, post) do %>
               <%= post.title %>
             <% end %>
           </h2>
