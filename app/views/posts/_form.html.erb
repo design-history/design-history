@@ -6,16 +6,28 @@
   <%= govuk_row do %>
     <%= govuk_two_thirds do %>
       <%= f.govuk_error_summary %>
-      <%= f.govuk_text_field :title %>
-      <%= f.govuk_text_field :slug %>
-      <%= f.govuk_text_area :body, rows: 14 %>
+      <%= f.govuk_text_field :title,
+        label: { text: 'Title', size: 's' },
+        hint: { text: 'Good titles describe the post, do not use ‘User
+                research’ or ‘MVP’',
+                class: 'govuk-hint govuk-!-font-size-16' } %>
+      <%= f.govuk_text_field :slug,
+        label: { text: 'Slug', size: 's' },
+        hint: { text: '[Coming soon] A user-friendly URL, for example
+                how-we-chose-our-service-name',
+                class: 'govuk-hint govuk-!-font-size-16' } %>
+      <%= f.govuk_text_area :body, rows: 20,
+        label: { text: 'Post', size: 's' },
+        hint: { text: 'Use markdown for links, headings and images',
+                class: 'govuk-hint govuk-!-font-size-16' } %>
       <%= f.govuk_check_boxes_fieldset :published, multiple: false,
         legend: { text: 'Publish', size: 'm' } do %>
         <%= f.govuk_check_box :published, 1, 0,
           multiple: false,
           label: { text: "Published" } %>
       <% end %>
-      <%= f.govuk_date_field :published_at, legend: { text: 'Published date' } %>
+      <%= f.govuk_date_field :published_at,
+        legend: { text: 'Published date' } %>
     <% end %>
 
     <%= govuk_one_third do %>
