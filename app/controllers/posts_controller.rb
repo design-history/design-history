@@ -36,7 +36,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to [@project, @post], notice: "Post was successfully updated"
+      redirect_to edit_project_post_path(@project, @post),
+                  notice: "Post was successfully updated"
     else
       render :edit, status: :unprocessable_entity
     end
