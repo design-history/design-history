@@ -10,7 +10,19 @@
 <%= content_for :page_title, title %>
 <h1 class="govuk-heading-xl"><%= title %></h1>
 
-<%= render "form", project: @project, post: @post %>
+<div class="govuk-tabs">
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab"
+        href="<%= edit_project_post_path(@project, @post) %>">
+        Write
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel">
+    <%= render "form", project: @project, post: @post %>
+  </div>
+</div>
 
 <div>
   <%= govuk_link_to "Show this post", [@project, @post] %> |
