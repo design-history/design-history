@@ -31,9 +31,29 @@
     <% end %>
 
     <%= govuk_one_third do %>
-      <%= f.file_field :images,
-        class: "app-upload-screenshots",
-        multiple: true, accept: 'image/png,image/jpeg,image/gif' %>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">
+        Images
+      </h2>
+
+      <p class="govuk-hint govuk-!-font-size-16 govuk-!-margin-bottom-2">
+        Shown at the bottom of a post
+      </p>
+
+      <div class="app-upload">
+        <% post.images.each do |image| %>
+          <%= image_tag image,
+            class: 'govuk-!-margin-bottom-2',
+            style: 'max-width: 100%; border: 1px solid #000' %>
+        <% end %>
+
+        <%= f.label :images, "Add more images",
+          class: 'govuk-label govuk-label--s govuk-!-margin-top-2
+                  govuk-!-margin-bottom-2' %>
+        <%= f.file_field :images,
+          multiple: true, accept: 'image/png,image/jpeg,image/gif' %>
+
+        <%= f.govuk_submit "Save images", class: 'govuk-!-margin-top-4' %>
+      </div>
     <% end %>
 
   <% end %>
