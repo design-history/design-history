@@ -1,5 +1,5 @@
 .app-upload {
-  input {
+  input[type="file"] {
     background-color: govuk-tint($app-brand-colour, 80%);
     box-sizing: border-box;
     border: 2px dashed $app-button-colour;
