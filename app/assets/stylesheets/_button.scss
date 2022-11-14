@@ -6,10 +6,17 @@ $app-button-shadow-colour: govuk-shade($app-button-colour, 60%);
 .app-button {
   background-color: $app-button-colour;
   box-shadow: 0 $govuk-border-width-form-element 0 $app-button-shadow-colour;
+  &:hover {
+    background-color: $app-button-hover-colour;
+  }
 }
 
-.app-button:hover {
-  background-color: $app-button-hover-colour;
+.govuk-button.govuk-button--start {
+  background-color: $app-button-colour;
+  box-shadow: 0 $govuk-border-width-form-element 0 $app-button-shadow-colour;
+  &:hover {
+    background-color: $app-button-hover-colour;
+  }
 }
 
 // Inverse button

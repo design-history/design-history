@@ -12,7 +12,8 @@
   <%= govuk_link_to "Change details", edit_project_path(@project) %>
 </p>
 
-<%= govuk_button_link_to "New post", new_project_post_path(@project) %>
+<%= govuk_button_link_to "New post", new_project_post_path(@project),
+  class: 'app-button' %>
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
