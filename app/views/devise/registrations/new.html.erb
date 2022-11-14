@@ -19,7 +19,7 @@
       <%= f.govuk_password_field :password_confirmation,
         autocomplete: "new-password", label: { text: "Confirm password" } %>
 
-      <%= f.govuk_submit "Create account" %>
+      <%= f.govuk_submit "Create account", class: 'app-submit' %>
     <% end %>
   <% end %>
 <% end %>

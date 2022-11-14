@@ -30,7 +30,8 @@
         }
       %>
 
-      <%= f.govuk_submit editing ? "Save changes" : "Create design history" %>
+      <%= f.govuk_submit editing ? "Save changes" : "Create design history",
+        class: 'app-submit' %>
     <% end %>
   <% end %>
 <% end %>

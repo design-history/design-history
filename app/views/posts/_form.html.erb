@@ -52,10 +52,11 @@
         <%= f.file_field :images,
           multiple: true, accept: 'image/png,image/jpeg,image/gif' %>
 
-        <%= f.govuk_submit "Save images", class: 'govuk-!-margin-top-4' %>
+        <%= f.govuk_submit "Save images",
+          class: 'app-button govuk-!-margin-top-4' %>
       </div>
     <% end %>
 
   <% end %>
-  <%= f.govuk_submit "Save" %>
+  <%= f.govuk_submit "Save", class: 'app-button' %>
 <% end %>
