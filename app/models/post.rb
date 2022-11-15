@@ -26,5 +26,5 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 255 }
   validates :slug, length: { maximum: 50 }
   validates :body, presence: true
-  validates :published_at, presence: true
+  validates :published_at, presence: true, if: -> { published == true }
 end
