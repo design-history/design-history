@@ -17,24 +17,34 @@
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
-    <ol class="govuk-list app-posts">
-      <% @posts.each do |post| %>
-        <li class="app-posts__item">
-          <h2 class="govuk-heading-m">
-            <% unless post.published? %>
-              <%= govuk_tag(text: 'Draft', colour: 'grey') %>
-            <% end %>
+    <% unless @drafts.empty? %>
+      <h2 class="govuk-heading-m">Drafts</h2>
+      <ol class="govuk-list">
+        <% @drafts.each do |post| %>
+          <li>
             <%= govuk_link_to edit_project_post_path(@project, post) do %>
               <%= post.title %>
             <% end %>
-          </h2>
-          <p class="app-posts__date govuk-!-font-size-16">
+          </li>
+        <% end %>
+      </ol>
+    <% end %>
+
+    <% unless @posts.empty? %>
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Published</h2>
+      <ol class="govuk-list">
+        <% @posts.each do |post| %>
+          <li>
             <time
               datetime="<%= post.updated_at.iso8601 %>">
               <%= post.published_at.strftime("%d %B %Y") %></time>
-          </p>
-        </li>
-      <% end %>
-    </ol>
+            <br />
+            <%= govuk_link_to edit_project_post_path(@project, post) do %>
+              <%= post.title %>
+            <% end %>
+          </li>
+        <% end %>
+      </ol>
+    <% end %>
   <% end %>
 <% end %>
