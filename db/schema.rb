@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_092302) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_16_180342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_092302) do
     t.date "published_at"
     t.bigint "project_id", null: false
     t.string "slug"
+    t.json "ordered_image_ids", default: []
     t.index ["project_id"], name: "index_posts_on_project_id"
   end
 

@@ -2,15 +2,16 @@
 #
 # Table name: posts
 #
-#  id           :bigint           not null, primary key
-#  body         :text
-#  published    :boolean
-#  published_at :date
-#  slug         :string
-#  title        :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  project_id   :bigint           not null
+#  id                :bigint           not null, primary key
+#  body              :text
+#  ordered_image_ids :json
+#  published         :boolean
+#  published_at      :date
+#  slug              :string
+#  title             :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  project_id        :bigint           not null
 #
 # Indexes
 #
