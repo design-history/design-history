@@ -28,4 +28,14 @@ class Post < ApplicationRecord
   validates :slug, length: { maximum: 50 }
   validates :body, presence: true
   validates :published_at, presence: true, if: -> { published == true }
+
+  def ordered_images
+    images.sort_by do |image|
+      ordered_image_ids.index(image.id) || (image.id * 100)
+    end
+  end
+
+  def ordered_image_ids=(ids)
+    super(ids.map(&:to_i))
+  end
 end

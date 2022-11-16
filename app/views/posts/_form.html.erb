@@ -41,7 +41,7 @@
 
       <div class="app-upload">
         <div class="app-upload__attachments">
-          <% post.images.each do |image| %>
+          <% post.ordered_images.each do |image| %>
             <div class="app-upload__attachment">
               <%= image_tag image,
                 class: 'govuk-!-margin-bottom-2',
