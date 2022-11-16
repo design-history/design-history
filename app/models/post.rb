@@ -38,4 +38,37 @@ class Post < ApplicationRecord
   def ordered_image_ids=(ids)
     super(ids.map(&:to_i))
   end
+
+  def ordered_image_move_up!(image)
+    ordered_image_move!(image, :up)
+  end
+
+  def ordered_image_move_down!(image)
+    ordered_image_move!(image, :down)
+  end
+
+  private
+
+  def ordered_image_move!(image, where)
+    unless image.is_a?(ActiveStorage::Attachment)
+      raise TypeError "#{image} must be ActiveStorage::Attachment"
+    end
+
+    images = ordered_images.dup
+
+    case where
+    when :up
+      ArrayElementMove.up!(images, image)
+    when :down
+      ArrayElementMove.down!(images, image)
+    else
+      raise "Unknown option #{where}"
+    end
+
+    self.ordered_image_ids = images.map(&:id)
+    save!
+    reload
+
+    true
+  end
 end
