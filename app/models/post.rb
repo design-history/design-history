@@ -47,6 +47,14 @@ class Post < ApplicationRecord
     ordered_image_move!(image, :down)
   end
 
+  def first_image?(image)
+    ordered_images.index(image).zero?
+  end
+
+  def last_image?(image)
+    ordered_images.index(image) == ordered_images.size - 1
+  end
+
   private
 
   def ordered_image_move!(image, where)
