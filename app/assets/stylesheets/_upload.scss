@@ -10,10 +10,22 @@
   &__attachment {
     position: relative;
 
-    button {
+    &-buttons {
+      background: #000;
+      border: 1px solid #000;
+      margin-right: 0;
       position: absolute;
       right: -1px;
       top: 0;
+
+      .govuk-button {
+        margin-bottom: 2px;
+        margin-right: 2px;
+      }
+
+      form:last-child .govuk-button {
+        margin-right: 0;
+      }
     }
   }
 }

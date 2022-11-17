@@ -36,10 +36,6 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if destroy_attachment_params
-      @post.images.find(destroy_attachment_params).purge
-    end
-
     if @post.update(post_params)
       redirect_to edit_project_post_path(@project, @post),
                   notice: "Post was successfully updated"
@@ -70,14 +66,7 @@ class PostsController < ApplicationController
       :slug,
       :body,
       :published,
-      :published_at,
-      images: []
+      :published_at
     )
-  end
-
-  def destroy_attachment_params
-    return false if params[:destroy_attachment].blank?
-
-    params.require(:destroy_attachment)
   end
 end
