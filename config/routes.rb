@@ -12,7 +12,14 @@ Rails.application.routes.draw do
     devise_for :users
 
     resources :projects do
-      resources :posts
+      resources :posts do
+        resources :images,
+                  only: %i[create destroy],
+                  controller: "post_images" do
+          post :up, on: :member
+          post :down, on: :member
+        end
+      end
     end
   end
 
