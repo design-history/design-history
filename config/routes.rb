@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   end
 
   constraints domain: Rails.application.config.admin_domain do
-    root to: "pages#start"
+    root to: "pages#landing"
 
-    get "/landing", to: "pages#landing"
+    get "/start", to: "pages#start"
 
     devise_for :users
 
