@@ -35,3 +35,10 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 .app-\!-inherit-colour {
   color: inherit !important;
 }
+
+.app-holding-screenshot {
+  max-width: 100%;
+  margin-top: govuk-spacing(4);
+  margin-bottom: -54px;
+  border-bottom: 20px solid $app-button-colour;
+}

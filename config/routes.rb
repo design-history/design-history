@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   constraints domain: Rails.application.config.admin_domain do
     root to: "pages#start"
 
+    get "/landing", to: "pages#landing"
+
     devise_for :users
 
     resources :projects do

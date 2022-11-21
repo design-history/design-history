@@ -1,0 +1,45 @@
+<% content_for :masthead do %>
+  <div class="x-govuk-masthead x-govuk-masthead--large app-masthead
+              app-masthead--teal govuk-!-padding-top-7">
+    <div class="govuk-width-container">
+      <h1 class="govuk-!-font-size-80 app-masthead__title govuk-heading-xl
+                 govuk-!-margin-bottom-7">
+        Introducing design histories
+      </h1>
+
+      <%= govuk_row do %>
+        <%= govuk_two_thirds do %>
+          <ul class="govuk-list govuk-body-l">
+            <li>Keep a design history</li>
+            <li>Document and share design decisions</li>
+            <li>Create a record of how designs have changed</li>
+          </ul>
+        <% end %>
+      <% end %>
+
+      <%= image_tag "all-screenshot.png",
+        alt: "A screenshot of three design histories, side by side,
+              in different styles.",
+        class: 'app-holding-screenshot' %>
+    </div>
+  </div>
+<% end %>
+
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <h2 class="govuk-heading-l">Make your design history</h2>
+    <p>What you get:</p>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a <b>designhistory.app</b> domain</li>
+          <li>a blog tailored to sharing designs</li>
+          <li>a fully hosted service</li>
+          <li>public or private histories</li>
+          <li>government and healthcare themes</li>
+          <li>easy to use for your whole team</li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>
