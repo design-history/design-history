@@ -44,10 +44,14 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 }
 
 .app-holding-screenshot {
-  max-width: 100%;
-  margin-top: govuk-spacing(4);
-  margin-bottom: -54px;
   border-bottom: 20px solid $app-button-colour;
+  margin-top: govuk-spacing(4);
+  max-width: 100%;
+  margin-bottom: -38px;
+
+  @include mq($from: tablet) {
+    margin-bottom: -54px;
+  }
 }
 
 .app-input--sign-up {
