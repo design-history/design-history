@@ -5,6 +5,8 @@
   }) %>
 <% end %>
 
+<% content_for :page_title, "#{@post.title} - #{@project.title}" %>
+
 <%= govuk_row do %>
   <div class="govuk-grid-column-full">
     <header class="app-document-header">
