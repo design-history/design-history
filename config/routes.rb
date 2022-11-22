@@ -25,6 +25,11 @@ Rails.application.routes.draw do
     end
   end
 
+  constraints subdomain: "www", domain: Rails.application.config.app_domain do
+    get "/(:any)",
+        to: redirect(host: Rails.application.config.admin_domain, path: "")
+  end
+
   constraints domain: Rails.application.config.app_domain do
     get "/", to: "app#index", as: "app_posts"
     get "/:post_id", to: "app#show", as: "app_post"
