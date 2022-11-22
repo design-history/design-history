@@ -49,3 +49,9 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
   margin-bottom: -54px;
   border-bottom: 20px solid $app-button-colour;
 }
+
+.app-input--sign-up {
+  @include mq($from: desktop) {
+    max-width: 20.5em;
+  }
+}
