@@ -14,3 +14,9 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym "RESTful"
 # end
+#
+acronyms = %w[UK NHS DFE HMRC GDS]
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  acronyms.each { |acr| inflect.acronym acr }
+end
