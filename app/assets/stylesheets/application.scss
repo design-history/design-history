@@ -36,6 +36,13 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
   color: inherit !important;
 }
 
+.app-waitlist-container {
+  background-color: govuk-tint($app-masthead-colour, 50%);
+  padding: govuk-spacing(4) 0 govuk-spacing(8);
+  margin-top: govuk-spacing(8);
+  margin-bottom: govuk-spacing(3);
+}
+
 .app-holding-screenshot {
   max-width: 100%;
   margin-top: govuk-spacing(4);
