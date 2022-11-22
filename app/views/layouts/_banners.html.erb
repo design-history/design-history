@@ -1,0 +1,20 @@
+<% if notice %>
+  <%= govuk_row do %>
+    <%= govuk_two_thirds do %>
+      <%= govuk_notification_banner(title_text: "Success",
+                                    success: true) do |nb| %>
+        <% nb.heading(text: notice) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if alert %>
+  <%= govuk_row do %>
+    <%= govuk_two_thirds do %>
+      <%= govuk_notification_banner(title_text: "Important") do |nb| %>
+        <% nb.heading(text: alert) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
