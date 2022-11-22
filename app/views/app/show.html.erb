@@ -28,15 +28,6 @@
   <%= govuk_two_thirds do %>
     <%= GovukMarkdown.render(@post.body).html_safe %>
 
-    <% @post.ordered_images.each do |image| %>
-      <figure class="app-figure">
-        <figcaption class="govuk-heading-s">
-          <%= humanize_image_title(image) %>
-        </figcaption>
-        <%= link_to image do %>
-          <%= image_tag image, alt: humanize_image_title(image) %>
-        <% end %>
-      </figure>
-    <% end %>
+    <%= render "shared/screenshots", post: @post if @post.ordered_images.any? %>
   <% end %>
 <% end %>

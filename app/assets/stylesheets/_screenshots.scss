@@ -1,0 +1,29 @@
+.app-screenshots {
+  &__screenshot {
+    margin-bottom: govuk-spacing(9);
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+
+    img {
+      max-width: 100%;
+      outline: 1px solid rgba(177, 180, 182, 0.5);
+    }
+  }
+
+  @include govuk-media-query($media-type: print) {
+    // Separate screenshots from surrounding content
+    page-break-before: always;
+    page-break-after: always;
+
+    &__screenshot {
+      // New page per screenshot
+      page-break-before: always;
+
+      // Hide image URLs
+      a:after {
+        display: none;
+      }
+    }
+  }
+}
