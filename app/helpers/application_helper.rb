@@ -23,4 +23,10 @@ module ApplicationHelper
 
     "#{protocol}://#{subdomain}.#{domain}#{port}"
   end
+
+  def humanize_image_title(image)
+    extension = File.extname(image.filename.to_s)
+    filename = image.filename.to_s.chomp extension
+    filename.humanize
+  end
 end
