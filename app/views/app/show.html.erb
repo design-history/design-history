@@ -27,8 +27,14 @@
     <%= GovukMarkdown.render(@post.body).html_safe %>
 
     <% @post.ordered_images.each do |image| %>
-      <%= image_tag image,
-        style: 'max-width: 100%; outline: 1px solid rgba(177, 180, 182, 0.5' %>
+      <figure class="app-figure">
+        <figcaption class="govuk-heading-s">
+          <%= humanize_image_title(image) %>
+        </figcaption>
+        <%= link_to image do %>
+          <%= image_tag image, alt: humanize_image_title(image) %>
+        <% end %>
+      </figure>
     <% end %>
   <% end %>
 <% end %>
