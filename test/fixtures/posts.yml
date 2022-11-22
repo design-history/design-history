@@ -15,7 +15,8 @@
 #
 # Indexes
 #
-#  index_posts_on_project_id  (project_id)
+#  index_posts_on_project_id           (project_id)
+#  index_posts_on_project_id_and_slug  (project_id,slug) UNIQUE
 #
 # Foreign Keys
 #
