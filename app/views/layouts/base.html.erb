@@ -25,15 +25,7 @@
 
     <%= yield :masthead %>
 
-    <div class="govuk-width-container">
-      <%= yield :breadcrumbs %>
-
-      <main class="govuk-main-wrapper" id="main-content" role="main">
-        <%= render "layouts/banners" %>
-
-        <%= yield %>
-      </main>
-    </div>
+    <%= content_for?(:content) ? yield(:content) : yield %>
 
     <div class="app-footer">
       <%= render GovukComponent::FooterComponent.new do |footer|
