@@ -7,6 +7,7 @@ gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "devise"
+gem "friendly_id"
 gem "govuk-components"
 gem "govuk_design_system_formbuilder"
 gem "govuk_markdown"
