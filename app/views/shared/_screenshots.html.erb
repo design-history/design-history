@@ -1,0 +1,14 @@
+<h2 class="govuk-heading-l">Screenshots</h2>
+
+<section class="app-screenshots">
+  <% post.ordered_images.each do |image| %>
+    <figure class="app-screenshots__screenshot">
+      <h3 class="govuk-heading-m">
+        <%= humanize_image_title(image) %>
+      </h3>
+      <%= link_to image do %>
+        <%= image_tag image, alt: humanize_image_title(image) %>
+      <% end %>
+    </figure>
+  <% end %>
+</div>

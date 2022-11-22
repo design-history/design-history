@@ -16,12 +16,12 @@ $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 
 @import "button";
 @import "button-link";
-@import "figure";
 @import "footer";
 @import "global";
 @import "header";
 @import "masthead";
 @import "posts";
+@import "screenshots";
 @import "upload";
 
 .app-design-history {
