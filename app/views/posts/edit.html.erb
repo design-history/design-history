@@ -8,6 +8,15 @@
 
 <% title = "Editing post" %>
 <%= content_for :page_title, title %>
+
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <%= form_with(model: [@project, @post]) do |f| %>
+      <%= f.govuk_error_summary %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <h1 class="govuk-heading-xl"><%= title %></h1>
 
 <div class="govuk-tabs">
