@@ -38,6 +38,7 @@ en:
               blank: Enter a title
               too_long: Enter a title that is less than 255 characters long
             slug:
+              blank: Enter a user-friendly URL
               too_long: Enter a slug that is less than 50 characters long
             body:
               blank: Enter a body

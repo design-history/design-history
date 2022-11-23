@@ -29,7 +29,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: :slugged
 
   validates :title, presence: true, length: { maximum: 255 }
-  validates :slug, length: { maximum: 50 }
+  validates :slug, presence: true, length: { maximum: 50 }
   validates :body, presence: true
   validates :published_at, presence: true, if: -> { published == true }
 
