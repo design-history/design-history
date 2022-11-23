@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
-  before_action :set_post, only: %i[edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
   # GET /posts
   def index
@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    @post = @project.posts.with_attached_images.find(params[:id])
   end
 
   # GET /posts/new
@@ -58,7 +57,7 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = @project.posts.with_attached_images.find(params[:id])
+    @post = @project.posts.friendly.with_attached_images.find(params[:id])
   end
 
   def post_params

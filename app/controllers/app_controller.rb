@@ -6,7 +6,8 @@ class AppController < ApplicationController
   end
 
   def show
-    @post = @project.posts.where(published: true).find(params[:post_id])
+    @post =
+      @project.posts.friendly.where(published: true).find(params[:post_id])
   end
 
   private
