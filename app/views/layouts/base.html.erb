@@ -39,7 +39,25 @@
     <div class="app-footer">
       <%= render GovukComponent::FooterComponent.new do |footer|
         footer.meta do %>
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <h2 class="govuk-visually-hidden">Support links</h2>
+
+          <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link"
+                 href="https://this.designhistory.app">
+                This design history</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link"
+                 href="https://github.com/design-history/design-history/">
+                Source code</a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
           <p>© Design History 2022</p>
+        </div>
       <% end; end %>
     </div>
   </body>
