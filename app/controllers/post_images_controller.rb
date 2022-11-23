@@ -42,7 +42,7 @@ class PostImagesController < ApplicationController
   end
 
   def set_post
-    @post = @project.posts.with_attached_images.find(params[:post_id])
+    @post = @project.posts.friendly.with_attached_images.find(params[:post_id])
   end
 
   def set_image
