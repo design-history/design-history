@@ -14,4 +14,10 @@
     text-decoration-line: underline;
     text-underline-offset: 0.1em;
   }
+
+  &:focus {
+    background: govuk-colour("yellow");
+    color: govuk-colour("black");
+    outline: none;
+  }
 }
