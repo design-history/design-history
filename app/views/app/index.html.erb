@@ -14,7 +14,7 @@
       <% @posts.each do |post| %>
         <li class="app-posts__item">
           <h2 class="govuk-heading-m">
-            <%= govuk_link_to app_post_path(post.id) do %>
+            <%= govuk_link_to app_post_path(post.to_param) do %>
               <%= post.title %>
             <% end %>
           </h2>
