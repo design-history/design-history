@@ -42,6 +42,7 @@ end
 
 group :test do
   gem "cuprite"
+  gem "faker"
   gem "rspec"
   gem "rspec-rails"
 end

@@ -128,6 +128,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (3.0.0)
+      i18n (>= 1.8.11, < 2)
     ferrum (0.13)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
@@ -392,6 +394,7 @@ DEPENDENCIES
   debug
   devise
   factory_bot_rails
+  faker
   friendly_id
   govuk-components
   govuk_design_system_formbuilder
