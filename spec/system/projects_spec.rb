@@ -35,11 +35,11 @@ RSpec.describe "Projects" do
   end
 
   def then_i_see_a_new_project_button
-    expect(page).to have_content "New design history"
+    expect(page).to have_link "New design history"
   end
 
   def when_i_click_the_new_project_button
-    click_on "New design history"
+    click_link "New design history"
   end
 
   def then_i_see_the_new_project_form
@@ -50,7 +50,7 @@ RSpec.describe "Projects" do
     fill_in "project[title]", with: project_title
     fill_in "project[subdomain]", with: Faker::Internet.slug.gsub("_", "-")
     fill_in "project[description]", with: Faker::Company.bs.capitalize
-    click_on "Create design history"
+    click_button "Create design history"
   end
 
   def then_i_see_my_new_project
@@ -58,7 +58,7 @@ RSpec.describe "Projects" do
   end
 
   def when_i_click_on_change_details
-    click_on "Change details"
+    click_link "Change details"
   end
 
   def then_i_see_the_change_details_page
@@ -67,15 +67,15 @@ RSpec.describe "Projects" do
 
   def when_i_change_the_subdomain
     fill_in "project[subdomain]", with: "this"
-    click_on "Save changes"
+    click_button "Save changes"
   end
 
   def then_i_see_my_updated_subdomain
-    expect(page).to have_content "this.app.local"
+    expect(page).to have_link "this.app.local"
   end
 
   def when_i_click_on_the_project_link
-    click_on "this.app.local"
+    click_link "this.app.local"
   end
 
   def then_i_see_the_project_index
