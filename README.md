@@ -30,6 +30,7 @@ bin/setup    # bundle / yarn / database setup
 
 bin/dev      # Local development on http://localhost:3000
 bin/lint     # Run linters
+bin/test     # Run tests
 ```
 
 ### Testing subdomains locally

@@ -32,4 +32,4 @@ jobs:
         with:
           bundler-cache: true
       - run: bin/rails db:test:prepare
-      - run: bin/rails test:all
+      - run: bin/test
