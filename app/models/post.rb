@@ -23,6 +23,8 @@
 #  fk_rails_...  (project_id => projects.id)
 #
 class Post < ApplicationRecord
+  belongs_to :project
+
   has_many_attached :images
 
   extend FriendlyId
