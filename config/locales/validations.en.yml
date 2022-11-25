@@ -40,6 +40,8 @@ en:
             slug:
               blank: Enter a user-friendly URL
               too_long: Enter a slug that is less than 50 characters long
+              invalid: Enter a slug in the correct format, like
+                how-we-chose-our-service-name
             body:
               blank: Enter a body
             published_at:
