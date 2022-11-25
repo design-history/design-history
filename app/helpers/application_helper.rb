@@ -16,10 +16,10 @@ module ApplicationHelper
   end
 
   def design_history_link(project)
-    protocol = Rails.env.development? ? "http" : "https"
+    protocol = Rails.env.production? ? "https" : "http"
     subdomain = project.subdomain
     domain = Rails.application.config.app_domain
-    port = Rails.env.development? ? ":3000" : ""
+    port = Rails.env.production? ? "" : ":#{request.port}"
 
     "#{protocol}://#{subdomain}.#{domain}#{port}"
   end
