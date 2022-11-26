@@ -32,6 +32,8 @@ en:
               blank: Enter a description
               too_long: Enter a description that is less than 255 characters
                 long
+            password:
+              too_long: Enter a password that is less than 50 characters long
         post:
           attributes:
             title:
