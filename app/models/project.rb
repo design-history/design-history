@@ -24,6 +24,8 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :posts, dependent: :destroy
 
+  attr_accessor :private
+
   validates :title, presence: true, length: { maximum: 255 }
   validates :subdomain,
             presence: true,
@@ -39,4 +41,5 @@ class Project < ApplicationRecord
             uniqueness: true
   validates :description, presence: true, length: { maximum: 255 }
   validates :password, length: { maximum: 50 }
+  validates :password, presence: true, if: -> { private == "1" }
 end

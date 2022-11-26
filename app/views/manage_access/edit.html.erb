@@ -10,7 +10,8 @@
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
-    <%= form_with(model: @project) do |f| %>
+    <%= form_with(model: @project,
+                  url: project_manage_access_path(@project)) do |f| %>
       <%= f.govuk_error_summary %>
 
       <h1 class="govuk-heading-xl">Manage access</h1>
@@ -21,7 +22,7 @@
                   prompted for a password to access it.",
                   size: "s", class: 'govuk-!-font-weight-regular' } do %>
         <%= f.govuk_check_box :private, 1, 0,
-          checked: @project.password.present?,
+          checked: @project.password.present? || @project.private == "1",
           multiple: false,
           label: { text: "Make this design history private" },
           link_errors: true do %>
