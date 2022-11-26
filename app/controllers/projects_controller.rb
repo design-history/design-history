@@ -54,6 +54,15 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :subdomain, :description)
+    ps =
+      params.require(:project).permit(
+        :title,
+        :subdomain,
+        :description,
+        :private,
+        :password
+      )
+    ps[:password] = "" if ps.key?(:password) && ps.delete(:private) == "0"
+    ps
   end
 end
