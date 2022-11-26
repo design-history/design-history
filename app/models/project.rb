@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string
+#  password    :string
 #  subdomain   :string
 #  title       :string
 #  created_at  :datetime         not null
