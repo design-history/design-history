@@ -38,4 +38,5 @@ class Project < ApplicationRecord
             },
             uniqueness: true
   validates :description, presence: true, length: { maximum: 255 }
+  validates :password, length: { maximum: 50 }
 end
