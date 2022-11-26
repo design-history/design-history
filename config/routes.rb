@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     devise_for :users
 
     resources :projects do
+      get "/manage-access", to: "manage_access#edit"
+
       resources :posts do
         resources :images,
                   only: %i[create destroy],

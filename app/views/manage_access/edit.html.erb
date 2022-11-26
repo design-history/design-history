@@ -1,0 +1,36 @@
+<% content_for :breadcrumbs do %>
+  <%= govuk_breadcrumbs(breadcrumbs: {
+    "Your design histories" => projects_path,
+    @project.title => project_path(@project),
+    "Manage access" => nil
+  }) %>
+<% end %>
+
+<%= content_for :page_title, "Manage design history access" %>
+
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <%= form_with(model: @project) do |f| %>
+      <%= f.govuk_error_summary %>
+
+      <h1 class="govuk-heading-xl">Manage access</h1>
+
+      <%= f.govuk_check_boxes_fieldset :private,
+        multiple: false,
+        legend: { text: "You can set a design history as private. Users will be
+                  prompted for a password to access it.",
+                  size: "s", class: 'govuk-!-font-weight-regular' } do %>
+        <%= f.govuk_check_box :private, 1, 0,
+          checked: @project.password.present?,
+          multiple: false,
+          label: { text: "Make this design history private" },
+          link_errors: true do %>
+          <%= f.govuk_text_field :password,
+            label: { text: "Enter a password" } %>
+        <% end %>
+      <% end %>
+
+      <%= f.govuk_submit "Save changes", class: 'app-button' %>
+    <% end %>
+  <% end %>
+<% end %>
