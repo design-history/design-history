@@ -31,6 +31,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Add testing hosts to /etc/hosts
+        run: |
+          sudo echo "127.0.0.1 this.app.local" | sudo tee -a /etc/hosts
       - run: bin/rails db:test:prepare
       - run: bin/rails assets:precompile
       - run: bin/test
