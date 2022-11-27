@@ -35,6 +35,8 @@ en:
             password:
               blank: Enter a password
               too_long: Enter a password that is less than 50 characters long
+            password_confirmation:
+              confirmation: The password is incorrect
         post:
           attributes:
             title:

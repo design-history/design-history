@@ -36,5 +36,9 @@ Rails.application.routes.draw do
   constraints domain: Rails.application.config.app_domain do
     get "/", to: "app#index", as: "app_posts"
     get "/:post_id", to: "app#show", as: "app_post"
+
+    post "/confirm-password",
+         to: "app#confirm_password",
+         as: "app_confirm_password"
   end
 end
