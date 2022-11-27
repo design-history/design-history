@@ -1,0 +1,9 @@
+<% title = "#{@team.name} settings" %>
+<%= content_for :page_title, title %>
+<h1 class="govuk-heading-xl"><%= title %></h1>
+
+<ul class="govuk-list govuk-list--bullets">
+  <% @team.users.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+</ul>
