@@ -1,4 +1,4 @@
-<% title = "New team" %>
+<% title = "#{@team.errors.any? ? "Error: " : "" }New team" %>
 <%= content_for :page_title, title %>
 
 <%= render "form", team: @team, editing: false %>
