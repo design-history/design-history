@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
     devise_for :users
 
+    resources :teams
+
     resources :projects do
       get "/manage-access", to: "manage_access#edit"
       patch "/manage-access", to: "manage_access#update"

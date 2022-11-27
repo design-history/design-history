@@ -1,0 +1,22 @@
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <%= form_with(model: team) do |f| %>
+      <%= f.govuk_error_summary %>
+      <h1 class="govuk-heading-l">
+        <% if editing %>
+          Edit <%= team.name %>
+        <% else %>
+          New team
+        <% end %>
+      </h1>
+
+      <%= f.govuk_text_field :name,
+        label: {
+          class: 'govuk-label govuk-label--s'
+        } %>
+
+      <%= f.govuk_submit editing ? "Save changes" : "Create team",
+        class: 'app-button' %>
+    <% end %>
+  <% end %>
+<% end %>
