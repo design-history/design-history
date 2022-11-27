@@ -14,6 +14,9 @@ RSpec.describe "Teams" do
 
     when_i_click_on_create_a_team
     then_i_see_the_team_creation_page
+
+    when_i_submit_a_name
+    then_i_see_the_team_show_page
   end
 
   private
@@ -45,5 +48,14 @@ RSpec.describe "Teams" do
 
   def then_i_see_the_team_creation_page
     expect(page).to have_content "New team"
+  end
+
+  def when_i_submit_a_name
+    fill_in "team[name]", with: Faker::Company.bs.capitalize
+    click_button "Create team"
+  end
+
+  def then_i_see_the_team_show_page
+    expect(page).to have_content "settings"
   end
 end
