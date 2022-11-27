@@ -75,7 +75,7 @@ RSpec.describe "Teams" do
   end
 
   def when_i_submit_an_invalid_email
-    fill_in "add_user[email]", with: Faker::Internet.email
+    fill_in "add_user_form[email]", with: Faker::Internet.email
     click_button "Add user"
   end
 
@@ -84,12 +84,12 @@ RSpec.describe "Teams" do
   end
 
   def when_i_submit_a_valid_email_from_a_user_with_a_team
-    fill_in "add_user[email]", with: user.email
+    fill_in "add_user_form[email]", with: user.email
     click_button "Add user"
   end
 
   def when_i_submit_a_valid_email
-    fill_in "add_user[email]", with: another_user.email
+    fill_in "add_user_form[email]", with: another_user.email
     click_button "Add user"
   end
 

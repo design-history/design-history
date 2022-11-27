@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
     devise_for :users
 
-    resources :teams
+    resources :teams do
+      post "/add-user", action: :add_user, on: :member
+    end
 
     resources :projects do
       get "/manage-access", to: "manage_access#edit"
