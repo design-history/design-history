@@ -51,3 +51,8 @@ en:
               blank: Enter a body
             published_at:
               blank: Enter a published at date
+        team:
+          attributes:
+            name:
+              blank: Enter a name
+              too_long: Enter a name that is less than 50 characters long
