@@ -15,11 +15,17 @@
 #  sign_in_count          :integer          default(0), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  team_id                :bigint
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_team_id               (team_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (team_id => teams.id)
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -32,4 +38,5 @@ class User < ApplicationRecord
          :validatable
 
   has_many :projects
+  belongs_to :team, optional: true
 end
