@@ -10,6 +10,15 @@
         <% end %>
       </h1>
 
+      <% unless editing %>
+        <p>You can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>only be part of one team</li>
+          <li>invite others to your team</li>
+          <li>give a team ownership of your design histories</li>
+        </ul>
+      <% end %>
+
       <%= f.govuk_text_field :name,
         label: {
           class: 'govuk-label govuk-label--s'
