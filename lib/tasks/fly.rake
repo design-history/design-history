@@ -12,7 +12,7 @@ namespace :fly do
   #  - full access to secrets, databases
   #  - failures here prevent deployment
   desc "Release"
-  task release: "db:migrate"
+  task release: "db:migrate:with_data"
 
   # SERVER step:
   #  - changes to the filesystem made here are deployed
