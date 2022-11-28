@@ -24,7 +24,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Project < ApplicationRecord
-  belongs_to :user
   belongs_to :owner, polymorphic: true
   has_many :posts, dependent: :destroy
 

@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.describe "Posts" do
-  let(:user) { create(:user) }
-  let!(:project) { create(:project, user:, owner: user) }
+  let(:owner) { create(:user) }
+  let!(:project) { create(:project, owner:) }
 
   it "can be created" do
     given_i_am_signed_in
@@ -19,7 +19,7 @@ RSpec.describe "Posts" do
   private
 
   def given_i_am_signed_in
-    sign_in user
+    sign_in owner
   end
 
   def when_i_visit_my_project
