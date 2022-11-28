@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Password protection" do
   let(:user) { create(:user) }
-  let!(:project) { create(:project, user:, owner: user, subdomain: "this") }
+  let!(:project) { create(:project, user:, subdomain: "this") }
 
   it "allows users to create private design histories" do
     given_i_am_signed_in

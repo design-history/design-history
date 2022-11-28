@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "Teams" do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
-  let!(:project) { create(:project, user:, owner: user, subdomain: "this") }
+  let!(:project) { create(:project, user:, subdomain: "this") }
 
   it "can manage access to projects" do
     given_i_am_signed_in
