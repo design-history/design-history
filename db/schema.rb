@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_230116) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_230901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,8 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_230116) do
     t.datetime "updated_at", null: false
     t.string "subdomain"
     t.string "password"
-    t.string "owner_type"
-    t.bigint "owner_id"
+    t.string "owner_type", null: false
+    t.bigint "owner_id", null: false
     t.index ["owner_type", "owner_id"], name: "index_projects_on_owner"
     t.index ["subdomain"], name: "index_projects_on_subdomain", unique: true
   end
