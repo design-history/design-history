@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   def create
     @project = current_user.projects.new(project_params)
-    @project.user = current_user
     if @project.save
       redirect_to @project, notice: "Your design history has been created"
     else

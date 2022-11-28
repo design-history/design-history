@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Teams" do
-  let(:user) { create(:user) }
+  let(:owner) { create(:user) }
   let(:another_user) { create(:user) }
-  let!(:project) { create(:project, user:, owner: user, subdomain: "this") }
+  let!(:project) { create(:project, owner:, subdomain: "this") }
 
   it "can manage access to projects" do
     given_i_am_signed_in
@@ -36,7 +36,7 @@ RSpec.describe "Teams" do
   private
 
   def given_i_am_signed_in
-    sign_in user
+    sign_in owner
   end
 
   def when_i_visit_my_project_page
@@ -71,7 +71,7 @@ RSpec.describe "Teams" do
   end
 
   def then_i_see_the_team_show_page
-    expect(page).to have_content user.email
+    expect(page).to have_content owner.email
   end
 
   def when_i_submit_an_invalid_email
@@ -84,7 +84,7 @@ RSpec.describe "Teams" do
   end
 
   def when_i_submit_a_valid_email_from_a_user_with_a_team
-    fill_in "add_user_form[email]", with: user.email
+    fill_in "add_user_form[email]", with: owner.email
     click_button "Add user"
   end
 
