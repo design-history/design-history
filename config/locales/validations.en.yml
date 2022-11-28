@@ -56,3 +56,10 @@ en:
             name:
               blank: Enter a name
               too_long: Enter a name that is less than 50 characters long
+  activemodel:
+    errors:
+      models:
+        add_user_form:
+          attributes:
+            email:
+              blank: Enter an email
