@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Design histories" do
   let(:user) { create(:user) }
-  let!(:project) { create(:project, user:, owner: user, subdomain: "this") }
+  let!(:project) { create(:project, user:, subdomain: "this") }
   let(:post_body) { "It's working" }
   let!(:first_post) { create(:post, project:, body: post_body) }
   let!(:second_post) { create(:post, project:, published: false) }
