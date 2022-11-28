@@ -28,9 +28,9 @@ RSpec.describe "Teams" do
     when_i_submit_a_valid_email
     then_i_see_a_success_message
 
-    when_i_sign_in_as_another_user
-    and_i_visit_my_project_page
-    then_i_see_the_project_page
+    # when_i_sign_in_as_another_user
+    # and_i_visit_my_project_page
+    # then_i_see_the_project_page
   end
 
   private
