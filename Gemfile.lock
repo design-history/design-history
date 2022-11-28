@@ -111,6 +111,9 @@ GEM
     cuprite (0.14.3)
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
+    data_migrate (8.2.0)
+      activerecord (>= 5.0)
+      railties (>= 5.0)
     debug (1.6.3)
       irb (>= 1.3.6)
       reline (>= 0.3.1)
@@ -391,6 +394,7 @@ DEPENDENCIES
   bootsnap
   cssbundling-rails
   cuprite
+  data_migrate
   debug
   devise
   factory_bot_rails
