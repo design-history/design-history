@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Posts" do
   let(:user) { create(:user) }
-  let!(:project) { create(:project, user:) }
+  let!(:project) { create(:project, user:, owner: user) }
 
   it "can be created" do
     given_i_am_signed_in
