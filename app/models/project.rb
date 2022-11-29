@@ -21,7 +21,7 @@ class Project < ApplicationRecord
   belongs_to :owner, polymorphic: true
   has_many :posts, dependent: :destroy
 
-  attr_accessor :private
+  attr_accessor :visibility
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :subdomain,
@@ -38,5 +38,5 @@ class Project < ApplicationRecord
             uniqueness: true
   validates :description, presence: true, length: { maximum: 255 }
   validates :password, length: { maximum: 50 }, confirmation: true
-  validates :password, presence: true, if: -> { private == "1" }
+  validates :password, presence: true, if: -> { visibility == "private" }
 end
