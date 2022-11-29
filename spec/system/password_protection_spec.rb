@@ -62,8 +62,8 @@ RSpec.describe "Password protection" do
   end
 
   def when_i_set_the_project_as_private
-    check "project[private]", visible: false
-    click_button "Save changes"
+    choose "private", visible: false
+    click_button "Update visibility"
   end
 
   def then_i_see_an_error
@@ -71,9 +71,9 @@ RSpec.describe "Password protection" do
   end
 
   def when_i_set_the_project_as_private_with_a_password
-    check "project[private]", visible: false
+    choose "private", visible: false
     fill_in "project[password]", with: "rosebud"
-    click_button "Save changes"
+    click_button "Update visibility"
   end
 
   def when_i_visit_my_design_history
@@ -101,6 +101,6 @@ RSpec.describe "Password protection" do
 
   def when_i_change_the_password
     fill_in "project[password]", with: "motherlode"
-    click_button "Save changes"
+    click_button "Update visibility"
   end
 end

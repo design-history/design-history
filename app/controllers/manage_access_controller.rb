@@ -19,6 +19,6 @@ class ManageAccessController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:private, :password)
+    params.require(:project).permit(:visibility, :password)
   end
 end
