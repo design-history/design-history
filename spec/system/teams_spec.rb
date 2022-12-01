@@ -10,7 +10,7 @@ RSpec.describe "Teams" do
     then_i_see_the_manage_access_page
 
     when_i_click_on_create_a_team
-    then_i_see_the_team_create_page
+    then_i_see_the_create_a_team_page
 
     when_i_submit_a_name
     then_i_see_the_team_show_page
@@ -22,22 +22,29 @@ RSpec.describe "Teams" do
     then_i_see_an_error
 
     when_i_submit_a_valid_email
+    then_i_see_my_new_user
+
+    when_i_visit_my_project_page
+    and_i_click_on_manage_access
+    then_i_see_the_add_to_team_button
+
+    when_i_click_the_add_to_team_button
     then_i_see_a_success_message
 
-    # when_i_sign_in_as_another_user
-    # and_i_visit_my_project_page
-    # then_i_see_the_project_page
+    when_i_sign_in_as_another_user
+    and_i_visit_my_project_page
+    then_i_see_the_project_page
   end
 
   private
 
   def given_i_am_signed_in
     @owner = create(:user)
+    @project = create(:project, owner: @owner, subdomain: "this")
     sign_in @owner
   end
 
   def when_i_visit_my_project_page
-    @project = create(:project, owner: @owner, subdomain: "this")
     visit project_path(@project)
   end
   alias_method :and_i_visit_my_project_page, :when_i_visit_my_project_page
@@ -59,7 +66,7 @@ RSpec.describe "Teams" do
     click_link "Create a team"
   end
 
-  def then_i_see_the_team_create_page
+  def then_i_see_the_create_a_team_page
     expect(page).to have_content "New team"
   end
 
@@ -92,11 +99,23 @@ RSpec.describe "Teams" do
     click_button "Add user"
   end
 
-  def then_i_see_a_success_message
-    expect(page).to have_content "Success"
+  def then_i_see_my_new_user
+    expect(page).to have_content @another_user.email
   end
 
   def when_i_sign_in_as_another_user
     sign_in @another_user
+  end
+
+  def then_i_see_the_add_to_team_button
+    expect(page).to have_content "Add to team"
+  end
+
+  def when_i_click_the_add_to_team_button
+    click_button "Add to team"
+  end
+
+  def then_i_see_a_success_message
+    expect(page).to have_content "Success"
   end
 end
