@@ -1,9 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Posts" do
-  let(:owner) { create(:user) }
-  let!(:project) { create(:project, owner:) }
-
   it "can be created" do
     given_i_am_signed_in
     when_i_visit_my_project
@@ -19,11 +16,13 @@ RSpec.describe "Posts" do
   private
 
   def given_i_am_signed_in
-    sign_in owner
+    @owner = create(:user)
+    sign_in @owner
   end
 
   def when_i_visit_my_project
-    visit project_path(project)
+    @project = create(:project, owner: @owner)
+    visit project_path(@project)
   end
 
   def then_i_see_the_new_post_button
