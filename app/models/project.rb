@@ -39,4 +39,8 @@ class Project < ApplicationRecord
   validates :description, presence: true, length: { maximum: 255 }
   validates :password, length: { maximum: 50 }, confirmation: true
   validates :password, presence: true, if: -> { visibility == "private" }
+
+  def private?
+    password.present?
+  end
 end
