@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = current_user.projects.new
+    @project = current_user.own_projects.new
   end
 
   # GET /projects/1/edit
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = current_user.projects.new(project_params)
+    @project = current_user.own_projects.new(project_params)
     if @project.save
       redirect_to @project, notice: "Your design history has been created"
     else

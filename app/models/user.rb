@@ -37,6 +37,17 @@ class User < ApplicationRecord
          :trackable,
          :validatable
 
-  has_many :projects, as: :owner
   belongs_to :team, optional: true
+
+  def projects
+    own_projects.or team_projects
+  end
+
+  def own_projects
+    Project.where owner: self
+  end
+
+  def team_projects
+    Project.where owner: team
+  end
 end
