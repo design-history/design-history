@@ -1,10 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Teams" do
-  let(:owner) { create(:user) }
-  let(:another_user) { create(:user) }
-  let!(:project) { create(:project, owner:, subdomain: "this") }
-
   it "can manage access to projects" do
     given_i_am_signed_in
     when_i_visit_my_project_page
@@ -36,16 +32,18 @@ RSpec.describe "Teams" do
   private
 
   def given_i_am_signed_in
-    sign_in owner
+    @owner = create(:user)
+    sign_in @owner
   end
 
   def when_i_visit_my_project_page
-    visit project_path(project)
+    @project = create(:project, owner: @owner, subdomain: "this")
+    visit project_path(@project)
   end
   alias_method :and_i_visit_my_project_page, :when_i_visit_my_project_page
 
   def then_i_see_the_project_page
-    expect(page).to have_content project.title
+    expect(page).to have_content @project.title
   end
 
   def when_i_click_on_manage_access
@@ -71,7 +69,7 @@ RSpec.describe "Teams" do
   end
 
   def then_i_see_the_team_show_page
-    expect(page).to have_content owner.email
+    expect(page).to have_content @owner.email
   end
 
   def when_i_submit_an_invalid_email
@@ -84,12 +82,13 @@ RSpec.describe "Teams" do
   end
 
   def when_i_submit_a_valid_email_from_a_user_with_a_team
-    fill_in "add_user_form[email]", with: owner.email
+    fill_in "add_user_form[email]", with: @owner.email
     click_button "Add user"
   end
 
   def when_i_submit_a_valid_email
-    fill_in "add_user_form[email]", with: another_user.email
+    @another_user = create(:user)
+    fill_in "add_user_form[email]", with: @another_user.email
     click_button "Add user"
   end
 
@@ -98,6 +97,6 @@ RSpec.describe "Teams" do
   end
 
   def when_i_sign_in_as_another_user
-    sign_in another_user
+    sign_in @another_user
   end
 end

@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "Projects" do
-  let(:project_title) { Faker::Company.name }
-
   it "can be created, edited, and visited" do
     given_i_am_signed_in
     when_i_am_on_the_projects_page
@@ -47,14 +45,15 @@ RSpec.describe "Projects" do
   end
 
   def when_i_submit_my_project_details
-    fill_in "project[title]", with: project_title
+    @project_title = Faker::Company.name
+    fill_in "project[title]", with: @project_title
     fill_in "project[subdomain]", with: Faker::Internet.slug.gsub("_", "-")
     fill_in "project[description]", with: Faker::Company.bs.capitalize
     click_button "Create design history"
   end
 
   def then_i_see_my_new_project
-    expect(page).to have_content project_title
+    expect(page).to have_content @project_title
   end
 
   def when_i_click_on_change_details
@@ -79,6 +78,6 @@ RSpec.describe "Projects" do
   end
 
   def then_i_see_the_project_index
-    expect(page).to have_content "#{project_title} design history"
+    expect(page).to have_content "#{@project_title} design history"
   end
 end
