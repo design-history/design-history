@@ -63,3 +63,5 @@ en:
           attributes:
             email:
               blank: Enter an email
+              not_found: Could not find a user with this email
+              has_team: The user already has a team
