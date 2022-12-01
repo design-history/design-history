@@ -37,9 +37,23 @@
 
 <h2>Teams</h2>
 
-<p>This design history belongs to you, and only you can edit it.</p>
+<% if @project.owner == current_user.team %>
+  <p>This design history belongs to your team. Anyone can edit.</p>
+<% else %>
+  <p>This design history belongs to you. Only you can edit it.</p>
 
-<p>
-  <%= govuk_link_to "Create a team", new_team_path %>
-  to allow others to collaborate with you.
-</p>
+  <% if current_user.team.present? %>
+    <p>
+      You can add this design history to your team.
+    </p>
+
+    <%= govuk_button_to "Add to team",
+      add_project_team_path(current_user.team, project_id: @project.id),
+      class: 'app-button' %>
+  <% else %>
+    <p>
+      <%= govuk_link_to "Create a team", new_team_path %>
+      to allow others to collaborate with you.
+    </p>
+  <% end %>
+<% end %>

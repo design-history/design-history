@@ -34,6 +34,14 @@ class TeamsController < ApplicationController
     end
   end
 
+  # POST /teams/1/add-project/1
+  def add_project
+    project = Project.find(add_project_params)
+    project.update!(owner: @team)
+    redirect_to project_manage_access_path(project),
+                notice: "Design history was added to your team"
+  end
+
   private
 
   def set_team
@@ -46,5 +54,9 @@ class TeamsController < ApplicationController
 
   def add_user_params
     params.require(:add_user_form).permit(:email)
+  end
+
+  def add_project_params
+    params.require(:project_id)
   end
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
     resources :teams do
       post "/add-user", action: :add_user, on: :member
+      post "/add-project", action: :add_project, on: :member
     end
 
     resources :projects do
