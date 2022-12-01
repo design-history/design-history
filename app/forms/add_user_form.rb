@@ -20,6 +20,8 @@ class AddUserForm
       return false
     end
 
+    user.update!(team:)
+
     true
   end
 end
