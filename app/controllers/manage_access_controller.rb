@@ -19,6 +19,8 @@ class ManageAccessController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:visibility, :password)
+    p = params.require(:project).permit(:visibility, :password)
+    p[:password] = "" if p[:visibility] == "public"
+    p
   end
 end

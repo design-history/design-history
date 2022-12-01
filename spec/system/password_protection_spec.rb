@@ -36,6 +36,14 @@ RSpec.describe "Password protection" do
 
     when_i_visit_my_design_history
     then_i_am_asked_for_the_password
+
+    when_i_visit_my_project_page
+    and_i_click_on_manage_access
+    and_i_set_the_project_to_public
+    then_i_see_the_project_page
+
+    when_i_visit_my_design_history
+    then_i_see_my_design_history
   end
 
   private
@@ -101,6 +109,11 @@ RSpec.describe "Password protection" do
 
   def when_i_change_the_password
     fill_in "project[password]", with: "motherlode"
+    click_button "Update visibility"
+  end
+
+  def and_i_set_the_project_to_public
+    choose "public", visible: false
     click_button "Update visibility"
   end
 end
