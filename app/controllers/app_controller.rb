@@ -27,6 +27,7 @@ class AppController < ApplicationController
   end
 
   def check_password
+    return unless @project.private?
     return if session[:password] == @project.password
 
     session[:previous_url] = request.path
