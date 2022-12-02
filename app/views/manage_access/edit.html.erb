@@ -30,7 +30,7 @@
         <% end %>
       <% end %>
 
-      <%= f.govuk_submit "Update visibility", class: 'app-button' %>
+      <%= f.govuk_submit "Update visibility" %>
     <% end %>
   <% end %>
 <% end %>
@@ -48,8 +48,7 @@
     </p>
 
     <%= govuk_button_to "Add to team",
-      add_project_team_path(current_user.team, project_id: @project.id),
-      class: 'app-button' %>
+      add_project_team_path(current_user.team, project_id: @project.id) %>
   <% else %>
     <p>
       <%= govuk_link_to "Create a team", new_team_path %>
