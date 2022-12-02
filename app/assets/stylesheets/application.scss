@@ -8,6 +8,7 @@ $govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
 
 $app-button-colour: #288080;
 $app-brand-colour: #c1dede;
+$app-upload-colour: $app-brand-colour;
 $app-header-bar-colour: $app-button-colour;
 $app-masthead-colour: $app-brand-colour;
 $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
