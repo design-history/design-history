@@ -6,15 +6,16 @@ $govuk-assets-path: "/";
 $govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
   "Helvetica", sans-serif;
 
-@import "govuk-frontend/govuk/all";
-
 $app-button-colour: #288080;
 $app-brand-colour: #c1dede;
 $app-header-bar-colour: $app-button-colour;
 $app-masthead-colour: $app-brand-colour;
 $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 
-@import "button";
+@import "govuk-frontend/govuk/base";
+$govuk-button-background-colour: $app-button-colour;
+@import "govuk-frontend/govuk/all";
+
 @import "button-link";
 @import "footer";
 @import "global";

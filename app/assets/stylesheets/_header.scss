@@ -7,14 +7,14 @@
     }
 
     .govuk-header__container {
-      border-bottom-color: $app-button-colour;
+      border-bottom-color: $app-header-bar-colour;
     }
   }
 
   &--admin {
     padding-top: 40px;
     padding-bottom: 10px;
-    border-bottom: 10px solid $app-button-colour;
+    border-bottom: 10px solid $app-header-bar-colour;
 
     .govuk-header__container {
       border-bottom-width: 0;
