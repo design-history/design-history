@@ -1,5 +1,7 @@
 .app-header {
   &--design-history {
+    background: $app-header-background-colour;
+
     .govuk-header__logo {
       width: auto;
       margin-top: govuk-spacing(5);
@@ -7,14 +9,14 @@
     }
 
     .govuk-header__container {
-      border-bottom-color: $app-header-bar-colour;
+      border-bottom: $app-header-border-width solid $app-header-bar-colour;
     }
   }
 
   &--admin {
     padding-top: 40px;
-    padding-bottom: 10px;
-    border-bottom: 10px solid $app-header-bar-colour;
+    padding-bottom: -$app-header-border-width;
+    border-bottom: $app-header-border-width solid $app-header-bar-colour;
 
     .govuk-header__container {
       border-bottom-width: 0;

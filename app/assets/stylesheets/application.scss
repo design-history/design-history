@@ -1,19 +1,11 @@
-$govuk-global-styles: true;
-$govuk-new-link-styles: true;
-$govuk-assets-path: "/";
-
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 $govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
   "Helvetica", sans-serif;
 
-$app-button-colour: #288080;
-$app-brand-colour: #c1dede;
-$app-upload-colour: $app-brand-colour;
-$app-header-bar-colour: $app-button-colour;
-$app-masthead-colour: $app-brand-colour;
-$app-tint-colour: govuk-tint($app-masthead-colour, 50%);
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+$govuk-assets-path: "/";
 
-@import "govuk-frontend/govuk/base";
 $govuk-button-background-colour: $app-button-colour;
 @import "govuk-frontend/govuk/all";
 
@@ -47,7 +39,7 @@ $govuk-button-background-colour: $app-button-colour;
 }
 
 .app-holding-screenshot {
-  border-bottom: 20px solid $app-button-colour;
+  border-bottom: 20px solid $app-header-bar-colour;
   margin-top: govuk-spacing(4);
   max-width: 100%;
   margin-bottom: -38px;
