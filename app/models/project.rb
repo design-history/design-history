@@ -7,6 +7,7 @@
 #  owner_type  :string           not null
 #  password    :string
 #  subdomain   :string
+#  theme       :string           default("dh"), not null
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
