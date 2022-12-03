@@ -1,0 +1,17 @@
+@import "govuk-frontend/govuk/base";
+
+$app-brand-colour: #005eb8;
+$app-button-colour: $app-brand-colour;
+
+$app-header-background-colour: $app-brand-colour;
+$app-header-bar-colour: govuk-colour("white");
+$app-header-border-width: 2px;
+
+$app-masthead-colour: $app-brand-colour;
+$app-masthead-text-colour: govuk-colour("white");
+
+$app-tint-colour: govuk-colour("light-grey");
+
+$app-upload-colour: $app-brand-colour;
+
+@import "application";

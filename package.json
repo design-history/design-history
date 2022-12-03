@@ -9,7 +9,7 @@
     "sass": "^1.56.1"
   },
   "scripts": {
-    "build:css": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules --quiet-deps",
+    "build:css": "sass $(cat ./app/assets/stylesheets/themes.txt) --no-source-map --load-path=node_modules --quiet-deps",
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "devDependencies": {
