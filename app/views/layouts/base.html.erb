@@ -18,7 +18,8 @@
     <%= tag :meta, name: 'viewport', content: 'width=device-width, initial-scale=1' %>
     <%= tag :meta, name: 'theme-color', content: '#0b0c0c' %>
 
-    <%= stylesheet_link_tag "dh", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag content_for?(:theme) ? yield(:theme) : "dh",
+      "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
