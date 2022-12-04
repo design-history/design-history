@@ -14,8 +14,7 @@ RSpec.describe "Design histories" do
   def when_i_visit_my_design_history
     @owner = create(:user)
     @project = create(:project, owner: @owner, subdomain: "this")
-    @post_body = "It's working"
-    @first_post = create(:post, project: @project, body: @post_body)
+    @first_post = create(:post, project: @project, body: "It's working")
     @second_post = create(:post, project: @project, published: false)
     port = page.driver.browser.options.port
     visit "http://this.app.local:#{port}"
@@ -31,6 +30,6 @@ RSpec.describe "Design histories" do
   end
 
   def then_i_see_the_post_content
-    expect(page).to have_content @post_body
+    expect(page).to have_content "It’s working"
   end
 end

@@ -1,3 +1,5 @@
+GovukMarkdown::Renderer.include Redcarpet::Render::SmartyPants
+
 class MarkdownTemplate
   def self.call(template, source)
     erb_handler = ActionView::Template.registered_template_handler(:erb)
