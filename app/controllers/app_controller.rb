@@ -2,6 +2,8 @@ class AppController < ApplicationController
   before_action :set_project
   before_action :check_password, except: %i[confirm_password]
 
+  layout "app"
+
   def index
     @posts = @project.posts.where(published: true).order(published_at: :desc)
   end
