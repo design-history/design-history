@@ -30,6 +30,17 @@
         }
       %>
 
+      <% themes = [
+        OpenStruct.new(id: 'gov', name: 'UK Government'),
+        OpenStruct.new(id: 'nhs', name: 'UK Healthcare'),
+        OpenStruct.new(id: 'dh', name: 'Default')
+      ] %>
+      <%= f.govuk_collection_radio_buttons :theme,
+        themes,
+        :id,
+        :name,
+        legend: { text: 'Pick a design history style' } %>
+
       <%= f.govuk_submit editing ? "Save changes" : "Create design history" %>
     <% end %>
   <% end %>

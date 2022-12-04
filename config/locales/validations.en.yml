@@ -37,6 +37,8 @@ en:
               too_long: Enter a password that is less than 50 characters long
             password_confirmation:
               confirmation: The password is incorrect
+            theme:
+              inclusion: Choose one of the styles
         post:
           attributes:
             title:
