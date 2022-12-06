@@ -1,6 +1,6 @@
 <% content_for :masthead do %>
-  <%= render(XGovukMastheadComponent.new(
-    classes: 'x-govuk-masthead--large govuk-!-padding-top-4',
+  <%= render(AppMastheadComponent.new(
+    classes: 'app-masthead--large govuk-!-padding-top-4',
     title: { text: @project.title + " design history" },
     description: { html: @project.description }
   )) %>

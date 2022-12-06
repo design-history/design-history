@@ -1,4 +1,4 @@
-class XGovukMastheadComponent < ViewComponent::Base
+class AppMastheadComponent < ViewComponent::Base
   def initialize(
     breadcrumbs: nil,
     classes: nil,
