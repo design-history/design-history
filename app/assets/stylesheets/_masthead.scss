@@ -4,42 +4,42 @@
   color: $app-masthead-text-colour;
   background-color: $app-masthead-colour;
   margin-top: govuk-spacing(-2);
-}
 
-.app-masthead__title {
-  @include govuk-font($size: 36, $weight: bold);
-  @include govuk-responsive-padding(6, "top");
-  margin-top: 0;
-}
+  &__title {
+    @include govuk-font($size: 36, $weight: bold);
+    @include govuk-responsive-padding(6, "top");
+    margin-top: 0;
+  }
 
-.app-masthead__description {
-  @include govuk-font($size: 19);
-  color: inherit;
-  margin-bottom: 0;
-
-  a:not(:focus) {
+  &__description {
+    @include govuk-font($size: 19);
     color: inherit;
-  }
-}
+    margin-bottom: 0;
 
-.app-masthead__image {
-  @include govuk-responsive-padding(6, "top");
-
-  img {
-    max-width: 100%;
+    a:not(:focus) {
+      color: inherit;
+    }
   }
 
-  @include govuk-media-query($until: desktop) {
-    display: none;
-  }
-}
+  &__image {
+    @include govuk-responsive-padding(6, "top");
 
-.app-masthead--large {
-  .app-masthead__title {
-    @include govuk-font($size: 48, $weight: "bold");
+    img {
+      max-width: 100%;
+    }
+
+    @include govuk-media-query($until: desktop) {
+      display: none;
+    }
   }
 
-  .app-masthead__description {
-    @include govuk-font($size: 24);
+  &--large {
+    &__title {
+      @include govuk-font($size: 48, $weight: "bold");
+    }
+
+    &__description {
+      @include govuk-font($size: 24);
+    }
   }
 }
