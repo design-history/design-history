@@ -174,7 +174,7 @@ GEM
       reline (>= 0.3.0)
     jaro_winkler (1.5.4)
     jmespath (1.6.2)
-    jsbundling-rails (1.0.3)
+    jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     json (2.6.2)
     kramdown (2.4.0)
