@@ -155,7 +155,7 @@ GEM
     govuk_markdown (1.0.0)
       activesupport
       redcarpet
-    haml (6.0.7)
+    haml (6.1.1)
       temple (>= 0.8.2)
       thor
       tilt
@@ -349,15 +349,15 @@ GEM
       railties (>= 6.0.0)
     syntax_tree (5.0.1)
       prettier_print (>= 1.1.0)
-    syntax_tree-haml (2.0.0)
+    syntax_tree-haml (3.0.0)
       haml (>= 5.2, != 6.0.0)
       prettier_print (>= 1.0.0)
-      syntax_tree (>= 4.0.0)
+      syntax_tree (>= 5.0.1)
     syntax_tree-rbs (0.5.1)
       prettier_print
       rbs
       syntax_tree (>= 2.0.1)
-    temple (0.8.2)
+    temple (0.9.1)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
