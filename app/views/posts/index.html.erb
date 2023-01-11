@@ -5,14 +5,46 @@
   }) %>
 <% end %>
 
-<h1 class="govuk-heading-xl govuk-!-margin-bottom-3"><%= @project.title %></h1>
-<p class="govuk-!-margin-bottom-6">
-  <%= govuk_link_to design_history_link(@project), design_history_link(@project) %>
-  –
-  <%= govuk_link_to "Change details", edit_project_path(@project) %>
-  –
-  <%= govuk_link_to "Manage access", project_manage_access_path(@project) %>
-</p>
+<h1 class="govuk-heading-xl govuk-!-margin-bottom-8"><%= @project.title %></h1>
+
+<section class="app-summary-card govuk-!-margin-bottom-6">
+  <header class="app-summary-card__header">
+    <h2 class="app-summary-card__title govuk-!-font-weight-bold govuk-!-font-size-24">
+      Design history
+    </h2>
+
+    <div class="app-summary-card__actions">
+      <%= govuk_link_to "Change details", edit_project_path(@project) %>
+    </div>
+  </header>
+
+  <div class="app-summary-card__body">
+    <%= govuk_summary_list do |summary_list|
+      summary_list.row do |row|
+        row.key { 'Name' }
+        row.value { @project.title }
+      end
+
+      summary_list.row do |row|
+        row.key { 'Domain' }
+        row.value { govuk_link_to design_history_link(@project),
+                    design_history_link(@project) }
+      end
+
+      summary_list.row do |row|
+        row.key { 'Style' }
+        row.value { humanize_theme(@project.theme) }
+      end
+
+      summary_list.row do |row|
+        row.key { 'Visibility' }
+        row.value { @project.private? ? "Private" : "Public" }
+        row.action(text: "Manage access",
+                   href: project_manage_access_path(@project))
+      end
+    end %>
+  </div>
+</section>
 
 <%= govuk_button_link_to "New post", new_project_post_path(@project) %>
 
