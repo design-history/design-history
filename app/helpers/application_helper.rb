@@ -29,4 +29,10 @@ module ApplicationHelper
     filename = image.filename.to_s.chomp extension
     filename.humanize
   end
+
+  def humanize_theme(theme)
+    { "dh" => "Default", "nhs" => "UK Healthcare", "gov" => "UK Government" }[
+      theme
+    ]
+  end
 end
