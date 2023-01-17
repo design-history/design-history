@@ -46,38 +46,55 @@
   </div>
 </section>
 
-<%= govuk_button_link_to "New post", new_project_post_path(@project) %>
+<section class="app-summary-card govuk-!-margin-bottom-6">
+  <header class="app-summary-card__header">
+    <h2 class="app-summary-card__title govuk-!-font-weight-bold govuk-!-font-size-24">
+      Posts
+    </h2>
 
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <% unless @drafts.empty? %>
-      <h2 class="govuk-heading-m">Drafts</h2>
-      <ol class="govuk-list">
-        <% @drafts.each do |post| %>
-          <li>
-            <%= govuk_link_to edit_project_post_path(@project, post) do %>
-              <%= post.title %>
-            <% end %>
-          </li>
-        <% end %>
-      </ol>
-    <% end %>
+    <div class="app-summary-card__actions">
+      <%= govuk_link_to "New post", new_project_post_path(@project) %>
+    </div>
+  </header>
 
-    <% unless @posts.empty? %>
-      <h2 class="govuk-heading-m govuk-!-margin-top-6">Published</h2>
-      <ol class="govuk-list">
-        <% @posts.each do |post| %>
-          <li>
-            <time
-              datetime="<%= post.updated_at.iso8601 %>">
-              <%= post.published_at.strftime("%d %B %Y") %></time>
-            <br />
-            <%= govuk_link_to edit_project_post_path(@project, post) do %>
-              <%= post.title %>
-            <% end %>
-          </li>
-        <% end %>
-      </ol>
-    <% end %>
-  <% end %>
-<% end %>
+  <div class="app-summary-card__body">
+    <%= govuk_table do |table|
+      table.head do |head|
+        head.row do |row|
+          row.cell(text: 'Title', header: true)
+          row.cell(text: 'Status', header: true)
+          row.cell(text: 'Date', header: true)
+          row.cell(text: 'Action', header: true)
+        end
+      end
+
+      table.body do |body|
+        @posts.each do |post|
+          body.row do |row|
+            row.cell { govuk_link_to post.title,
+                       edit_project_post_path(@project, post) }
+            row.cell { if post.published?
+                       then govuk_tag(text: 'Published', colour: 'turquoise')
+                       else govuk_tag(text: 'Draft', colour: 'grey')
+                       end }
+            if post.published?
+              row.cell do %>
+                <time datetime="<%= post.published_at.iso8601 %>">
+                  <%= post.published_at.strftime("%d %B %Y") %></time>
+              <% end
+              row.cell { govuk_link_to app_post_url(post.to_param,
+                                      host: Rails.application.config.app_domain,
+                                      subdomain: @project.subdomain) do %>
+                  View published post <span class="govuk-visually-hidden">
+                    - <%= post.to_param %></span>
+              <% end }
+            else
+              row.cell { '' }
+              row.cell { '' }
+            end
+          end
+        end
+      end
+    end %>
+  </div>
+</section>

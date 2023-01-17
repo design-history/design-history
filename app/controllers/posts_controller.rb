@@ -5,8 +5,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @drafts = @project.posts.where(published: false).order(updated_at: :desc)
-    @posts = @project.posts.where(published: true).order(published_at: :desc)
+    @posts = @project.posts.order(published_at: :desc)
   end
 
   # GET /posts/1
