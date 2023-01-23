@@ -42,6 +42,12 @@ You'll need to append these entries to your `/etc/hosts`:
 127.0.0.1	this.app.local
 ```
 
+or
+
+```bash
+127.0.0.1	[sub domain of local design history].app.local
+```
+
 ### Intellisense
 
 [solargraph](https://github.com/castwide/solargraph) is bundled as part of the
