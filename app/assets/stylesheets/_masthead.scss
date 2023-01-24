@@ -1,18 +1,18 @@
 .app-masthead {
-  @include govuk-responsive-padding(7, "bottom");
+  @include govuk-responsive-padding(8, "bottom");
   padding-top: 0;
   color: $app-masthead-text-colour;
   background-color: $app-masthead-colour;
   margin-top: govuk-spacing(-2);
 
   &__title {
-    @include govuk-font($size: 36, $weight: bold);
-    @include govuk-responsive-padding(6, "top");
+    @include govuk-font($size: 48, $weight: bold);
+    @include govuk-responsive-padding(4, "top");
     margin-top: 0;
   }
 
   &__description {
-    @include govuk-font($size: 19);
+    @include govuk-font($size: 24);
     color: inherit;
     margin-bottom: 0;
 
