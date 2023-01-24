@@ -15,7 +15,7 @@
 
   &--admin {
     padding-top: 40px;
-    padding-bottom: -$app-header-border-width;
+    padding-bottom: $app-header-border-width;
     border-bottom: $app-header-border-width solid $app-header-bar-colour;
 
     .govuk-header__container {
