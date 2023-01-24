@@ -8,9 +8,9 @@
           </h1>
         <% end %>
         <% if @description %>
-          <p class="app-masthead__description<%= @description.classes&.prepend(' ') %>">
+          <div class="app-masthead__description<%= @description.classes&.prepend(' ') %>">
             <%= @description.html || @description.text %>
-          </p>
+          </div>
         <% end %>
       </div>
     </div>
