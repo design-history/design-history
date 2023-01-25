@@ -7,7 +7,7 @@
 #  ordered_image_ids :json
 #  published         :boolean
 #  published_at      :date
-#  related_links     :text
+#  related_links     :text             default("")
 #  slug              :string
 #  title             :string
 #  created_at        :datetime         not null
