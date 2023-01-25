@@ -27,7 +27,7 @@
 
       summary_list.row do |row|
         row.key { 'Domain' }
-        row.value { govuk_link_to design_history_link(@project),
+        row.value { govuk_link_to humanize_design_history_link(@project),
                     design_history_link(@project) }
       end
 

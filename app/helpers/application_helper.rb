@@ -17,11 +17,15 @@ module ApplicationHelper
 
   def design_history_link(project)
     protocol = Rails.env.production? ? "https" : "http"
+    link = humanize_design_history_link(project)
+    port = Rails.env.production? ? "" : ":#{request.port}"
+    "#{protocol}://#{link}#{port}"
+  end
+
+  def humanize_design_history_link(project)
     subdomain = project.subdomain
     domain = Rails.application.config.app_domain
-    port = Rails.env.production? ? "" : ":#{request.port}"
-
-    "#{protocol}://#{subdomain}.#{domain}#{port}"
+    "#{subdomain}.#{domain}"
   end
 
   def humanize_image_title(image)
