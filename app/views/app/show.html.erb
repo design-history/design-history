@@ -32,11 +32,12 @@
   <% end %>
 
   <%= govuk_one_third do %>
-    <div class="app-related-links">
-      <h2 class="app-related-links__main-heading">
-        Related links
+    <nav class="app-related-links" role="navigation"
+         aria-labelledby="related-content">
+      <h2 class="app-related-links__main-heading" id="related-content">
+        Related content
       </h2>
       <%= GovukMarkdown.render(@post.related_links).html_safe %>
-    </div>
+    </nav>
   <% end %>
 <% end %>
