@@ -26,6 +26,11 @@
       end
 
       summary_list.row do |row|
+        row.key { 'Description' }
+        row.value { @project.description }
+      end
+
+      summary_list.row do |row|
         row.key { 'Domain' }
         row.value { govuk_link_to humanize_design_history_link(@project),
                     design_history_link(@project) }
