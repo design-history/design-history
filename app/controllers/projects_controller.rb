@@ -53,6 +53,12 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :subdomain, :description, :theme)
+    params.require(:project).permit(
+      :title,
+      :subdomain,
+      :description,
+      :theme,
+      :related_links
+    )
   end
 end

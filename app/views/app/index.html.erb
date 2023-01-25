@@ -27,4 +27,16 @@
       <% end %>
     </ol>
   <% end %>
+
+  <%= govuk_one_third do %>
+    <% if @project.related_links.present? %>
+      <nav class="app-related-links" role="navigation"
+           aria-labelledby="related-content">
+        <h2 class="app-related-links__main-heading" id="related-content">
+          Related content
+        </h2>
+        <%= GovukMarkdown.render(@project.related_links).html_safe %>
+      </nav>
+    <% end %>
+  <% end %>
 <% end %>
