@@ -1,17 +1,17 @@
 @import "govuk-frontend/govuk/base";
 
-$app-brand-colour: #c1dede;
-$app-button-colour: #288080;
+$app-brand-colour: #288080;
+$app-button-colour: $app-brand-colour;
 
 $app-header-background-colour: govuk-colour("black");
 $app-header-bar-colour: $app-button-colour;
 $app-header-border-width: 10px;
 
+$app-masthead-colour: #c1dede;
 $app-masthead-text-colour: govuk-colour("black");
-$app-masthead-colour: $app-brand-colour;
 
 $app-tint-colour: govuk-tint($app-masthead-colour, 50%);
 
-$app-upload-colour: $app-brand-colour;
+$app-upload-colour: $app-masthead-colour;
 
 @import "application";
