@@ -86,12 +86,12 @@
               if post.published?
                 row.cell do %>
                   <time datetime="<%= post.published_at.iso8601 %>">
-                    <%= post.published_at.strftime("%d %B %Y") %></time>
+                    <%= post.published_at.strftime("%-d %b %Y") %></time>
                 <% end
                 row.cell { govuk_link_to app_post_url(post.to_param,
                                         host: Rails.application.config.app_domain,
                                         subdomain: @project.subdomain) do %>
-                    View published post <span class="govuk-visually-hidden">
+                    View post <span class="govuk-visually-hidden">
                       - <%= post.to_param %></span>
                 <% end }
               else
