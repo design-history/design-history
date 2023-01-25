@@ -13,3 +13,13 @@ h3:not([class]) {
 h4:not([class]) {
   @extend .govuk-heading-s;
 }
+
+blockquote {
+  border-left: govuk-spacing(2) solid $govuk-border-colour;
+  padding: 1em 0 1em 1em;
+  margin: 2em 0;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
