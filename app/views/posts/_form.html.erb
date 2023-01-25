@@ -19,6 +19,10 @@
         label: { text: 'Post', size: 's' },
         hint: { text: 'Use markdown for links, headings and images',
                 class: 'govuk-hint govuk-!-font-size-16' } %>
+      <%= f.govuk_text_area :related_links, rows: 4,
+        label: { text: 'Related links', size: 's' },
+        hint: { text: 'Use markdown for links',
+                class: 'govuk-hint govuk-!-font-size-16' } %>
       <%= f.govuk_check_boxes_fieldset :published, multiple: false,
         legend: { text: 'Publish', size: 'm' } do %>
         <%= f.govuk_check_box :published, 1, 0,
