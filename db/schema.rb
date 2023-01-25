@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_03_203137) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_094914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_203137) do
     t.bigint "project_id", null: false
     t.string "slug"
     t.json "ordered_image_ids", default: []
+    t.text "related_links"
     t.index ["project_id", "slug"], name: "index_posts_on_project_id_and_slug", unique: true
     t.index ["project_id"], name: "index_posts_on_project_id"
   end
