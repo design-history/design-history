@@ -7,6 +7,7 @@
 #  ordered_image_ids :json
 #  published         :boolean
 #  published_at      :date
+#  related_links     :text
 #  slug              :string
 #  title             :string
 #  created_at        :datetime         not null
@@ -27,6 +28,7 @@ FactoryBot.define do
     title { Faker::Company.bs.capitalize }
     slug { Faker::Internet.slug.gsub("_", "-") }
     body { Faker::Markdown.sandwich }
+    related_links { Faker::Markdown.sandwich }
     published { true }
     published_at { Time.zone.today }
   end
