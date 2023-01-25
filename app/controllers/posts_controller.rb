@@ -64,6 +64,7 @@ class PostsController < ApplicationController
       :title,
       :slug,
       :body,
+      :related_links,
       :published,
       :published_at
     )

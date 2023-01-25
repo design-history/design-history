@@ -30,4 +30,11 @@
 
     <%= render "shared/screenshots", post: @post if @post.ordered_images.any? %>
   <% end %>
+
+  <%= govuk_one_third do %>
+    <h2 class="govuk-heading-s">
+      Related links
+    </h2>
+    <%= GovukMarkdown.render(@post.related_links).html_safe %>
+  <% end %>
 <% end %>
