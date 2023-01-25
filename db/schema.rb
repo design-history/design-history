@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_25_113130) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_131201) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_113130) do
     t.string "owner_type", null: false
     t.bigint "owner_id", null: false
     t.string "theme", default: "dh", null: false
+    t.text "related_links", default: ""
     t.index ["owner_type", "owner_id"], name: "index_projects_on_owner"
     t.index ["subdomain"], name: "index_projects_on_subdomain", unique: true
   end

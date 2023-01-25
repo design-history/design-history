@@ -2,16 +2,17 @@
 #
 # Table name: projects
 #
-#  id          :bigint           not null, primary key
-#  description :string
-#  owner_type  :string           not null
-#  password    :string
-#  subdomain   :string
-#  theme       :string           default("dh"), not null
-#  title       :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  owner_id    :bigint           not null
+#  id            :bigint           not null, primary key
+#  description   :string
+#  owner_type    :string           not null
+#  password      :string
+#  related_links :text             default("")
+#  subdomain     :string
+#  theme         :string           default("dh"), not null
+#  title         :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  owner_id      :bigint           not null
 #
 # Indexes
 #
