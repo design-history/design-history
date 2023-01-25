@@ -68,7 +68,7 @@ RSpec.describe "Related links" do
 
   def when_i_visit_my_post
     click_link @project.title
-    click_link "View published post"
+    click_link "View post"
   end
 
   def then_i_see_my_related_links
