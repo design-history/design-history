@@ -19,7 +19,7 @@
       <p class="app-metadata">
         <span class="govuk-visually-hidden">Posted on: </span>
         <time datetime="<%= @post.updated_at.iso8601 %>">
-          <%= @post.published_at.strftime("%d %B %Y") %>
+          <%= @post.published_at.strftime("%-d %B %Y") %>
         </time>
       </p>
     </footer>
