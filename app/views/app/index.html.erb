@@ -21,7 +21,7 @@
           <p class="app-posts__date govuk-!-font-size-16">
             <time
               datetime="<%= post.updated_at.iso8601 %>">
-              <%= post.published_at.strftime("%d %B %Y") %></time>
+              <%= post.published_at.strftime("%-d %B %Y") %></time>
           </p>
         </li>
       <% end %>
