@@ -1,15 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[edit update destroy]
 
   # GET /posts
   def index
     @posts = @project.posts.order(published_at: :desc)
-  end
-
-  # GET /posts/1
-  def show
   end
 
   # GET /posts/new
