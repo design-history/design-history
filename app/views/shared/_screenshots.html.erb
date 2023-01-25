@@ -1,8 +1,20 @@
-<h2 class="govuk-heading-l">Screenshots</h2>
-
-<section class="app-screenshots">
+<section class="app-screenshots" id="screenshots">
+  <div class="govuk-!-display-none-print">
+    <h2 class="govuk-heading-l">Screenshots</h2>
+    <% if post.images.length > 1 %>
+      <ol class="govuk-list govuk-!-margin-bottom-8">
+        <% post.ordered_images.each do |image| %>
+          <li>
+            <a href="#screenshot-<%= image.id %>">
+              <%= humanize_image_title(image) %>
+            </a>
+          </li>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
   <% post.ordered_images.each do |image| %>
-    <figure class="app-screenshots__screenshot">
+    <figure class="app-screenshots__screenshot" id="screenshot-<%= image.id %>">
       <h3 class="govuk-heading-m">
         <%= humanize_image_title(image) %>
       </h3>
