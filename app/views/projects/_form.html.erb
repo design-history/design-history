@@ -31,8 +31,8 @@
       %>
       <%= f.govuk_text_area :related_links, rows: 4,
         label: { text: 'Related content', size: 's' },
-        hint: { text: 'Use markdown for links',
-                class: 'govuk-hint govuk-!-font-size-16' } %>
+        hint: { text: 'Use markdown for links. These will appear in the
+                       sidebar' } %>
 
       <% themes = [
         OpenStruct.new(id: 'gov', name: 'UK Government'),
