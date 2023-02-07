@@ -40,7 +40,6 @@ class Post < ApplicationRecord
             format: {
               with: /\A[a-z0-9-]+\z/
             }
-  validates :body, presence: true
   validates :published_at, presence: true, if: -> { published == true }
 
   def ordered_images
