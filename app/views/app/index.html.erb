@@ -1,3 +1,5 @@
+<%= content_for :page_title, @project.title %>
+
 <% content_for :masthead do %>
   <%= render(AppMastheadComponent.new(
     classes: 'app-masthead--large govuk-!-padding-top-4',
