@@ -39,6 +39,9 @@ class Post < ApplicationRecord
             },
             format: {
               with: /\A[a-z0-9-]+\z/
+            },
+            uniqueness: {
+              scope: :project
             }
   validates :published_at, presence: true, if: -> { published == true }
 
