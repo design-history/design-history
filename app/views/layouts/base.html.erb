@@ -42,13 +42,22 @@
         footer.meta do %>
         <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
           <div class="govuk-footer__meta-custom">
-            © 2022–<%= Time.now.year %>. Built with
-            <a class="govuk-footer__link"
-               href="https://www.designhistory.io">
-              Design history</a>.
-            <a class="govuk-footer__link"
-               href="https://github.com/design-history/design-history/">
-              Source code on GitHub</a>.
+            <% unless is_admin? %>
+              <p class="govuk-body-s">
+                <a class="govuk-footer__link"
+                  href="https://www.designhistory.io/sign-in">
+                  Sign in</a>
+              </p>
+            <% end %>
+            <p class="govuk-body-s govuk-footer__licence-description">
+              © 2022–<%= Time.now.year %> Built with
+              <a class="govuk-footer__link"
+                href="https://www.designhistory.io">
+                Design history</a>.
+              <a class="govuk-footer__link"
+                href="https://github.com/design-history/design-history/">
+                Source code on GitHub</a>.
+            </p>
           </div>
         </div>
       <% end; end %>
