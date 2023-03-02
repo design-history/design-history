@@ -44,6 +44,7 @@ class Post < ApplicationRecord
               scope: :project
             }
   validates :published_at, presence: true, if: -> { published == true }
+  before_validation :generate_slug_from_title, on: %i[create update]
 
   def ordered_images
     images.sort_by do |image|
@@ -94,5 +95,9 @@ class Post < ApplicationRecord
     reload
 
     true
+  end
+
+  def generate_slug_from_title
+    self.slug = title.parameterize if slug.blank? && title.present?
   end
 end

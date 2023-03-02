@@ -17,6 +17,15 @@ RSpec.describe "Posts" do
     and_i_see_a_view_post_link
   end
 
+  it "generates a slug when none given" do
+    given_i_am_signed_in
+    when_i_visit_my_project
+    when_i_click_on_new_post
+    when_i_submit_a_title_without_a_slug
+    then_i_see_the_edit_post_page
+    and_i_see_the_slug_has_been_generated
+  end
+
   private
 
   def given_i_am_signed_in
@@ -66,5 +75,14 @@ RSpec.describe "Posts" do
       "a[href*='#{@project.subdomain}'][href*='#{@slug}']",
       text: "View post"
     )
+  end
+
+  def when_i_submit_a_title_without_a_slug
+    fill_in "post[title]", with: Faker::Company.bs.capitalize
+    click_button "Save"
+  end
+
+  def and_i_see_the_slug_has_been_generated
+    expect(page).to have_field "post[slug]", with: Post.last.title.parameterize
   end
 end
