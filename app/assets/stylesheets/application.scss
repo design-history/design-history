@@ -64,3 +64,10 @@ $govuk-button-background-colour: $app-button-colour;
 .govuk-table__head .govuk-table__cell {
   font-weight: bold;
 }
+
+.app-markdown {
+  .govuk-body-m img {
+    max-width: 100%;
+    outline: 1px solid rgba(177, 180, 182, 0.5);
+  }
+}
