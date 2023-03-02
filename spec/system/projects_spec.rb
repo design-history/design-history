@@ -33,11 +33,11 @@ RSpec.describe "Projects" do
   end
 
   def then_i_see_a_new_project_button
-    expect(page).to have_link "New design history"
+    expect(page).to have_link "Create your first design history"
   end
 
   def when_i_click_the_new_project_button
-    click_link "New design history"
+    click_link "Create your first design history"
   end
 
   def then_i_see_the_new_project_form
