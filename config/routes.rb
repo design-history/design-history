@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root to: "pages#landing"
 
     get "/start", to: "pages#start"
+    get "/sign-in", to: redirect("/users/sign_in")
 
     devise_for :users
 
