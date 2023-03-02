@@ -28,7 +28,7 @@ class TeamsController < ApplicationController
     @add_user_form = AddUserForm.new(add_user_params)
     @add_user_form.team = @team
     if @add_user_form.save
-      redirect_to @team, notice: "User was successfully added"
+      redirect_to @team, notice: "User added"
     else
       render :show, status: :unprocessable_entity
     end
