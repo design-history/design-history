@@ -3,7 +3,12 @@
     <%= govuk_two_thirds do %>
       <%= govuk_notification_banner(title_text: "Success",
                                     success: true) do |nb| %>
-        <% nb.heading(text: notice) %>
+        <% if notice.is_a?(String) %>
+          <% nb.heading(text: notice) %>
+        <% else %>
+          <% nb.heading(text: notice["title"]) %>
+          <%= notice["body"].html_safe %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

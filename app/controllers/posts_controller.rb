@@ -32,8 +32,20 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to edit_project_post_path(@project, @post),
-                  notice: "Changes saved"
+      if @post.published?
+        body =
+          helpers.govuk_link_to "View post",
+                                app_post_url(
+                                  @post.to_param,
+                                  host: Rails.application.config.app_domain,
+                                  subdomain: @project.subdomain
+                                )
+        notice = { title: "Changes saved", body: }
+      else
+        notice = "Changes saved"
+      end
+
+      redirect_to edit_project_post_path(@project, @post), notice:
     else
       render :edit, status: :unprocessable_entity
     end

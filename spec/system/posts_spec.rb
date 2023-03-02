@@ -11,6 +11,10 @@ RSpec.describe "Posts" do
 
     when_i_submit_my_post_details
     then_i_see_the_edit_post_page
+
+    when_i_publish_my_post
+    then_i_see_the_edit_post_page
+    and_i_see_a_view_post_link
   end
 
   private
@@ -38,13 +42,29 @@ RSpec.describe "Posts" do
   end
 
   def when_i_submit_my_post_details
+    @slug = Faker::Internet.slug.gsub("_", "-")
     fill_in "post[title]", with: Faker::Company.bs.capitalize
-    fill_in "post[slug]", with: Faker::Internet.slug.gsub("_", "-")
+    fill_in "post[slug]", with: @slug
     fill_in "post[body]", with: Faker::Markdown.sandwich
+    click_button "Save"
+  end
+
+  def when_i_publish_my_post
+    fill_in "post[published_at(3i)]", with: "1"
+    fill_in "post[published_at(2i)]", with: "1"
+    fill_in "post[published_at(1i)]", with: "2001"
+    find('label[for*="post-published"]').click
     click_button "Save"
   end
 
   def then_i_see_the_edit_post_page
     expect(page).to have_content "Editing post"
+  end
+
+  def and_i_see_a_view_post_link
+    expect(page).to have_selector(
+      "a[href*='#{@project.subdomain}'][href*='#{@slug}']",
+      text: "View post"
+    )
   end
 end
