@@ -15,10 +15,19 @@
           </li>
         <% end %>
       </ul>
+      <p>
+        <%= govuk_button_link_to "New design history", new_project_path %>
+      </p>
+    <% else %>
+      <p class="govuk-body">
+        You don’t have any design histories yet.
+      </p>
+      <p>You can either:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+        <li>create your first design history</li>
+        <li>ask a team member to add you to an existing design history</li>
+      </ul>
+      <%= govuk_button_link_to "Create your first design history", new_project_path %>
     <% end %>
-
-    <p>
-      <%= govuk_button_link_to "New design history", new_project_path %>
-    </p>
   <% end %>
 <% end %>
