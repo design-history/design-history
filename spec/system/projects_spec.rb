@@ -20,6 +20,10 @@ RSpec.describe "Projects" do
 
     when_i_click_on_the_project_link
     then_i_see_the_project_index
+
+    when_i_visit_the_edit_page_for_my_project
+    and_i_change_the_subdomain_to_a_full_domain
+    then_i_see_my_updated_subdomain_with_just_the_subdomain
   end
 
   private
@@ -79,5 +83,19 @@ RSpec.describe "Projects" do
 
   def then_i_see_the_project_index
     expect(page).to have_content "#{@project_title} design history"
+  end
+
+  def when_i_visit_the_edit_page_for_my_project
+    visit edit_project_path(Project.last.id)
+  end
+
+  def and_i_change_the_subdomain_to_a_full_domain
+    fill_in "project[subdomain]",
+            with: "https://blueberry-horse.designhistory.app"
+    click_button "Save changes"
+  end
+
+  def then_i_see_my_updated_subdomain_with_just_the_subdomain
+    expect(page).to have_link "blueberry-horse.app.local"
   end
 end

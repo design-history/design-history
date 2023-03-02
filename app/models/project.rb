@@ -42,8 +42,16 @@ class Project < ApplicationRecord
   validates :password, length: { maximum: 50 }, confirmation: true
   validates :password, presence: true, if: -> { visibility == "private" }
   validates :theme, inclusion: { in: %w[dh gov nhs] }
+  before_validation :strip_domain_and_protocol_from_subdomain,
+                    on: %i[create update]
 
   def private?
     password.present?
+  end
+
+  private
+
+  def strip_domain_and_protocol_from_subdomain
+    self.subdomain = subdomain.gsub(%r{\Ahttps?://}, "").gsub(/\..*\z/, "")
   end
 end
