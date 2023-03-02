@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to edit_project_post_path(@project, @post),
-                  notice: "Post was successfully created"
+                  notice: "Post created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       redirect_to edit_project_post_path(@project, @post),
-                  notice: "Post was successfully updated"
+                  notice: "Changes saved"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy!
-    redirect_to posts_url, notice: "Post was successfully destroyed"
+    redirect_to posts_url, notice: "Post deleted"
   end
 
   private
