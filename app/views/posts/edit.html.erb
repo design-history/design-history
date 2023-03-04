@@ -27,6 +27,12 @@
         Write
       </a>
     </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab"
+        href="<%= project_post_images_path(@project, @post) %>">
+        Screenshots
+      </a>
+    </li>
   </ul>
   <div class="govuk-tabs__panel">
     <%= render "form", project: @project, post: @post %>

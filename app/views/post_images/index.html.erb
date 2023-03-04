@@ -1,0 +1,101 @@
+<% content_for :breadcrumbs do %>
+  <%= govuk_breadcrumbs(breadcrumbs: {
+    "Your design histories" => projects_path,
+    @project.title => project_path(@project),
+    "#{@post.title.blank? ? "Edit post" : @post.title}" => nil
+  }) %>
+<% end %>
+
+<% title = "Editing screenshots" %>
+<%= content_for :page_title, title %>
+
+<%= govuk_row do %>
+  <%= govuk_two_thirds do %>
+    <%= form_with(model: [@project, @post]) do |f| %>
+      <%= f.govuk_error_summary %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1 class="govuk-heading-xl"><%= title %></h1>
+
+<div class="govuk-tabs">
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab"
+        href="<%= edit_project_post_path(@project, @post) %>">
+        Write
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab"
+        href="<%= project_post_images_path(@project, @post) %>">
+        Screenshots
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-tabs__panel">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Screenshots</h2>
+    <p class="govuk-!-margin-bottom-6">
+      Show a list of images at the bottom of your post.
+    </p>
+
+    <%= turbo_frame_tag "images" do %>
+      <div class="app-upload">
+        <ul class="govuk-list">
+          <% @post.ordered_images.each do |image| %>
+            <li class="app-upload__row">
+              <%= govuk_row do %>
+                <%= govuk_one_third do %>
+                  <div class="app-upload__attachment">
+                    <%= image_tag image,
+                      class: 'govuk-!-margin-bottom-2',
+                      style: 'max-width: 100%; border: 1px solid #000' %>
+
+                    <div class="app-upload__attachment-buttons govuk-button-group">
+                      <%= render "buttons", image: %>
+                    </div>
+                  </div>
+                <% end %>
+                <%= govuk_two_thirds do %>
+                  <%= form_with model: image,
+                    url: '#',
+                    method: :put do |f| %>
+
+                    <%= f.govuk_text_field :title,
+                      disabled: true, placeholder: "Not implemented",
+                      label: { text: "Title" } %>
+
+                    <%= f.govuk_text_field :alt_text,
+                      disabled: true, placeholder: "Not implemented",
+                      label: { text: "Alt text" } %>
+
+                    <%= f.govuk_text_area :caption, rows: 5,
+                      disabled: true, placeholder: "Not implemented",
+                      label: { text: "Caption" },
+                      hint: {
+                        text: "Optional. You can use markdown",
+                        class: 'govuk-hint govuk-!-font-size-16'
+                      } %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+
+        <%= form_with(model: @post,
+                      url: project_post_images_path(@project, @post),
+                      method: :post) do |f| %>
+          <%= f.label :images, "Add more images",
+            class: 'govuk-label govuk-label--s govuk-!-margin-top-2
+                    govuk-!-margin-bottom-2' %>
+          <%= f.file_field :images,
+            multiple: true, accept: 'image/png,image/jpeg,image/gif' %>
+
+          <%= f.govuk_submit "Save images", class: 'govuk-!-margin-top-4' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

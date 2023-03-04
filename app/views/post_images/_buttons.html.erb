@@ -1,0 +1,25 @@
+<% unless @post.first_image?(image) %>
+  <%= button_to up_project_post_image_path(@project, @post, image),
+    class: 'govuk-button govuk-button--secondary
+            govuk-!-font-weight-bold' do %>
+    ↑ <span class="govuk-visually-hidden">
+      Move up image <%= image.id %></span>
+  <% end %>
+<% end %>
+
+<% unless @post.last_image?(image) %>
+  <%= button_to down_project_post_image_path(@project, @post, image),
+    class: 'govuk-button govuk-button--secondary
+            govuk-!-font-weight-bold' do %>
+    ↓ <span class="govuk-visually-hidden">
+      Move down image <%= image.id %></span>
+  <% end %>
+<% end %>
+
+<%= button_to project_post_image_path(@project, @post, image),
+  method: :delete,
+  class: 'govuk-button govuk-button--secondary
+          govuk-!-font-weight-bold' do %>
+  × <span class="govuk-visually-hidden">
+    Delete image <%= image.id %></span>
+<% end %>
