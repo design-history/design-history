@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
       resources :posts do
         resources :images,
-                  only: %i[create destroy],
+                  only: %i[index create destroy],
                   controller: "post_images" do
           post :up, on: :member
           post :down, on: :member

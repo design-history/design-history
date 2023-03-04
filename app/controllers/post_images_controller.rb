@@ -2,7 +2,11 @@ class PostImagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
   before_action :set_post
-  before_action :set_image, except: [:create]
+  before_action :set_image, except: %i[index create]
+
+  def index
+    @images = @post.images
+  end
 
   def up
     @post.ordered_image_move_up!(@image)
