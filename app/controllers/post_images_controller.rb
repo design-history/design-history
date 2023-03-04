@@ -10,26 +10,25 @@ class PostImagesController < ApplicationController
 
   def up
     @post.ordered_image_move_up!(@image)
-    redirect_to edit_project_post_path(@project, @post), notice: "Image moved"
+    redirect_to project_post_images_path, notice: "Image moved"
   end
 
   def down
     @post.ordered_image_move_down!(@image)
-    redirect_to edit_project_post_path(@project, @post), notice: "Image moved"
+    redirect_to project_post_images_path, notice: "Image moved"
   end
 
   def create
     if @post.update(create_params)
-      redirect_to edit_project_post_path(@project, @post),
-                  notice: "Images uploaded"
+      redirect_to project_post_images_path, notice: "Images uploaded"
     else
-      render "post/edit", status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
   def destroy
     @image.purge
-    redirect_to edit_project_post_path(@project, @post),
+    redirect_to project_post_images_path,
                 notice: "Image was successfully deleted"
   end
 
