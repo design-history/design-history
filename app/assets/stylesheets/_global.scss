@@ -23,3 +23,8 @@ blockquote {
     margin-bottom: 0;
   }
 }
+
+input[disabled],
+textarea[disabled] {
+  border-color: govuk-colour("mid-grey");
+}
