@@ -12,8 +12,8 @@ require "capybara/cuprite"
 
 Faker::Config.locale = "en-GB"
 Capybara.app_host = "http://localhost"
-Capybara.javascript_driver = :cuprite
-Capybara.register_driver(:cuprite) do |app|
+Capybara.javascript_driver = :cuprite_custom
+Capybara.register_driver(:cuprite_custom) do |app|
   Capybara::Cuprite::Driver.new(
     app,
     url_blacklist: %w[fonts.googleapis.com],
@@ -75,7 +75,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.before(:each, type: :system) { driven_by(:cuprite) }
+  config.before(:each, type: :system) { driven_by(:cuprite_custom) }
 
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::IntegrationHelpers, type: :system
