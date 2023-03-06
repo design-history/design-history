@@ -59,12 +59,11 @@
                 <% end %>
                 <%= govuk_two_thirds do %>
                   <%= form_with model: image,
-                    url: '#',
-                    method: :put do |f| %>
-
+                    url: project_post_image_path(@project, @post, image),
+                    method: :patch do |f| %>
                     <%= f.govuk_text_field :title,
-                      disabled: true, placeholder: "Not implemented",
-                      label: { text: "Title" } %>
+                      label: { text: "Title" },
+                      value: image_title(image) %>
 
                     <%= f.govuk_text_field :alt_text,
                       disabled: true, placeholder: "Not implemented",
@@ -77,6 +76,8 @@
                         text: "Optional. You can use markdown",
                         class: 'govuk-hint govuk-!-font-size-16'
                       } %>
+
+                    <%= f.govuk_submit "Save", class: 'govuk-!-margin-top-4' %>
                   <% end %>
                 <% end %>
               <% end %>
