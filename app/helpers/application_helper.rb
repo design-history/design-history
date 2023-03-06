@@ -28,6 +28,10 @@ module ApplicationHelper
     "#{subdomain}.#{domain}"
   end
 
+  def image_title(image)
+    image.custom_metadata["title"] || humanize_image_title(image)
+  end
+
   def humanize_image_title(image)
     extension = File.extname(image.filename.to_s)
     filename = image.filename.to_s.chomp extension
