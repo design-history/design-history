@@ -26,6 +26,15 @@ class PostImagesController < ApplicationController
     end
   end
 
+  def update
+    @image.custom_metadata = update_params
+    if @image.save
+      redirect_to project_post_images_path, notice: "Image updated"
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @image.purge
     redirect_to project_post_images_path,
@@ -36,6 +45,10 @@ class PostImagesController < ApplicationController
 
   def create_params
     params.require(:post).permit(images: [])
+  end
+
+  def update_params
+    params.require(:attachment).permit(:title)
   end
 
   def set_project

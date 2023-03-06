@@ -26,9 +26,7 @@ Rails.application.routes.draw do
       patch "/manage-access", to: "manage_access#update"
 
       resources :posts do
-        resources :images,
-                  only: %i[index create destroy],
-                  controller: "post_images" do
+        resources :images, controller: "post_images" do
           post :up, on: :member
           post :down, on: :member
         end
