@@ -20,6 +20,10 @@ $govuk-button-background-colour: $app-button-colour;
 @import "summary-card";
 @import "upload";
 
+.app-\!-no-wrap {
+  white-space: nowrap;
+}
+
 .app-design-history {
   background-color: $app-tint-colour;
 }

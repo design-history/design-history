@@ -85,12 +85,18 @@
                          end }
               if post.published?
                 row.cell do %>
-                  <time datetime="<%= post.published_at.iso8601 %>">
-                    <%= post.published_at.strftime("%-d %b %Y") %></time>
+                  <time
+                    class="app-!-no-wrap"
+                    datetime="<%= post.published_at.iso8601 %>"
+                  >
+                    <%= post.published_at.strftime("%-d %b %Y") %>
+                  </time>
                 <% end
                 row.cell { govuk_link_to app_post_url(post.to_param,
                                         host: Rails.application.config.app_domain,
-                                        subdomain: @project.subdomain) do %>
+                                        subdomain: @project.subdomain), {
+                                          class: 'app-!-no-wrap',
+                                        } do %>
                     View post <span class="govuk-visually-hidden">
                       - <%= post.to_param %></span>
                 <% end }
