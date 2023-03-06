@@ -6,20 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <% if is_admin? %>
+    <% theme = content_for?(:theme) ? yield(:theme) : "dh" %>
+    <% if is_admin? || theme == "dh" %>
       <%= favicon_link_tag 'android-chrome-192x192.png' %>
       <%= favicon_link_tag 'android-chrome-512x512.png' %>
       <%= favicon_link_tag 'apple-touch-icon.png' %>
-      <%= favicon_link_tag 'favicon-16x16.png' %>
       <%= favicon_link_tag 'favicon-32x32.png' %>
       <%= favicon_link_tag 'favicon.ico' %>
+    <% else %>
+      <%= favicon_link_tag "#{theme}-android-chrome-192x192.png" %>
+      <%= favicon_link_tag "#{theme}-android-chrome-512x512.png" %>
+      <%= favicon_link_tag "#{theme}-apple-touch-icon.png" %>
+      <%= favicon_link_tag "#{theme}-favicon-32x32.png" %>
+      <%= favicon_link_tag "#{theme}-favicon.ico" %>
     <% end %>
 
     <%= tag :meta, name: 'viewport', content: 'width=device-width, initial-scale=1' %>
     <%= tag :meta, name: 'theme-color', content: '#0b0c0c' %>
 
-    <%= stylesheet_link_tag content_for?(:theme) ? yield(:theme) : "dh",
-      "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag theme, "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
