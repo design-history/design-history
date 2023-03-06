@@ -24,6 +24,8 @@
 #  fk_rails_...  (project_id => projects.id)
 #
 class Post < ApplicationRecord
+  MAX_SLUG_LENGTH = 50
+
   belongs_to :project
 
   has_many_attached :images
@@ -35,7 +37,7 @@ class Post < ApplicationRecord
   validates :slug,
             presence: true,
             length: {
-              maximum: 50
+              maximum: MAX_SLUG_LENGTH
             },
             format: {
               with: /\A[a-z0-9-]+\z/
@@ -98,6 +100,7 @@ class Post < ApplicationRecord
   end
 
   def generate_slug_from_title
-    self.slug = title.parameterize if slug.blank? && title.present?
+    self.slug = title.parameterize.slice(0, MAX_SLUG_LENGTH) if slug.blank? &&
+      title.present?
   end
 end
