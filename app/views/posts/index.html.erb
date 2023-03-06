@@ -56,13 +56,13 @@
     <h2 class="app-summary-card__title govuk-!-font-weight-bold govuk-!-font-size-24">
       Posts
     </h2>
-
-    <div class="app-summary-card__actions">
-      <%= govuk_link_to "New post", new_project_post_path(@project) %>
-    </div>
   </header>
 
   <div class="app-summary-card__body">
+    <%= govuk_button_link_to "New post",
+          new_project_post_path(@project),
+          { class: 'govuk-!-margin-bottom-3'} %>
+
     <% if @posts.any? %>
       <%= govuk_table do |table|
         table.head do |head|
