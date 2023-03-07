@@ -15,7 +15,7 @@
     <ol class="govuk-list app-posts">
       <% @posts.each do |post| %>
         <li class="app-posts__item">
-          <h2 class="govuk-heading-m">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
             <%= govuk_link_to app_post_path(post.to_param) do %>
               <%= post.title %>
             <% end %>
