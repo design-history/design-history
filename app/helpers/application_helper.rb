@@ -35,6 +35,7 @@ module ApplicationHelper
   def humanize_image_title(image)
     extension = File.extname(image.filename.to_s)
     filename = image.filename.to_s.chomp extension
+    filename = filename.sub(/\A\d{2}-/, "").gsub("-", "_")
     filename.humanize
   end
 
