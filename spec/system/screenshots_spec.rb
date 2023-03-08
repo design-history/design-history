@@ -51,7 +51,7 @@ RSpec.describe "Screenshots" do
   def when_i_upload_an_image
     attach_file "post[images][]",
                 Rails.root.join("spec/fixtures/files/screenshot.png")
-    click_button "Save images"
+    click_button "Add images"
   end
 
   def then_i_see_the_image
@@ -61,7 +61,7 @@ RSpec.describe "Screenshots" do
   def when_i_upload_another_image
     attach_file "post[images][]",
                 Rails.root.join("spec/fixtures/files/screenshot2.png")
-    click_button "Save images"
+    click_button "Add images"
   end
 
   def then_i_see_both_images
