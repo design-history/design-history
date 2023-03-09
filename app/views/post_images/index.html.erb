@@ -49,6 +49,7 @@
                 <%= govuk_one_third do %>
                   <div class="app-upload__attachment">
                     <%= image_tag image,
+                      alt: image_alt_text_fallback(image),
                       class: 'govuk-!-margin-bottom-2',
                       style: 'max-width: 100%; border: 1px solid #000' %>
 
@@ -66,8 +67,8 @@
                       value: image_title(image) %>
 
                     <%= f.govuk_text_field :alt_text,
-                      disabled: true, placeholder: "Not implemented",
-                      label: { text: "Alt text" } %>
+                      label: { text: "Alt text" },
+                      value: image_alt_text(image) %>
 
                     <%= f.govuk_text_area :caption, rows: 5,
                       disabled: true, placeholder: "Not implemented",
