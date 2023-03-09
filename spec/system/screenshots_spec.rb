@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Screenshots" do
-  it "can have titles and can be attached, deleted, reordered" do
+  it "can have titles and alt_text and can be attached, deleted, reordered" do
     given_i_am_signed_in
     when_i_visit_my_post
     then_i_see_the_screenshots_link
@@ -21,6 +21,9 @@ RSpec.describe "Screenshots" do
     when_i_move_the_first_image_down
     and_i_delete_the_second_image
     then_i_see_the_first_image
+
+    when_i_edit_the_first_image_alt_text
+    then_the_alt_text_is_updated
   end
 
   private
@@ -88,6 +91,15 @@ RSpec.describe "Screenshots" do
   end
 
   def then_the_title_is_updated
-    expect(@post.images.first.custom_metadata).to eq "title" => "New title"
+    expect(@post.images.first.custom_metadata["title"]).to eq "New title"
+  end
+
+  def when_i_edit_the_first_image_alt_text
+    first("input[name*='alt_text']").set "New alt text"
+    first("button", text: "Save").click
+  end
+
+  def then_the_alt_text_is_updated
+    expect(@post.images.first.custom_metadata["alt_text"]).to eq "New alt text"
   end
 end

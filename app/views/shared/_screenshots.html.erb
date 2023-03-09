@@ -19,7 +19,7 @@
         <%= image_title(image) %>
       </h3>
       <%= link_to image do %>
-        <%= image_tag image, alt: image_title(image) %>
+        <%= image_tag image, alt: image_alt_text_fallback(image) %>
       <% end %>
     </figure>
   <% end %>
