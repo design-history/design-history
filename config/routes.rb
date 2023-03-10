@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Avo::Engine, at: Avo.configuration.root_path
+
   get "/robots.:format", to: "pages#robots"
 
   scope via: :all do
