@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  mount Avo::Engine, at: Avo.configuration.root_path
-
   get "/robots.:format", to: "pages#robots"
 
   scope via: :all do
@@ -48,5 +46,9 @@ Rails.application.routes.draw do
     post "/confirm-password",
          to: "app#confirm_password",
          as: "app_confirm_password"
+  end
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount Avo::Engine => "/avo"
   end
 end
