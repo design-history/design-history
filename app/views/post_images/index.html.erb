@@ -52,6 +52,7 @@
                       alt: image_alt_text_fallback(image),
                       class: 'govuk-!-margin-bottom-2',
                       style: 'max-width: 100%; border: 1px solid #000' %>
+                    <%= GovukMarkdown.render(image_caption(image)).html_safe if image_caption(image).present? %>
 
                     <div class="app-upload__attachment-buttons govuk-button-group">
                       <%= render "buttons", image: %>
@@ -71,12 +72,12 @@
                       value: image_alt_text(image) %>
 
                     <%= f.govuk_text_area :caption, rows: 5,
-                      disabled: true, placeholder: "Not implemented",
                       label: { text: "Caption" },
                       hint: {
                         text: "Optional. You can use markdown",
                         class: 'govuk-hint govuk-!-font-size-16'
-                      } %>
+                      },
+                      value: image_caption(image) %>
 
                     <%= f.govuk_submit "Save", class: 'govuk-!-margin-top-4' %>
                   <% end %>

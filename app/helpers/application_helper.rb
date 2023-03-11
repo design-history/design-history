@@ -40,6 +40,10 @@ module ApplicationHelper
     (image.custom_metadata["alt_text"].presence || image_title(image))
   end
 
+  def image_caption(image)
+    image.custom_metadata["caption"]
+  end
+
   def humanize_image_title(image)
     extension = File.extname(image.filename.to_s)
     filename = image.filename.to_s.chomp extension
