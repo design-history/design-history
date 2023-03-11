@@ -24,6 +24,9 @@ RSpec.describe "Screenshots" do
 
     when_i_edit_the_first_image_alt_text
     then_the_alt_text_is_updated
+
+    when_i_edit_the_first_image_caption
+    then_the_caption_is_updated
   end
 
   private
@@ -101,5 +104,16 @@ RSpec.describe "Screenshots" do
 
   def then_the_alt_text_is_updated
     expect(@post.images.first.custom_metadata["alt_text"]).to eq "New alt text"
+  end
+
+  def when_i_edit_the_first_image_caption
+    first("textarea[name*='caption']").set "New **caption**"
+    first("button", text: "Save").click
+  end
+
+  def then_the_caption_is_updated
+    expect(
+      @post.images.first.custom_metadata["caption"]
+    ).to eq "New **caption**"
   end
 end

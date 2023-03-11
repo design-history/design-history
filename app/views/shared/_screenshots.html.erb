@@ -21,6 +21,11 @@
       <%= link_to image do %>
         <%= image_tag image, alt: image_alt_text_fallback(image) %>
       <% end %>
+      <% if image_caption(image).present? %>
+        <figcaption>
+          <%= GovukMarkdown.render(image_caption(image)).html_safe %>
+        </figcaption>
+      <% end %>
     </figure>
   <% end %>
 </section>
