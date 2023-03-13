@@ -293,7 +293,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rbs (2.7.0)
+    rbs (3.0.4)
     redcarpet (3.6.0)
     regexp_parser (2.6.2)
     reline (0.3.2)
@@ -389,7 +389,7 @@ GEM
       haml (>= 5.2)
       prettier_print (>= 1.0.0)
       syntax_tree (>= 6.0.0)
-    syntax_tree-rbs (0.5.1)
+    syntax_tree-rbs (1.0.0)
       prettier_print
       rbs
       syntax_tree (>= 2.0.1)
