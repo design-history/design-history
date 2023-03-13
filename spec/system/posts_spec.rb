@@ -14,6 +14,7 @@ RSpec.describe "Posts" do
 
     when_i_publish_my_post
     then_i_see_the_edit_post_page
+    and_i_see_a_publish_date_that_is_today
     and_i_see_a_view_post_link
   end
 
@@ -50,15 +51,29 @@ RSpec.describe "Posts" do
   end
 
   def when_i_publish_my_post
-    fill_in "post[published_at(3i)]", with: "1"
-    fill_in "post[published_at(2i)]", with: "1"
-    fill_in "post[published_at(1i)]", with: "2001"
     find('label[for*="post-published"]').click
     click_button "Save"
   end
 
   def then_i_see_the_edit_post_page
     expect(page).to have_content "Editing post"
+  end
+
+  def and_i_see_a_publish_date_that_is_today
+    expect(page).to have_field(
+      "post[published_at(1i)]",
+      with: Time.zone.today.year
+    )
+
+    expect(page).to have_field(
+      "post[published_at(2i)]",
+      with: Time.zone.today.month
+    )
+
+    expect(page).to have_field(
+      "post[published_at(3i)]",
+      with: Time.zone.today.day
+    )
   end
 
   def and_i_see_a_view_post_link
