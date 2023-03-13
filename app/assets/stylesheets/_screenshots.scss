@@ -5,9 +5,44 @@
     margin-right: 0;
     width: 100%;
 
-    img {
-      max-width: 100%;
-      outline: 1px solid rgba(177, 180, 182, 0.5);
+    > a {
+      display: block;
+      outline: 1px solid $govuk-border-colour;
+      margin: 1px;
+
+      &:hover {
+        outline: 4px solid $govuk-link-hover-colour;
+      }
+
+      &:active,
+      &:focus {
+        outline: 4px solid $govuk-link-active-colour;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        outline: 0;
+        margin-bottom: 0;
+      }
+
+      &:active img,
+      &:focus img {
+        outline: 10px solid $govuk-focus-colour;
+      }
+    }
+
+    figcaption {
+      background-color: govuk-colour("light-grey");
+      padding: govuk-spacing(4);
+
+      p {
+        @include govuk-font($size: 16);
+      }
+
+      :last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
