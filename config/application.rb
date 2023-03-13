@@ -39,8 +39,6 @@ module DesignHistory
 
     config.exceptions_app = routes
 
-    config.active_storage.replace_on_assign_to_many = false
-
     config.generators { |g| g.test_framework :rspec }
   end
 end

@@ -44,7 +44,7 @@ class PostImagesController < ApplicationController
   private
 
   def create_params
-    params.require(:post).permit(images: [])
+    params.require(:post).permit(append_images: [])
   end
 
   def update_params
