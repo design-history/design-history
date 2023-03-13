@@ -47,6 +47,7 @@ class Post < ApplicationRecord
             }
   validates :published_at, presence: true, if: -> { published == true }
   before_validation :generate_slug_from_title, on: %i[create update]
+  before_validation :set_published_at, on: %i[create update]
 
   def ordered_images
     images.sort_by do |image|
@@ -102,5 +103,9 @@ class Post < ApplicationRecord
   def generate_slug_from_title
     self.slug = title.parameterize.slice(0, MAX_SLUG_LENGTH) if slug.blank? &&
       title.present?
+  end
+
+  def set_published_at
+    self.published_at = Time.zone.today if published? && published_at.blank?
   end
 end
