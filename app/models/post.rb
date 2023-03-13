@@ -75,6 +75,10 @@ class Post < ApplicationRecord
     ordered_images.index(image) == ordered_images.size - 1
   end
 
+  def append_images=(imgs)
+    images.attach(imgs)
+  end
+
   private
 
   def ordered_image_move!(image, where)
