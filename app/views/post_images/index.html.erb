@@ -1,13 +1,12 @@
+<% title = @post.title %>
+<%= content_for :page_title, "Edit screenshots – #{title}" %>
 <% content_for :breadcrumbs do %>
   <%= govuk_breadcrumbs(breadcrumbs: {
     "Your design histories" => projects_path,
     @project.title => project_path(@project),
-    "#{@post.title.blank? ? "Edit post" : @post.title}" => nil
+    title => nil
   }) %>
 <% end %>
-
-<% title = "Editing screenshots" %>
-<%= content_for :page_title, title %>
 
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
@@ -17,7 +16,14 @@
   <% end %>
 <% end %>
 
-<h1 class="govuk-heading-xl"><%= title %></h1>
+<h1 class="govuk-heading-xl">
+  <% if @post.title %>
+    <span class="govuk-caption-xl">
+      <%= @post.published? ? 'Published post' : 'Draft post' %>
+    </span>
+  <% end %>
+  <%= title %>
+</h1>
 
 <div class="govuk-tabs">
   <ul class="govuk-tabs__list">

@@ -56,7 +56,7 @@ RSpec.describe "Posts" do
   end
 
   def then_i_see_the_edit_post_page
-    expect(page).to have_content "Editing post"
+    expect(page).to have_title "Edit post"
   end
 
   def and_i_see_a_publish_date_that_is_today
