@@ -12,6 +12,9 @@ RSpec.describe "Posts" do
     when_i_submit_my_post_details
     then_i_see_the_edit_post_page
 
+    when_i_update_my_post
+    then_i_see_the_edit_post_page
+
     when_i_publish_my_post
     then_i_see_the_edit_post_page
     and_i_see_a_publish_date_that_is_today
@@ -43,8 +46,12 @@ RSpec.describe "Posts" do
   end
 
   def when_i_submit_my_post_details
-    @slug = Faker::Internet.slug.gsub("_", "-")
     fill_in "post[title]", with: Faker::Company.bs.capitalize
+    click_button "Save"
+  end
+
+  def when_i_update_my_post
+    @slug = Faker::Internet.slug.gsub("_", "-")
     fill_in "post[slug]", with: @slug
     fill_in "post[body]", with: Faker::Markdown.sandwich
     click_button "Save"
