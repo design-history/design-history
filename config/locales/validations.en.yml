@@ -54,6 +54,7 @@ en:
               blank: Enter a body
             published_at:
               blank: Enter a published at date
+              invalid: Enter a valid date, like 15 3 2023
         team:
           attributes:
             name:

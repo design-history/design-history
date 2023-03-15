@@ -19,6 +19,9 @@ RSpec.describe "Posts" do
     then_i_see_the_edit_post_page
     and_i_see_a_publish_date_that_is_today
     and_i_see_a_view_post_link
+
+    when_i_set_the_publish_date_month_to_an_invalid_value
+    then_i_see_an_error
   end
 
   private
@@ -88,5 +91,14 @@ RSpec.describe "Posts" do
       "a[href*='#{@project.subdomain}'][href*='#{@slug}']",
       text: "View post"
     )
+  end
+
+  def when_i_set_the_publish_date_month_to_an_invalid_value
+    fill_in "post[published_at(2i)]", with: "13"
+    click_button "Save"
+  end
+
+  def then_i_see_an_error
+    expect(page).to have_content "Enter a valid date, like 15 3 2023"
   end
 end
