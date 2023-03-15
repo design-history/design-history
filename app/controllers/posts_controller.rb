@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
   before_action :set_post, only: %i[edit update destroy]
+  before_action :validate_published_at, only: [:update]
 
   # GET /posts
   def index
@@ -76,5 +77,23 @@ class PostsController < ApplicationController
       :published,
       :published_at
     )
+  end
+
+  def validate_published_at
+    return if params[:post][:published].blank?
+
+    ymd =
+      params[:post].yield_self do |p|
+        [p["published_at(1i)"], p["published_at(2i)"], p["published_at(3i)"]]
+      end
+
+    return if ymd.all?(&:blank?)
+
+    ymd.map!(&:to_i)
+
+    unless Date.valid_date?(*ymd)
+      @post.errors.add(:published_at, :invalid)
+      render :edit, status: :unprocessable_entity
+    end
   end
 end
