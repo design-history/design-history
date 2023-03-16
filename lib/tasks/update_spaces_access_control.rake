@@ -5,9 +5,9 @@ namespace :spaces do
   task update_access_control: :environment do
     # Replace with your own credentials and bucket information
     access_key_id =
-      Rails.application.credentials.dig(:digitalocean, :access_key_id)
+      Rails.application.credentials.dig(:digitalocean, :access_key)
     secret_access_key =
-      Rails.application.credentials.dig(:digitalocean, :secret_access_key)
+      Rails.application.credentials.dig(:digitalocean, :secret)
     region = "ams3"
     bucket_name = "design-history"
 
