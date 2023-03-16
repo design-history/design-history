@@ -13,3 +13,4 @@ digitalocean:
   secret_access_key: <%= Rails.application.credentials.dig(:digitalocean, :secret) %>
   bucket: design-history
   region: unused
+  public: true
