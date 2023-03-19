@@ -59,6 +59,17 @@
                       class: 'govuk-!-margin-bottom-2',
                       style: 'max-width: 100%; border: 1px solid #000' %>
 
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-label--s"
+                             for="embed-<%= image.id %>">
+                        Markdown for image
+                      </label>
+                      <input class="govuk-input govuk-input--width-20"
+                        id="embed-<%= image.id %>" name="markdown" type="text"
+                        value="<%= "![#{image_alt_text(image)}](#{image.url})" %>"
+                        readonly="readonly">
+                    </div>
+
                     <div class="app-upload__attachment-buttons govuk-button-group">
                       <%= render "buttons", image: %>
                     </div>
