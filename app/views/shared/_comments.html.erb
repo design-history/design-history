@@ -1,0 +1,31 @@
+<section>
+  <h3><%= post.comments.any? ?
+    pluralize(post.comments.size, 'comment') :
+    "Leave a comment" %>
+  </h3>
+
+  <% if post.comments.any? %>
+    <ul class="govuk-list">
+      <% post.comments.each do |comment| %>
+        <li>
+          <p><%= comment.body %></p>
+          <p><%= comment.name %></p>
+          <p><%= comment.email %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with(model: post.comments.new) do |f| %>
+    <%= f.govuk_error_summary %>
+    <%= f.govuk_text_field :body,
+      label: { text: 'Enter your comment', size: 'm' } %>
+    <%= f.govuk_text_field :name,
+      label: { text: 'Name', size: 'm' } %>
+    <%= f.govuk_text_area :email, rows: 20,
+      label: { text: 'Email', size: 'm' },
+      hint: { text: 'We only ask for your email so we know you\'re a real person' } %>
+
+    <%= f.govuk_submit "Submit comment" %>
+  <% end %>
+</section

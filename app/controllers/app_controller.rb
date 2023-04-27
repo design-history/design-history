@@ -11,6 +11,7 @@ class AppController < ApplicationController
   def show
     @post =
       @project.posts.friendly.where(published: true).find(params[:post_id])
+    @comment = Comment.new
   end
 
   def confirm_password
