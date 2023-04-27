@@ -58,7 +58,8 @@ class ProjectsController < ApplicationController
       :subdomain,
       :description,
       :theme,
-      :related_links
+      :related_links,
+      :comments_enabled
     )
   end
 end

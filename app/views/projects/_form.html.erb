@@ -45,6 +45,34 @@
         :name,
         legend: { text: 'Pick a design history style' } %>
 
+      <% legend = -> {
+        tag.legend class: 'govuk-fieldset__legend govuk-fieldset__legend--m' do
+          [tag.span("Comments"), govuk_tag(text: "Beta", colour: "blue")]
+            .join(" ").html_safe
+        end
+      } %>
+
+      <%= f.govuk_check_boxes_fieldset :comments_enabled,
+        multiple: false,
+        legend: legend do %>
+        <p>
+          Comments are in beta. We're still building out their functionality.
+        </p>
+
+        <p>Currently, comments are:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>public</li>
+          <li>not moderated</li>
+          <li>not threaded</li>
+          <li>not editable</li>
+          <li>not deletable</li>
+        </ul>
+
+        <%= f.govuk_check_box :comments_enabled, 1, 0, multiple: false,
+          link_errors: true, label: { text: 'Enable comments' } %>
+      <% end %>
+
       <%= f.govuk_submit editing ? "Save changes" : "Create design history" %>
     <% end %>
   <% end %>
