@@ -31,6 +31,7 @@
     </div>
 
     <%= render "shared/screenshots", post: @post if @post.ordered_images.any? %>
+    <%= render "shared/comments", post: @post, comment: @comment if @post.published? %>
   <% end %>
 
   <%= govuk_one_third do %>

@@ -29,6 +29,7 @@ class Post < ApplicationRecord
   belongs_to :project
 
   has_many_attached :images
+  has_many :comments, as: :commentable, dependent: :destroy
 
   extend FriendlyId
   friendly_id :title, use: :slugged

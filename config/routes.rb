@@ -43,6 +43,10 @@ Rails.application.routes.draw do
     get "/", to: "app#index", as: "app_posts"
     get "/:post_id", to: "app#show", as: "app_post"
 
+    scope "/:post_id" do
+      resources :comments, only: [:create]
+    end
+
     post "/confirm-password",
          to: "app#confirm_password",
          as: "app_confirm_password"
