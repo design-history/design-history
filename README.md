@@ -20,6 +20,13 @@ bin/bundle exec rladr new title
 
 ## Setup
 
+Set up your environment keys:
+
+```bash
+cp .env.example .env
+vim .env     # Fill in missing API keys
+```
+
 Standard Rails 7 / Ruby 3 project. Example:
 
 ```bash
