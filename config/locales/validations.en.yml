@@ -60,6 +60,18 @@ en:
             name:
               blank: Enter a name
               too_long: Enter a name that is less than 50 characters long
+        comment:
+          attributes:
+            body:
+              blank: Enter a comment
+              too_long: Enter a comment that is less than 1000 characters long
+            name:
+              blank: Enter a name
+              too_long: Enter a name that is less than 255 characters long
+            email:
+              blank: Enter an email address
+              invalid: Enter an email address in the correct format, like
+                name@example.com
   activemodel:
     errors:
       models:

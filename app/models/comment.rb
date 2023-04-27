@@ -18,4 +18,15 @@
 class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   has_many :comments, as: :commentable, dependent: :destroy
+
+  validates :body, presence: true, length: { maximum: 1000 }
+  validates :name, presence: true, length: { maximum: 255 }
+  validates :email,
+            presence: true,
+            format: {
+              with: URI::MailTo::EMAIL_REGEXP
+            },
+            length: {
+              maximum: 255
+            }
 end
