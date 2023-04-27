@@ -1,42 +1,45 @@
-<section>
-  <% if post.comments.any? %>
-    <h3><%= pluralize(post.comments.size, 'comment') %></h3>
-    <ul class="govuk-list">
-      <% post.comments.each do |comment| %>
-        <li id="comment-<%= comment.id %>">
-          <p>
-            <span class="govuk-visually-hidden">Comment by</span>
-            <span class="govuk-!-font-weight-bold"><%= comment.name %></span>
-            <span class="govuk-visually-hidden">posted on </span>
-            <time class="app-metadata" datetime="<% comment.created_at.iso8601 %>">
-              <%= comment.created_at.strftime("%-d %B %Y") %>
-            </time>
-          </p>
+<%= turbo_frame_tag "comments" do %>
+  <section>
+    <% if post.comments.any? %>
+      <h3><%= pluralize(post.comments.size, 'comment') %></h3>
+      <ul class="govuk-list">
+        <% post.comments.each do |comment| %>
+          <li id="comment-<%= comment.id %>">
+            <p>
+              <span class="govuk-visually-hidden">Comment by</span>
+              <span class="govuk-!-font-weight-bold"><%= comment.name %></span>
+              <span class="govuk-visually-hidden">posted on </span>
+              <time class="app-metadata" datetime="<% comment.created_at.iso8601 %>">
+                <%= comment.created_at.strftime("%-d %B %Y") %>
+              </time>
+            </p>
 
-          <p><%= comment.body %></p>
+            <p><%= comment.body %></p>
 
-          <p class="govuk-!-font-size-16">
-            <a href="#comment-<%= comment.id %>">Link to this comment
-              <span class="govuk-visually-hidden"> by <%= comment.name %></span>
-            </a>
-          </p>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+            <p class="govuk-!-font-size-16">
+              <a href="#comment-<%= comment.id %>" target="_top">
+                Link to this comment
+                <span class="govuk-visually-hidden"> by <%= comment.name %></span>
+              </a>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
 
-  <h3>Leave a comment</h3>
+    <h3>Leave a comment</h3>
 
-  <%= form_with(model: comment) do |f| %>
-    <%= f.govuk_error_summary %>
-    <%= f.govuk_text_area :body, rows: 10,
-      label: { text: 'Enter your comment' } %>
-    <%= f.govuk_text_field :name,
-      label: { text: 'Name' } %>
-    <%= f.govuk_text_field :email,
-      label: { text: 'Email' },
-      hint: { text: 'We only ask for your email so we know you\'re a real person' } %>
+    <%= form_with(model: comment) do |f| %>
+      <%= f.govuk_error_summary %>
+      <%= f.govuk_text_area :body, rows: 10,
+        label: { text: 'Enter your comment' } %>
+      <%= f.govuk_text_field :name,
+        label: { text: 'Name' } %>
+      <%= f.govuk_text_field :email,
+        label: { text: 'Email' },
+        hint: { text: 'We only ask for your email so we know you\'re a real person' } %>
 
-    <%= f.govuk_submit "Submit comment" %>
-  <% end %>
-</section>
+      <%= f.govuk_submit "Submit comment" %>
+    <% end %>
+  </section>
+<% end %>
