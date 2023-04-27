@@ -143,6 +143,10 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     docile (1.4.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     dry-initializer (3.1.1)
     e2mmap (0.1.0)
     erubi (1.12.0)
@@ -465,6 +469,7 @@ DEPENDENCIES
   data_migrate
   debug
   devise
+  dotenv-rails
   factory_bot_rails
   faker
   friendly_id
