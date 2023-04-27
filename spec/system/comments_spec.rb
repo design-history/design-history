@@ -5,6 +5,9 @@ RSpec.describe "Comments" do
     when_i_visit_my_design_history_post
     then_i_see_the_comments_section
 
+    when_i_post_an_invalid_comment
+    then_i_see_an_error_message
+
     when_i_post_a_comment
     then_i_see_my_comment
   end
@@ -34,5 +37,13 @@ RSpec.describe "Comments" do
   def then_i_see_my_comment
     expect(page).to have_content "1 comment"
     expect(page).to have_content "This is a comment"
+  end
+
+  def when_i_post_an_invalid_comment
+    click_button "Submit comment"
+  end
+
+  def then_i_see_an_error_message
+    expect(page).to have_content "Enter an email"
   end
 end
