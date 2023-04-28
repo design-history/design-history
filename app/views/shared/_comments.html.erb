@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "comments" do %>
   <section>
     <% if post.comments.ham.any? %>
-      <h3><%= pluralize(post.comments.size, 'comment') %></h3>
+      <h3><%= pluralize(post.comments.ham.size, 'comment') %></h3>
       <ul class="govuk-list">
         <% post.comments.ham.each do |comment| %>
           <li id="comment-<%= comment.id %>">
