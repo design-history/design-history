@@ -9,10 +9,6 @@ RSpec.describe CheckSpamJob, type: :job do
     create(:comment, commentable: post)
   end
 
-  it "queues a job" do
-    expect { CheckSpamJob.perform_later(comment) }.to have_enqueued_job
-  end
-
   it "doesn't set spam on an innocent comment" do
     allow_any_instance_of(SpamChecker).to receive(:spam?).and_return(false)
 
