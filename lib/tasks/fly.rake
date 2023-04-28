@@ -21,7 +21,7 @@ namespace :fly do
   #    to last successful deploy (if any).
   desc "Server"
   task server: :swapfile do
-    sh "bin/rails server"
+    sh "GOOD_JOB_EXECUTION_MODE=async bin/rails server"
   end
 
   # optional SWAPFILE task:
