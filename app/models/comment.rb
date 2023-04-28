@@ -20,6 +20,8 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   has_many :comments, as: :commentable, dependent: :destroy
 
+  scope :ham, -> { where(spam: false) }
+
   validates :body, presence: true, length: { maximum: 1000 }
   validates :name, presence: true, length: { maximum: 255 }
   validates :email,

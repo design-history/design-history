@@ -18,6 +18,10 @@ RSpec.describe "Comments" do
 
     when_i_post_a_comment
     then_i_see_my_comment
+
+    when_someone_posts_a_spam_comment
+    and_i_visit_my_design_history_post
+    then_i_dont_see_the_spam_comment
   end
 
   private
@@ -45,6 +49,16 @@ RSpec.describe "Comments" do
   def when_i_enable_comments
     check "Enable comments", allow_label_click: true
     click_button "Save changes"
+  end
+
+  def when_someone_posts_a_spam_comment
+    @spam_comment =
+      create(
+        :comment,
+        body: "This is spam",
+        commentable: @first_post,
+        spam: true
+      )
   end
 
   def and_i_go_to_my_project_settings
@@ -81,5 +95,9 @@ RSpec.describe "Comments" do
 
   def then_i_see_an_error_message
     expect(page).to have_content "Enter an email"
+  end
+
+  def then_i_dont_see_the_spam_comment
+    expect(page).not_to have_content @spam_comment.body
   end
 end
