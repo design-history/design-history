@@ -32,4 +32,12 @@ class Comment < ApplicationRecord
             length: {
               maximum: 255
             }
+
+  after_create :check_for_spam
+
+  private
+
+  def check_for_spam
+    CheckSpamJob.perform_later(self)
+  end
 end
