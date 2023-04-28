@@ -32,6 +32,11 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    authenticate :user, ->(user) { user.admin? } do
+      mount Avo::Engine => "/avo"
+      mount GoodJob::Engine => "/good-job"
+    end
   end
 
   constraints subdomain: "www", domain: Rails.application.config.app_domain do
@@ -50,9 +55,5 @@ Rails.application.routes.draw do
     post "/confirm-password",
          to: "app#confirm_password",
          as: "app_confirm_password"
-  end
-
-  authenticate :user, ->(user) { user.admin? } do
-    mount Avo::Engine => "/avo"
   end
 end
