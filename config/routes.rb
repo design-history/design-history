@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "/robots.:format", to: "pages#robots"
+  get "/privacy", to: "pages#privacy_notice"
 
   scope via: :all do
     get "/404", to: "errors#not_found"
