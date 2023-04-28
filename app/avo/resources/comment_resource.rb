@@ -10,7 +10,6 @@ class CommentResource < Avo::BaseResource
   field :body, as: :textarea
   field :email, as: :text
   field :name, as: :text
-  field :commentable_id, as: :number
-  field :commentable_type, as: :text
+  field :spam, as: :boolean
   # add fields here
 end
