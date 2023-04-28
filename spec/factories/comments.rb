@@ -18,10 +18,8 @@
 #
 FactoryBot.define do
   factory :comment do
-    body { "MyText" }
-    email { "MyString" }
-    name { "MyString" }
-    commentable_id { 1 }
-    commentable_type { "MyString" }
+    body { Faker::Lorem.paragraph }
+    email { Faker::Internet.email }
+    name { Faker::Name.name }
   end
 end
