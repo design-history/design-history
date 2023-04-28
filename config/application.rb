@@ -40,5 +40,7 @@ module DesignHistory
     config.exceptions_app = routes
 
     config.generators { |g| g.test_framework :rspec }
+
+    config.active_job.queue_adapter = :good_job
   end
 end
