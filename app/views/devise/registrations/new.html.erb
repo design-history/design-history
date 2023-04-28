@@ -21,10 +21,17 @@
 
       <%= f.govuk_submit "Create account", class: 'app-submit' %>
     <% end %>
+
+    <p>
+      If you already have an account you can
+      <%= govuk_link_to "sign in", new_session_path(resource_name) %>.
+    </p>
+
+    <%= govuk_inset_text do %>
+      By creating an account you understand that we may use your email to help
+      you to administer your account. Please read our
+      <%= link_to "privacy notice", privacy_path %> to see how the Design
+      History platform handles your information.
+    <% end %>
   <% end %>
 <% end %>
-
-<p>
-  If you already have an account you can
-  <%= govuk_link_to "sign in", new_session_path(resource_name) %>.
-</p>
