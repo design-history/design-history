@@ -20,7 +20,7 @@ class SpamChecker
           model: "gpt-3.5-turbo",
           messages: [{ role: "user", content: prompt }],
           max_tokens: 1, # Reply with a single character, saves quota
-          temperature: 0, # Makes reply determinstic, same input = same output
+          temperature: 0, # Makes reply deterministic, same input = same output
           top_p: 1, # Also reduces randomness
           n: 1, # Return only one choice
           stream: false, # Don't stream response in
