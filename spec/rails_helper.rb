@@ -79,4 +79,6 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::IntegrationHelpers, type: :system
+
+  ActiveJob::Base.queue_adapter = :test
 end
