@@ -44,8 +44,9 @@
 
     <%= govuk_inset_text do %>
       By submitting a comment you understand it may be published on this public
-      website. Please read our <%= link_to "privacy notice", privacy_path %> to
-      see how the Design History platform handles your information.
+      website. Please read our
+      <%= link_to "privacy notice", privacy_path, target: '_top' %> to see how
+      the Design History platform handles your information.
     <% end %>
   </section>
 <% end %>
