@@ -1,0 +1,13 @@
+<% content_for :content do %>
+  <main class="govuk-main-wrapper" id="main-content" role="main">
+    <div class="govuk-width-container">
+      <%= govuk_row do %>
+        <%= govuk_two_thirds do %>
+          <%= yield %>
+        <% end %>
+      <% end %>
+    </div>
+  </main>
+<% end %>
+
+<%= render template: 'layouts/base' %>
