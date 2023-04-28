@@ -7,6 +7,7 @@
 #  commentable_type :string           not null
 #  email            :string           not null
 #  name             :string           not null
+#  spam             :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  commentable_id   :bigint           not null
