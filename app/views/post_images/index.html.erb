@@ -1,45 +1,9 @@
-<% title = @post.title %>
-<%= content_for :page_title, "Edit screenshots – #{title}" %>
-<% content_for :breadcrumbs do %>
-  <%= govuk_breadcrumbs(breadcrumbs: {
-    "Your design histories" => projects_path,
-    @project.title => project_path(@project),
-    title => nil
-  }) %>
-<% end %>
-
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <%= form_with(model: [@project, @post]) do |f| %>
-      <%= f.govuk_error_summary %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<h1 class="govuk-heading-xl">
-  <% if @post.title %>
-    <span class="govuk-caption-xl">
-      <%= @post.published? ? 'Published post' : 'Draft post' %>
-    </span>
-  <% end %>
-  <%= title %>
-</h1>
+<%= render "shared/edit_post_header", project: @project, post: @post %>
 
 <div class="govuk-tabs">
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab"
-        href="<%= edit_project_post_path(@project, @post) %>">
-        Write
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab"
-        href="<%= project_post_images_path(@project, @post) %>">
-        Screenshots
-      </a>
-    </li>
-  </ul>
+  <%= render "shared/edit_post_tabs", project: @project, post: @post,
+    tab: :screenshots %>
+
   <div class="govuk-tabs__panel">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Screenshots</h2>
     <p class="govuk-!-margin-bottom-6">
