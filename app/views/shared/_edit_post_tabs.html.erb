@@ -1,0 +1,25 @@
+<ul class="govuk-tabs__list">
+  <li class="govuk-tabs__list-item <%= 'govuk-tabs__list-item--selected' if tab == :write %>">
+    <% if tab == :write %>
+      Write
+    <% else %>
+      <%= link_to "Write", edit_project_post_path(project, post),
+        class: "govuk-tabs__tab" %>
+    <% end %>
+  </li>
+
+  <li class="govuk-tabs__list-item <%= 'govuk-tabs__list-item--selected' if tab == :screenshots %>">
+    <% if tab == :screenshots %>
+      Screenshots
+    <% else %>
+      <%= link_to "Screenshots", project_post_images_path(project, post),
+        class: "govuk-tabs__tab" %>
+    <% end %>
+  </li>
+
+  <% if tab == :preview %>
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      Preview
+    </li>
+  <% end %>
+</ul>
