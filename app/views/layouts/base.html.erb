@@ -44,7 +44,7 @@
 
     <div class="app-footer">
       <%= render GovukComponent::FooterComponent.new do |footer|
-        footer.meta do %>
+        footer.with_meta do %>
         <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
           <div class="govuk-footer__meta-custom">
             <% unless is_admin? %>
