@@ -50,7 +50,11 @@ class PostsController < ApplicationController
         notice = "Changes saved"
       end
 
-      redirect_to edit_project_post_path(@project, @post), notice:
+      if params[:submit] == "preview"
+        redirect_to preview_project_post_path(@project, @post), notice:
+      else
+        redirect_to edit_project_post_path(@project, @post), notice:
+      end
     else
       render :edit, status: :unprocessable_entity
     end
