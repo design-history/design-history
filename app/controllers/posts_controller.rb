@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
-  before_action :set_post, only: %i[edit update destroy]
+  before_action :set_post, only: %i[edit preview update destroy]
   before_action :validate_published_at, only: [:update]
 
   # GET /posts
@@ -16,6 +16,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+  end
+
+  # GET /posts/1/preview
+  def preview
   end
 
   # POST /posts
