@@ -20,31 +20,31 @@
 
   <div class="app-summary-card__body">
     <%= govuk_summary_list do |summary_list|
-      summary_list.row do |row|
-        row.key { 'Name' }
-        row.value { @project.title }
+      summary_list.with_row do |row|
+        row.with_key { 'Name' }
+        row.with_value { @project.title }
       end
 
-      summary_list.row do |row|
-        row.key { 'Description' }
-        row.value { @project.description }
+      summary_list.with_row do |row|
+        row.with_key { 'Description' }
+        row.with_value { @project.description }
       end
 
-      summary_list.row do |row|
-        row.key { 'Domain' }
-        row.value { govuk_link_to humanize_design_history_link(@project),
+      summary_list.with_row do |row|
+        row.with_key { 'Domain' }
+        row.with_value { govuk_link_to humanize_design_history_link(@project),
                     design_history_link(@project) }
       end
 
-      summary_list.row do |row|
-        row.key { 'Style' }
-        row.value { humanize_theme(@project.theme) }
+      summary_list.with_row do |row|
+        row.with_key { 'Style' }
+        row.with_value { humanize_theme(@project.theme) }
       end
 
-      summary_list.row do |row|
-        row.key { 'Visibility' }
-        row.value { @project.private? ? "Private" : "Public" }
-        row.action(text: "Manage access",
+      summary_list.with_row do |row|
+        row.with_key { 'Visibility' }
+        row.with_value { @project.private? ? "Private" : "Public" }
+        row.with_action(text: "Manage access",
                    href: project_manage_access_path(@project))
       end
     end %>
@@ -65,26 +65,26 @@
 
     <% if @posts.any? %>
       <%= govuk_table do |table|
-        table.head do |head|
-          head.row do |row|
-            row.cell(text: 'Title', header: true)
-            row.cell(text: 'Status', header: true)
-            row.cell(text: 'Date', header: true)
-            row.cell(text: 'Action', header: true)
+        table.with_head do |head|
+          head.with_row do |row|
+            row.with_cell(text: 'Title', header: true)
+            row.with_cell(text: 'Status', header: true)
+            row.with_cell(text: 'Date', header: true)
+            row.with_cell(text: 'Action', header: true)
           end
         end
 
-        table.body do |body|
+        table.with_body do |body|
           @posts.each do |post|
-            body.row do |row|
-              row.cell { govuk_link_to post.title,
+            body.with_row do |row|
+              row.with_cell { govuk_link_to post.title,
                          edit_project_post_path(@project, post) }
-              row.cell { if post.published?
+              row.with_cell { if post.published?
                          then govuk_tag(text: 'Published', colour: 'turquoise')
                          else govuk_tag(text: 'Draft', colour: 'grey')
                          end }
               if post.published?
-                row.cell do %>
+                row.with_cell do %>
                   <time
                     class="app-!-no-wrap"
                     datetime="<%= post.published_at.iso8601 %>"
@@ -92,7 +92,7 @@
                     <%= post.published_at.strftime("%-d %b %Y") %>
                   </time>
                 <% end
-                row.cell { govuk_link_to app_post_url(post.to_param,
+                row.with_cell { govuk_link_to app_post_url(post.to_param,
                                         host: Rails.application.config.app_domain,
                                         subdomain: @project.subdomain), {
                                           class: 'app-!-no-wrap',
@@ -101,8 +101,8 @@
                       - <%= post.to_param %></span>
                 <% end }
               else
-                row.cell { '' }
-                row.cell { '' }
+                row.with_cell { '' }
+                row.with_cell { '' }
               end
             end
           end
