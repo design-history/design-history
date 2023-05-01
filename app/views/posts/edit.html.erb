@@ -1,8 +1,10 @@
+<% content_for :page_title, "Edit post – #{@post.title}" %>
+
 <%= render "shared/edit_post_header", project: @project, post: @post %>
 
 <div class="govuk-tabs">
   <%= render "shared/edit_post_tabs", project: @project, post: @post,
-    tab: :write%>
+    tab: :write %>
 
   <div class="govuk-tabs__panel">
     <%= render "form", project: @project, post: @post %>
