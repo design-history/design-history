@@ -31,6 +31,8 @@ Rails.application.routes.draw do
           post :up, on: :member
           post :down, on: :member
         end
+
+        get "/preview", to: "posts#preview", on: :member
       end
     end
 

@@ -1,0 +1,16 @@
+<%= render "shared/edit_post_header", project: @project, post: @post %>
+
+<div class="govuk-tabs">
+  <%= render "shared/edit_post_tabs", project: @project, post: @post,
+    tab: :preview %>
+
+  <div class="govuk-tabs__panel">
+    <%= govuk_row do %>
+      <%= govuk_two_thirds do %>
+        <div class="app-markdown">
+          <%= GovukMarkdown.render(@post.body).html_safe %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
