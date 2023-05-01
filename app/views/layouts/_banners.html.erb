@@ -4,9 +4,9 @@
       <%= govuk_notification_banner(title_text: "Success",
                                     success: true) do |nb| %>
         <% if notice.is_a?(String) %>
-          <% nb.heading(text: notice) %>
+          <% nb.with_heading(text: notice) %>
         <% else %>
-          <% nb.heading(text: notice["title"]) %>
+          <% nb.with_heading(text: notice["title"]) %>
           <%= notice["body"].html_safe %>
         <% end %>
       <% end %>
@@ -18,7 +18,7 @@
   <%= govuk_row do %>
     <%= govuk_two_thirds do %>
       <%= govuk_notification_banner(title_text: "Important") do |nb| %>
-        <% nb.heading(text: alert) %>
+        <% nb.with_heading(text: alert) %>
       <% end %>
     <% end %>
   <% end %>
