@@ -4,24 +4,20 @@
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.govuk_error_summary %>
   <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <%= f.govuk_password_field :password,
+    label: { text: "New password" },
+    hint: { text: "#{ @minimum_password_length } characters minimum" },
+    autocomplete: "new-password",
+    width: 20 %>
+  <%= f.govuk_password_field :password_confirmation,
+    label: { text: "Confirm your password" },
+    autocomplete: "new-password",
+    width: 20 %>
 
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.govuk_submit "Change my password" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
