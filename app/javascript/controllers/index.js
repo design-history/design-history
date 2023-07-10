@@ -31,7 +31,7 @@ application.register("govuk-header", GovukHeaderController);
 import GovukNotificationBannerController from "./govuk_notification_banner_controller";
 application.register(
   "govuk-notification-banner",
-  GovukNotificationBannerController
+  GovukNotificationBannerController,
 );
 
 import GovukRadiosController from "./govuk_radios_controller";
