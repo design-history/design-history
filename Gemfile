@@ -7,7 +7,7 @@ gem "avo"
 gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "cssbundling-rails"
-gem "data_migrate", "9.1.0"
+gem "data_migrate", "9.1.1"
 gem "devise"
 gem "friendly_id"
 gem "good_job"
