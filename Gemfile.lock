@@ -263,9 +263,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.3-arm64-darwin)
+    nokogiri (1.15.4-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.15.3-x86_64-linux)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (6.0.4)
@@ -418,7 +418,7 @@ GEM
     solargraph-rails (1.1.0)
       activesupport
       solargraph
-    stimulus-rails (1.2.1)
+    stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     syntax_tree (6.1.1)
       prettier_print (>= 1.2.0)
