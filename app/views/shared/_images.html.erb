@@ -1,11 +1,11 @@
-<section class="app-screenshots govuk-!-margin-top-9" id="screenshots">
+<section class="app-images govuk-!-margin-top-9" id="images">
   <div class="govuk-!-display-none-print">
-    <h2 class="govuk-heading-l">Screenshots</h2>
+    <h2 class="govuk-heading-l">Images</h2>
     <% if post.images.length > 1 %>
       <ol class="govuk-list govuk-!-margin-bottom-8">
         <% post.ordered_images.each do |image| %>
           <li>
-            <a href="#screenshot-<%= image.id %>">
+            <a href="#image-<%= image.id %>">
               <%= image_title(image) %>
             </a>
           </li>
@@ -14,7 +14,7 @@
     <% end %>
   </div>
   <% post.ordered_images.each do |image| %>
-    <figure class="app-screenshots__screenshot" id="screenshot-<%= image.id %>">
+    <figure class="app-images__image" id="image-<%= image.id %>">
       <h3 class="govuk-heading-m">
         <%= image_title(image) %>
       </h3>

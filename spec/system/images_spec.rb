@@ -1,13 +1,13 @@
 require "rails_helper"
 
-RSpec.describe "Screenshots" do
+RSpec.describe "Images" do
   it "can have titles and alt_text and can be attached, deleted, reordered" do
     given_i_am_signed_in
     when_i_visit_my_post
-    then_i_see_the_screenshots_link
+    then_i_see_the_images_link
 
-    when_i_click_the_screenshots_link
-    then_i_see_the_screenshots_section
+    when_i_click_the_images_link
+    then_i_see_the_images_section
 
     when_i_upload_an_image
     then_i_see_the_image
@@ -42,16 +42,16 @@ RSpec.describe "Screenshots" do
     visit edit_project_post_path(@project, @post)
   end
 
-  def then_i_see_the_screenshots_link
-    expect(page).to have_link "Screenshots"
+  def then_i_see_the_images_link
+    expect(page).to have_link "Images"
   end
 
-  def when_i_click_the_screenshots_link
-    click_link "Screenshots"
+  def when_i_click_the_images_link
+    click_link "Images"
   end
 
-  def then_i_see_the_screenshots_section
-    expect(page).to have_css "h2", text: "Screenshots"
+  def then_i_see_the_images_section
+    expect(page).to have_css "h2", text: "Images"
   end
 
   def when_i_upload_an_image

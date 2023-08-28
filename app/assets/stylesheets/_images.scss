@@ -1,5 +1,5 @@
-.app-screenshots {
-  &__screenshot {
+.app-images {
+  &__image {
     margin-bottom: govuk-spacing(9);
     margin-left: 0;
     margin-right: 0;
@@ -47,12 +47,12 @@
   }
 
   @include govuk-media-query($media-type: print) {
-    // Separate screenshots from surrounding content
+    // Separate images from surrounding content
     page-break-before: always;
     page-break-after: always;
 
-    &__screenshot {
-      // New page per screenshot
+    &__image {
+      // New page per image
       page-break-before: always;
 
       // Hide image URLs

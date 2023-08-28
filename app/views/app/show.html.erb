@@ -30,7 +30,7 @@
       <%= GovukMarkdown.render(@post.body).html_safe %>
     </div>
 
-    <%= render "shared/screenshots", post: @post if @post.ordered_images.any? %>
+    <%= render "shared/images", post: @post if @post.ordered_images.any? %>
     <%= render "shared/comments",
       post: @post,
       comment: @comment if @post.published? && @project.comments_enabled? %>
