@@ -54,7 +54,7 @@ RSpec.describe "Images" do
   end
 
   def then_i_see_the_images_section
-    expect(page).to have_css "h2", text: "Images"
+    expect(page).to have_content "Add images"
   end
 
   def when_i_upload_an_image
@@ -121,11 +121,11 @@ RSpec.describe "Images" do
   end
 
   def when_i_remove_the_first_image_from_the_list_at_the_end_of_the_post
-    uncheck "attachment[show_at_bottom]", allow_label_click: true
+    check "attachment[show_at_bottom]", allow_label_click: true
     first("button", text: "Save").click
   end
 
   def then_the_image_metadata_is_updated
-    expect(@post.images.first.custom_metadata["show_at_bottom"]).to eq nil
+    expect(@post.images.first.custom_metadata["show_at_bottom"]).to eq "1"
   end
 end

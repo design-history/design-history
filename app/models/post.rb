@@ -81,14 +81,7 @@ class Post < ApplicationRecord
   end
 
   def append_images=(imgs)
-    imgs.reject!(&:blank?)
-
     images.attach(imgs)
-
-    images.last(imgs.length).each do |image|
-      image.custom_metadata = { show_at_bottom: "1" }
-      image.save!
-    end
   end
 
   private
