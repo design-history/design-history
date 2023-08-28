@@ -61,6 +61,19 @@
                       },
                       value: image_caption(image) %>
 
+                    <div class="govuk-checkboxes__item">
+                      <input id="attachment-show-at-bottom-field"
+                             class="govuk-checkboxes__input"
+                             type="checkbox"
+                             value="1"
+                             <%= image_show_at_bottom(image) == "1" ? "checked" : "" %>
+                             name="attachment[show_at_bottom]">
+                       <label for="attachment-show-at-bottom-field"
+                         class="govuk-label govuk-checkboxes__label">
+                         Show at the bottom of the post
+                       </label>
+                    </div>
+
                     <%= f.govuk_submit "Save", class: 'govuk-!-margin-top-4' %>
                   <% end %>
                 <% end %>

@@ -3,7 +3,7 @@
     <h2 class="govuk-heading-l">Images</h2>
     <% if post.images.length > 1 %>
       <ol class="govuk-list govuk-!-margin-bottom-8">
-        <% post.ordered_images.each do |image| %>
+        <% post.images_at_bottom.each do |image| %>
           <li>
             <a href="#image-<%= image.id %>">
               <%= image_title(image) %>
@@ -13,7 +13,7 @@
       </ol>
     <% end %>
   </div>
-  <% post.ordered_images.each do |image| %>
+  <% post.images_at_bottom.each do |image| %>
     <figure class="app-images__image" id="image-<%= image.id %>">
       <h3 class="govuk-heading-m">
         <%= image_title(image) %>

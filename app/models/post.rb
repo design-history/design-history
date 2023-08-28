@@ -56,6 +56,10 @@ class Post < ApplicationRecord
     end
   end
 
+  def images_at_bottom
+    ordered_images.select { |image| image.custom_metadata["show_at_bottom"] }
+  end
+
   def ordered_image_ids=(ids)
     super(ids.map(&:to_i))
   end
@@ -77,7 +81,14 @@ class Post < ApplicationRecord
   end
 
   def append_images=(imgs)
+    imgs.reject!(&:blank?)
+
     images.attach(imgs)
+
+    images.last(imgs.length).each do |image|
+      image.custom_metadata = { show_at_bottom: "1" }
+      image.save!
+    end
   end
 
   private
