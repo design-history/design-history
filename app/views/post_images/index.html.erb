@@ -1,13 +1,13 @@
-<% content_for :page_title, "Edit screenshots – #{@post.title}" %>
+<% content_for :page_title, "Edit images – #{@post.title}" %>
 
 <%= render "shared/edit_post_header", project: @project, post: @post %>
 
 <div class="govuk-tabs">
   <%= render "shared/edit_post_tabs", project: @project, post: @post,
-    tab: :screenshots %>
+    tab: :images %>
 
   <div class="govuk-tabs__panel">
-    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Screenshots</h2>
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Images</h2>
     <p class="govuk-!-margin-bottom-6">
       Show a list of images at the bottom of your post.
     </p>
