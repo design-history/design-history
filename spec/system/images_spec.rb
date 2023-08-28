@@ -27,6 +27,9 @@ RSpec.describe "Images" do
 
     when_i_edit_the_first_image_caption
     then_the_caption_is_updated
+
+    when_i_remove_the_first_image_from_the_list_at_the_end_of_the_post
+    then_the_image_metadata_is_updated
   end
 
   private
@@ -115,5 +118,14 @@ RSpec.describe "Images" do
     expect(
       @post.images.first.custom_metadata["caption"]
     ).to eq "New **caption**"
+  end
+
+  def when_i_remove_the_first_image_from_the_list_at_the_end_of_the_post
+    uncheck "attachment[show_at_bottom]", allow_label_click: true
+    first("button", text: "Save").click
+  end
+
+  def then_the_image_metadata_is_updated
+    expect(@post.images.first.custom_metadata["show_at_bottom"]).to eq nil
   end
 end

@@ -48,7 +48,7 @@ class PostImagesController < ApplicationController
   end
 
   def update_params
-    params.require(:attachment).permit(:title, :alt_text, :caption)
+    params.require(:attachment).permit(:title, :alt_text, :caption, :show_at_bottom)
   end
 
   def set_project

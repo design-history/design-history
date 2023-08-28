@@ -44,6 +44,10 @@ module ApplicationHelper
     image.custom_metadata["caption"]
   end
 
+  def image_show_at_bottom(image)
+    image.custom_metadata["show_at_bottom"]
+  end
+
   def humanize_image_title(image)
     extension = File.extname(image.filename.to_s)
     filename = image.filename.to_s.chomp extension
