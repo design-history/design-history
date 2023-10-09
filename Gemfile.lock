@@ -128,9 +128,9 @@ GEM
     cuprite (0.14.3)
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
-    data_migrate (9.1.1)
-      activerecord (>= 6.0)
-      railties (>= 6.0)
+    data_migrate (9.2.0)
+      activerecord (>= 6.1)
+      railties (>= 6.1)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -472,7 +472,7 @@ DEPENDENCIES
   bootsnap
   cssbundling-rails
   cuprite
-  data_migrate (= 9.1.1)
+  data_migrate (= 9.2.0)
   debug
   devise
   dotenv-rails
