@@ -75,4 +75,8 @@ $govuk-button-background-colour: $app-button-colour;
     max-width: 100%;
     outline: 1px solid rgba(177, 180, 182, 0.5);
   }
+
+  pre {
+    white-space: pre-wrap;
+  }
 }
