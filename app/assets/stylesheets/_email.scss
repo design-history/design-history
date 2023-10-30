@@ -1,0 +1,45 @@
+.app-email {
+  @include govuk-font($size: false);
+  border: $govuk-border-width solid $govuk-border-colour;
+  padding: govuk-spacing(4);
+  margin-bottom: govuk-spacing(8);
+  max-width: 40rem;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @include govuk-font($size: 27, $weight: bold);
+    margin-bottom: govuk-spacing(4);
+  }
+}
+
+.app-email-headers {
+  @include govuk-font($size: 19);
+  margin-top: 0;
+  margin-bottom: govuk-spacing(4);
+  border-bottom: 1px solid $govuk-border-colour;
+
+  &__row {
+    justify-content: left;
+    display: flex;
+    margin-bottom: govuk-spacing(2);
+  }
+
+  &__key {
+    color: $govuk-secondary-text-colour;
+    font-weight: normal;
+    min-width: 5em;
+  }
+
+  &__value {
+    font-weight: normal;
+    margin: 0;
+  }
+
+  // For some reason, the markdown renderer adds a superfluous <p> tag.
+  // This is a hack to hide it.
+  p:last-child {
+    display: none;
+  }
+}
