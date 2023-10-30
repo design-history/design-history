@@ -1,3 +1,21 @@
+module GovukMarkdownExtension
+  def render(markdown, govuk_options = {})
+    renderer = GovukMarkdown::Renderer.new(govuk_options, {
+      with_toc_data: true,
+      link_attributes: { class: "govuk-link" }
+    })
+
+    Redcarpet::Markdown
+      .new(renderer, {
+        tables: true,
+        highlight: true,
+        no_intra_emphasis: true,
+        fenced_code_blocks: true
+      })
+      .render(markdown).strip
+  end
+end
+
 module PreprocessorExtension
   def inject_email
     sections = @output.split("```")
@@ -59,5 +77,6 @@ module RendererExtension
   end
 end
 
+GovukMarkdown.singleton_class.prepend(GovukMarkdownExtension)
 GovukMarkdown::Preprocessor.prepend(PreprocessorExtension)
 GovukMarkdown::Renderer.prepend(RendererExtension)
