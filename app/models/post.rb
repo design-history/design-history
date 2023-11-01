@@ -34,6 +34,8 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  before_validation :sanitize_content, if: :body?
+
   validates :title, presence: true, length: { maximum: 255 }
   validates :slug,
             presence: true,
@@ -85,6 +87,18 @@ class Post < ApplicationRecord
   end
 
   private
+
+  def sanitize_content
+    sections = body.split("```")
+    sections.each_with_index do |section, index|
+      next if index.odd?
+
+      sections[index] = ActionController::Base.helpers.sanitize(section)
+    end
+    self.body = sections.join("```").gsub("&gt;", ">")
+
+    self.related_links = ActionController::Base.helpers.sanitize(related_links)
+  end
 
   def ordered_image_move!(image, where)
     unless image.is_a?(ActiveStorage::Attachment)
