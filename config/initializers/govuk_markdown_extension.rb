@@ -12,7 +12,7 @@ module GovukMarkdownExtension
         no_intra_emphasis: true,
         fenced_code_blocks: true
       })
-      .render(markdown).strip
+        .render(markdown.to_s).strip
   end
 end
 
