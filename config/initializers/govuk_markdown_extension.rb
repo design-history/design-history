@@ -25,11 +25,20 @@ module PreprocessorExtension
       section.gsub!(build_regexp("email")) do
         content = Regexp.last_match(1)
         headers, body = construct_email_from(content)
-        <<~HTML
-          <div class="app-email">
+
+        headers_html = if headers.any?
+          <<~HTML
             <dl class="app-email-headers">
               #{headers.map { |k, v| email_header_row(k, v) }.join("")}
             </dl>
+          HTML
+        else
+          ""
+        end
+
+        <<~HTML
+          <div class="app-email">
+            #{headers_html}
             #{nested_markdown(body)}
           </div>
         HTML
@@ -47,10 +56,14 @@ module PreprocessorExtension
 
     header, body = match_string.split(/^-{3,}\n?/, 2)
 
-    header_regex = /^(.*?):\s*(.*?)\s*$/
-    header.each_line do |line|
-      matches = header_regex.match(line)
-      headers[matches[1]] = matches[2] if matches
+    if body.nil?
+      body = header
+    else
+      header_regex = /^(.*?):\s*(.*?)\s*$/
+      header.each_line do |line|
+        matches = header_regex.match(line)
+        headers[matches[1]] = matches[2] if matches
+      end
     end
 
     body.gsub!(/(\(\()(.*?)(\)\))/, '\1==\2==\3')
