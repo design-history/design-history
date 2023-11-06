@@ -165,6 +165,7 @@ GEM
     erubi (1.12.0)
     et-orbi (1.2.7)
       tzinfo
+    event_stream_parser (0.3.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
@@ -172,7 +173,8 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.1)
       i18n (>= 1.8.11, < 2)
-    faraday (2.7.10)
+    faraday (2.7.11)
+      base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-multipart (1.0.4)
@@ -407,7 +409,8 @@ GEM
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
-    ruby-openai (5.1.0)
+    ruby-openai (6.0.0)
+      event_stream_parser (>= 0.3.0, < 1.0.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
