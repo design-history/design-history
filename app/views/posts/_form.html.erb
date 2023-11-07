@@ -34,10 +34,12 @@
       hint: { text: 'Defaults to today when published' } %>
   <% end %>
 
-  <%= f.govuk_submit "Save and preview", secondary: true,
-    value: "preview", name: "submit" %>
+  <% unless post.published? %>
+    <%= f.govuk_submit "Save and preview", secondary: true,
+      value: "preview", name: "submit" %>
 
-  <br />
+    <br />
+  <% end %>
 
   <%= f.govuk_submit "Save",
     value: "save", name: "submit" %>
