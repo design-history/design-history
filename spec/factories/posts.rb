@@ -31,5 +31,10 @@ FactoryBot.define do
     related_links { Faker::Markdown.sandwich }
     published { true }
     published_at { Time.zone.today }
+
+    trait :draft do
+      published { false }
+      published_at { nil }
+    end
   end
 end

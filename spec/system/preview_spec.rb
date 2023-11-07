@@ -20,7 +20,7 @@ RSpec.describe "Preview" do
 
   def when_i_visit_my_post
     @project = create(:project, owner: @owner)
-    @post = create(:post, project: @project)
+    @post = create(:post, :draft, project: @project)
     visit edit_project_post_path(@project, @post)
   end
 
