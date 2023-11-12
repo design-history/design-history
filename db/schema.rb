@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_03_112430) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_12_143210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -155,6 +155,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_03_112430) do
     t.string "slug"
     t.json "ordered_image_ids", default: []
     t.text "related_links", default: ""
+    t.string "preview_token"
     t.index ["project_id", "slug"], name: "index_posts_on_project_id_and_slug", unique: true
     t.index ["project_id"], name: "index_posts_on_project_id"
   end
