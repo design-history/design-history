@@ -5,6 +5,7 @@
 #  id                :bigint           not null, primary key
 #  body              :text
 #  ordered_image_ids :json
+#  preview_token     :string
 #  published         :boolean
 #  published_at      :date
 #  related_links     :text             default("")
