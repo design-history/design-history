@@ -86,6 +86,19 @@ class Post < ApplicationRecord
     images.attach(imgs)
   end
 
+  def generate_preview_token
+    adjective = Faker::Emotion.adjective
+    noun = [
+      Faker::Ancient.god,
+      Faker::Ancient.primordial,
+      Faker::Ancient.titan,
+      Faker::Ancient.hero
+    ].sample
+    hex = SecureRandom.hex(3)
+
+    [adjective, noun, hex].map(&:parameterize).join('-')
+  end
+
   private
 
   def sanitize_content
