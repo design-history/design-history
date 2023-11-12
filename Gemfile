@@ -9,6 +9,7 @@ gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "data_migrate", "9.2.0"
 gem "devise"
+gem "faker"
 gem "friendly_id"
 gem "good_job"
 gem "govuk-components"
@@ -49,7 +50,6 @@ end
 
 group :test do
   gem "cuprite"
-  gem "faker"
   gem "rspec"
   gem "rspec-rails"
 end
