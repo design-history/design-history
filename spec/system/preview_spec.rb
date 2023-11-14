@@ -9,6 +9,9 @@ RSpec.describe "Preview" do
     when_i_edit_the_post
     and_i_click_the_preview_button
     then_i_see_the_preview_with_the_edit
+
+    when_i_click_back
+    then_i_see_the_edit_page
   end
 
   private
@@ -19,7 +22,7 @@ RSpec.describe "Preview" do
   end
 
   def when_i_visit_my_post
-    @project = create(:project, owner: @owner)
+    @project = create(:project, owner: @owner, subdomain: "this")
     @post = create(:post, :draft, project: @project)
     visit edit_project_post_path(@project, @post)
   end
@@ -38,5 +41,13 @@ RSpec.describe "Preview" do
 
   def then_i_see_the_preview_with_the_edit
     expect(page).to have_content "New content"
+  end
+
+  def when_i_click_back
+    click_link "Continue editing"
+  end
+
+  def then_i_see_the_edit_page
+    expect(page).to have_content "Draft post"
   end
 end

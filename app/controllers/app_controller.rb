@@ -9,8 +9,11 @@ class AppController < ApplicationController
   end
 
   def show
-    @post =
+    @post = if (preview_token = params[:preview_token].presence)
+      @project.posts.friendly.where(preview_token:).find(params[:post_id])
+    else
       @project.posts.friendly.where(published: true).find(params[:post_id])
+    end
     @comment = Comment.new
   end
 
