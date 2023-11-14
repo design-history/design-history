@@ -15,20 +15,22 @@
       </h1>
     </header>
 
-    <footer>
-      <p class="app-metadata">
+    <aside class="app-metadata govuk-!-margin-bottom-4">
+      <% if @post.published? %>
         <span class="govuk-visually-hidden">Posted on: </span>
         <time datetime="<%= @post.updated_at.iso8601 %>">
           <%= @post.published_at.strftime("%-d %B %Y") %>
         </time>
-      </p>
-    </footer>
+      <% else %>
+        <%= govuk_tag(text: "Draft", colour: "grey") %>
+      <% end %>
+    </aside>
   </div>
 
   <%= govuk_two_thirds do %>
-    <div class="app-markdown">
+    <article class="app-markdown">
       <%= GovukMarkdown.render(@post.body).html_safe %>
-    </div>
+    </article>
 
     <%= render "shared/images", post: @post if @post.images_at_bottom.any? %>
     <%= render "shared/comments",
