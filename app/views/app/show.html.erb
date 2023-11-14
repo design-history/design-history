@@ -1,8 +1,16 @@
 <% content_for :breadcrumbs do %>
-  <%= govuk_breadcrumbs(breadcrumbs: {
-    @project.title => app_posts_path,
-    @post.title => nil
-  }) %>
+  <% if @post.published? %>
+    <%= govuk_breadcrumbs(breadcrumbs: {
+      @project.title => app_posts_path,
+      @post.title => nil
+    }) %>
+  <% else %>
+    <%= govuk_back_link(href: edit_project_post_url(
+        @project, @post,
+        host: Rails.application.config.admin_domain
+      ),
+      text: "Continue editing this draft") %>
+  <% end %>
 <% end %>
 
 <% content_for :page_title, "#{@post.title} - #{@project.title}" %>
