@@ -17,7 +17,8 @@ Capybara.register_driver(:cuprite_custom) do |app|
   Capybara::Cuprite::Driver.new(
     app,
     url_blacklist: %w[fonts.googleapis.com],
-    window_size: [1200, 800]
+    window_size: [1200, 800],
+    timeout: 60
   )
 end
 
