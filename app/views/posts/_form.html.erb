@@ -36,7 +36,7 @@
 
   <% unless post.published? %>
     <%= f.govuk_submit "Save and preview", secondary: true,
-      value: "preview", name: "submit" %>
+      value: "preview", name: "submit", data: { turbo: false } %>
 
     <br />
   <% end %>
