@@ -36,23 +36,32 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
-      if @post.published?
-        body =
-          helpers.govuk_link_to "View post",
-                                app_post_url(
-                                  @post.to_param,
-                                  host: Rails.application.config.app_domain,
-                                  subdomain: @project.subdomain
-                                )
-        notice = { title: "Changes saved", body: }
-      else
-        notice = "Changes saved"
-      end
+    if params[:submit] == "preview"
+      @post.preview_token ||= @post.generate_preview_token
+    end
 
+    @post.assign_attributes(post_params)
+
+    if @post.save
       if params[:submit] == "preview"
-        redirect_to preview_project_post_path(@project, @post), notice:
+        redirect_to app_post_url(
+          @post.to_param,
+          host: Rails.application.config.app_domain,
+          subdomain: @project.subdomain,
+          preview_token: @post.preview_token
+        ), allow_other_host: true
       else
+        if @post.published?
+          body = helpers.govuk_link_to "View post", app_post_url(
+            @post.to_param,
+            host: Rails.application.config.app_domain,
+            subdomain: @project.subdomain
+          )
+          notice = { title: "Changes saved", body: }
+        else
+          notice = "Changes saved"
+        end
+
         redirect_to edit_project_post_path(@project, @post), notice:
       end
     else
