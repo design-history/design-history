@@ -2,6 +2,8 @@ class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_team, except: %i[new create]
 
+  layout "two_thirds", only: %i[new add_user]
+
   # GET /teams/1
   def show
   end

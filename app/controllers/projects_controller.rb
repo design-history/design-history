@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project, only: %i[edit update destroy]
 
+  layout "two_thirds", only: %i[index new edit]
+
   # GET /projects
   def index
     @projects = current_user.projects.all.order(:title)

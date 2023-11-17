@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  layout "two_thirds", only: %i[start privacy_notice]
+
   def landing
     render layout: "landing"
   end
@@ -9,9 +11,5 @@ class PagesController < ApplicationController
 
     respond_to :text
     expires_in 6.hours, public: true
-  end
-
-  def privacy_notice
-    render layout: "two-thirds"
   end
 end

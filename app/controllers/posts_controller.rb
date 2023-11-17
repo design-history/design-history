@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[edit preview update destroy]
   before_action :validate_published_at, only: [:update]
 
+  layout "two_thirds", only: %i[new]
+
   # GET /posts
   def index
     @posts = @project.posts.order(published_at: :desc)

@@ -1,33 +1,29 @@
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <%= h1 "Your design histories", class: "govuk-heading-l" %>
+<%= h1 "Your design histories", class: "govuk-heading-l" %>
 
-    <% if @projects.any? %>
-      <ul class="govuk-list govuk-!-margin-bottom-6">
-        <% @projects.each do |project| %>
-          <li>
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
-              <%= govuk_link_to project.title, project_path(project) %>
-            </h2>
-            <p>
-              <%= project.description %>
-            </p>
-          </li>
-        <% end %>
-      </ul>
-      <p>
-        <%= govuk_button_link_to "New design history", new_project_path %>
-      </p>
-    <% else %>
-      <p class="govuk-body">
-        You don’t have any design histories yet.
-      </p>
-      <p>You can either:</p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
-        <li>create your first design history</li>
-        <li>ask a team member to add you to an existing design history</li>
-      </ul>
-      <%= govuk_button_link_to "Create your first design history", new_project_path %>
+<% if @projects.any? %>
+  <ul class="govuk-list govuk-!-margin-bottom-6">
+    <% @projects.each do |project| %>
+      <li>
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+          <%= govuk_link_to project.title, project_path(project) %>
+        </h2>
+        <p>
+          <%= project.description %>
+        </p>
+      </li>
     <% end %>
-  <% end %>
+  </ul>
+  <p>
+    <%= govuk_button_link_to "New design history", new_project_path %>
+  </p>
+<% else %>
+  <p class="govuk-body">
+    You don’t have any design histories yet.
+  </p>
+  <p>You can either:</p>
+  <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+    <li>create your first design history</li>
+    <li>ask a team member to add you to an existing design history</li>
+  </ul>
+  <%= govuk_button_link_to "Create your first design history", new_project_path %>
 <% end %>

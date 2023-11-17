@@ -6,31 +6,27 @@
   }) %>
 <% end %>
 
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <%= form_with(model: @project,
-                  url: project_manage_access_path(@project)) do |f| %>
-      <%= f.govuk_error_summary %>
+<%= form_with(model: @project,
+              url: project_manage_access_path(@project)) do |f| %>
+  <%= f.govuk_error_summary %>
 
-      <%= h1 "Manage access", class: "govuk-heading-xl" %>
+  <%= h1 "Manage access", class: "govuk-heading-xl" %>
 
-      <%= f.govuk_radio_buttons_fieldset(:visibility,
-          legend: { size: 'm', text: 'Who can see this design history' }) do %>
-        <%= f.govuk_radio_button :visibility, 'public',
-          checked: @project.password.blank? || @project.visibility == 'public',
-          label: { text: 'Everyone (public)' },
-          link_errors: true %>
-        <%= f.govuk_radio_button :visibility, 'private',
-          checked: @project.password.present? || @project.visibility == 'private',
-          label: { text: 'Only people with a password (private)' } do %>
-          <%= f.govuk_text_field :password,
-            label: { text: 'Enter a password' } %>
-        <% end %>
-      <% end %>
-
-      <%= f.govuk_submit "Update visibility" %>
+  <%= f.govuk_radio_buttons_fieldset(:visibility,
+      legend: { size: 'm', text: 'Who can see this design history' }) do %>
+    <%= f.govuk_radio_button :visibility, 'public',
+      checked: @project.password.blank? || @project.visibility == 'public',
+      label: { text: 'Everyone (public)' },
+      link_errors: true %>
+    <%= f.govuk_radio_button :visibility, 'private',
+      checked: @project.password.present? || @project.visibility == 'private',
+      label: { text: 'Only people with a password (private)' } do %>
+      <%= f.govuk_text_field :password,
+        label: { text: 'Enter a password' } %>
     <% end %>
   <% end %>
+
+  <%= f.govuk_submit "Update visibility" %>
 <% end %>
 
 <h2>Teams</h2>
