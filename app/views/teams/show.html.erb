@@ -1,39 +1,67 @@
-<% title = "#{@team.name} team settings" %>
+<% title = "#{@team.name} team" %>
 <%= content_for :page_title, title %>
 
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <%= form_with(model: @add_user_form, url: add_user_team_path(@team)) do |f| %>
-      <%= f.govuk_error_summary %>
+<h1 class="govuk-heading-xl"><%= title %></h1>
 
-      <h1 class="govuk-heading-xl"><%= title %></h1>
+<section class="app-summary-card govuk-!-margin-bottom-6">
+  <header class="app-summary-card__header">
+    <h2 class="app-summary-card__title govuk-!-font-weight-bold govuk-!-font-size-24">
+      Team settings
+    </h2>
+  </header>
 
-      <h2>Users</h2>
+  <div class="app-summary-card__body">
+    <%= govuk_summary_list do |summary_list|
+      summary_list.with_row do |row|
+        row.with_key { "Name" }
+        row.with_value { @team.name }
+      end
 
-      <ul class="govuk-list govuk-list--bullet">
-        <% @team.users.each do |user| %>
-          <li><%= user.email %></li>
-        <% end %>
-      </ul>
+      summary_list.with_row do |row|
+        row.with_key { "Users" }
+        row.with_value { @team.users.map(&:email).join(", ") }
+        row.with_action(text: "Add a new user",
+                        href: add_user_team_path(@team))
+      end
+    end %>
+  </div>
+</section>
 
-      <% if @team.projects.any? %>
-        <h2>Projects</h2>
+<section class="app-summary-card govuk-!-margin-bottom-6">
+  <header class="app-summary-card__header">
+    <h2 class="app-summary-card__title govuk-!-font-weight-bold govuk-!-font-size-24">
+      Design histories
+    </h2>
+  </header>
 
-        <ul class="govuk-list govuk-list--bullet">
-          <% @team.projects.each do |project| %>
-            <li><%= govuk_link_to project.title, project %></li>
-          <% end %>
-        </ul>
-      <% end %>
+  <div class="app-summary-card__body">
+    <% if @team.projects.any? %>
+      <%= govuk_table do |table|
+        table.with_head do |head|
+          head.with_row do |row|
+            row.with_cell(text: 'Title', header: true)
+            row.with_cell(text: 'Description', header: true)
+            row.with_cell(text: 'Visibility', header: true)
+          end
+        end
 
-      <h2>Add users to this team</h2>
-
-      <p>To add a user they must have an account and not be part of a team.</p>
-
-      <%= f.govuk_text_field :email,
-        label: { class: 'govuk-label govuk-label--s' } %>
-
-      <%= f.govuk_submit "Add user to team" %>
+        table.with_body do |body|
+          @team.projects.each do |project|
+            body.with_row do |row|
+              row.with_cell { govuk_link_to project.title,
+                         project_path(project) }
+              row.with_cell { project.description }
+              row.with_cell { project.private? ?
+                              govuk_tag(text: "Private", colour: "grey") :
+                              govuk_tag(text: "Public", colour: "turquoise") }
+            end
+          end
+        end
+      end %>
+    <% else %>
+      <p class="govuk-!-margin-bottom-1">
+        You haven’t created any projects.
+      </p>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</section>

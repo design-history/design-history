@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     devise_for :users
 
     resources :teams do
-      post "/add-user", action: :add_user, on: :member
+      get "/add-user", action: :add_user, on: :member
+      post "/add-user", action: :add_user_create, on: :member
       post "/add-project", action: :add_project, on: :member
     end
 

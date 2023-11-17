@@ -15,6 +15,9 @@ RSpec.describe "Teams" do
     when_i_submit_a_name
     then_i_see_the_team_show_page
 
+    when_i_click_on_add_user
+    then_i_see_the_add_user_page
+
     when_i_submit_an_invalid_email
     then_i_see_an_error
 
@@ -117,5 +120,13 @@ RSpec.describe "Teams" do
 
   def then_i_see_a_success_message
     expect(page).to have_content "Success"
+  end
+
+  def when_i_click_on_add_user
+    click_link "Add a new user"
+  end
+
+  def then_i_see_the_add_user_page
+    expect(page).to have_content "Add a user to your team"
   end
 end
