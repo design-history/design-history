@@ -13,14 +13,13 @@
   <% end %>
 <% end %>
 
-<% content_for :page_title, "#{@post.title} - #{@project.title}" %>
-
 <%= govuk_row do %>
   <div class="govuk-grid-column-full">
     <header class="app-document-header">
-      <h1 class="app-document-header__title govuk-heading-xl">
+      <%= h1 page_title: "#{@post.title} - #{@project.title}",
+             class: "app-document-header__title govuk-heading-xl" do %>
         <%= @post.title %>
-      </h1>
+      <% end %>
     </header>
 
     <aside class="app-metadata govuk-!-margin-bottom-4">

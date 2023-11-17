@@ -11,9 +11,7 @@
       <%= f.govuk_error_summary %>
     <% end %>
 
-    <% title = "New post" %>
-    <%= content_for :page_title, title %>
-    <h1 class="govuk-heading-xl"><%= title %></h1>
+    <%= h1 "New post", class: "govuk-heading-xl" %>
 
     <%= form_with(model: [@project, @post]) do |f| %>
       <%= f.govuk_text_field :title,

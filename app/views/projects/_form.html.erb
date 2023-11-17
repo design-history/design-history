@@ -2,12 +2,17 @@
   <%= govuk_two_thirds do %>
     <%= form_with(model: project) do |f| %>
       <%= f.govuk_error_summary %>
-      <h1 class="govuk-heading-l">
-        <% if editing %>
+
+      <% if project.persisted? %>
+        <%= h1 page_title: "Change design history details",
+               class: "govuk-heading-l" do %>
           <span class="govuk-caption-l"><%= project.title %></span>
+          Change design history details
         <% end %>
-        <%= title %>
-      </h1>
+      <% else %>
+        <%= h1 "New design history", class: "govuk-heading-l" %>
+      <% end %>
+
       <%= f.govuk_text_field :title,
         label: {
           class: 'govuk-label govuk-label--s'
@@ -73,7 +78,8 @@
           link_errors: true, label: { text: 'Enable comments' } %>
       <% end %>
 
-      <%= f.govuk_submit editing ? "Save changes" : "Create design history" %>
+      <%= f.govuk_submit project.persisted? ? "Save changes" :
+                                              "Create design history" %>
     <% end %>
   <% end %>
 <% end %>

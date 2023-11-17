@@ -5,15 +5,13 @@
   }) %>
 <% end %>
 
-<% title = "Add a user to your team" %>
-<%= content_for :page_title, title %>
-
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
-    <%= form_with(model: @add_user_form, url: add_user_team_path(@team)) do |f| %>
+    <%= form_with(model: @add_user_form,
+                  url: add_user_team_path(@team)) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <h1 class="govuk-heading-l"><%= title %></h1>
+      <%= h1 "Add a user to your team", class: "govuk-heading-l" %>
 
       <p>To add a user they must have an account and not be part of a team.</p>
 

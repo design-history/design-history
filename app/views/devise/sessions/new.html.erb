@@ -1,13 +1,11 @@
-<% title = "Sign in" %>
-<%= content_for :page_title, title %>
-
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
     <%= form_for(resource, as: resource_name,
                  url: session_path(resource_name),
                  data: { turbo: false }) do |f| %>
       <%= f.govuk_error_summary %>
-      <h1 class="govuk-heading-l"><%= title %></h1>
+
+      <%= h1 "Sign in", class: "govuk-heading-l" %>
 
       <%= f.govuk_email_field :email,
         label: { text: "Email address" },

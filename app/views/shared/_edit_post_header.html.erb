@@ -14,11 +14,10 @@
   <% end %>
 <% end %>
 
-<h1 class="govuk-heading-xl">
-  <% if post.title %>
-    <span class="govuk-caption-xl">
-      <%= post.published? ? 'Published post' : 'Draft post' %>
-    </span>
-  <% end %>
+<%= h1 page_title: post.published? ? "Edit #{post.title}" : "Draft post",
+       class: "govuk-heading-xl" do %>
+  <span class="govuk-caption-xl">
+    <%= post.published? ? 'Published post' : 'Draft post' %>
+  </span>
   <%= post.title %>
-</h1>
+<% end %>

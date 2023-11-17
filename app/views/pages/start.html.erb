@@ -17,6 +17,7 @@
     </div>
   <% end %>
 
+  <% content_for(:page_title, "Keep a design history") %>
   <%= render(AppMastheadComponent.new(
     classes: 'app-masthead--large govuk-!-padding-top-4',
     title: { text: "Keep a design history" },
