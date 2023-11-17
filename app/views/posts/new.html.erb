@@ -5,23 +5,17 @@
   }) %>
 <% end %>
 
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <%= form_with(model: [@project, @post]) do |f| %>
-      <%= f.govuk_error_summary %>
-    <% end %>
+<%= form_with(model: [@project, @post]) do |f| %>
+  <%= f.govuk_error_summary %>
 
-    <%= h1 "New post", class: "govuk-heading-xl" %>
+  <%= h1 "New post", class: "govuk-heading-xl" %>
 
-    <%= form_with(model: [@project, @post]) do |f| %>
-      <%= f.govuk_text_field :title,
-        label: { text: 'Title', size: 'm' },
-        hint: { text: 'Good titles describe the post, do not use ‘User
-                research’ or ‘MVP’' } %>
+  <%= f.govuk_text_field :title,
+    label: { text: 'Title', size: 'm' },
+    hint: { text: 'Good titles describe the post, do not use ‘User
+            research’ or ‘MVP’' } %>
 
-      <%= f.govuk_submit "Save" %>
-    <% end %>
-  <% end %>
+  <%= f.govuk_submit "Save" %>
 <% end %>
 
 <div>

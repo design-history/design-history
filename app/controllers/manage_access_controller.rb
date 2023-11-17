@@ -2,6 +2,8 @@ class ManageAccessController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
 
+  layout "two_thirds"
+
   def edit
   end
 

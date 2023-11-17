@@ -1,85 +1,81 @@
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <%= form_with(model: project) do |f| %>
-      <%= f.govuk_error_summary %>
+<%= form_with(model: project) do |f| %>
+  <%= f.govuk_error_summary %>
 
-      <% if project.persisted? %>
-        <%= h1 page_title: "Change design history details",
-               class: "govuk-heading-l" do %>
-          <span class="govuk-caption-l"><%= project.title %></span>
-          Change design history details
-        <% end %>
-      <% else %>
-        <%= h1 "New design history", class: "govuk-heading-l" %>
-      <% end %>
-
-      <%= f.govuk_text_field :title,
-        label: {
-          class: 'govuk-label govuk-label--s'
-        },
-        hint: {
-          text: 'Usually your service or website name'
-        } %>
-      <%= f.govuk_text_field :subdomain,
-        label: {
-          text: 'Design history subdomain',
-          class: 'govuk-label govuk-label--s'
-        },
-        hint: {
-          text: '[your-subdomain].designhistory.app'
-        }
-      %>
-      <%= f.govuk_text_field :description,
-        label: {
-          class: 'govuk-label govuk-label--s'
-        }
-      %>
-      <%= f.govuk_text_area :related_links, rows: 4,
-        label: { text: 'Related content', size: 's' },
-        hint: { text: 'Use markdown for links. These will appear in the
-                       sidebar' } %>
-
-      <% themes = [
-        OpenStruct.new(id: 'gov', name: 'UK Government'),
-        OpenStruct.new(id: 'nhs', name: 'UK Healthcare'),
-        OpenStruct.new(id: 'dh', name: 'Default')
-      ] %>
-      <%= f.govuk_collection_radio_buttons :theme,
-        themes,
-        :id,
-        :name,
-        legend: { text: 'Pick a design history style' } %>
-
-      <% legend = -> {
-        tag.legend class: 'govuk-fieldset__legend govuk-fieldset__legend--m' do
-          [tag.span("Comments"), govuk_tag(text: "Beta", colour: "blue")]
-            .join(" ").html_safe
-        end
-      } %>
-
-      <%= f.govuk_check_boxes_fieldset :comments_enabled,
-        multiple: false,
-        legend: legend do %>
-        <p>
-          Comments are in beta. We're still building out their functionality.
-        </p>
-
-        <p>Currently, comments are:</p>
-
-        <ul class="govuk-list govuk-list--bullet">
-          <li>public</li>
-          <li>not moderated</li>
-          <li>not threaded</li>
-          <li>not editable</li>
-          <li>not deletable</li>
-        </ul>
-
-        <%= f.govuk_check_box :comments_enabled, 1, 0, multiple: false,
-          link_errors: true, label: { text: 'Enable comments' } %>
-      <% end %>
-
-      <%= f.govuk_submit project.persisted? ? "Save changes" :
-                                              "Create design history" %>
+  <% if project.persisted? %>
+    <%= h1 page_title: "Change design history details",
+           class: "govuk-heading-l" do %>
+      <span class="govuk-caption-l"><%= project.title %></span>
+      Change details
     <% end %>
+  <% else %>
+    <%= h1 "New design history", class: "govuk-heading-l" %>
   <% end %>
+
+  <%= f.govuk_text_field :title,
+    label: {
+      class: 'govuk-label govuk-label--s'
+    },
+    hint: {
+      text: 'Usually your service or website name'
+    } %>
+  <%= f.govuk_text_field :subdomain,
+    label: {
+      text: 'Design history subdomain',
+      class: 'govuk-label govuk-label--s'
+    },
+    hint: {
+      text: '[your-subdomain].designhistory.app'
+    }
+  %>
+  <%= f.govuk_text_field :description,
+    label: {
+      class: 'govuk-label govuk-label--s'
+    }
+  %>
+  <%= f.govuk_text_area :related_links, rows: 4,
+    label: { text: 'Related content', size: 's' },
+    hint: { text: 'Use markdown for links. These will appear in the
+                   sidebar' } %>
+
+  <% themes = [
+    OpenStruct.new(id: 'gov', name: 'UK Government'),
+    OpenStruct.new(id: 'nhs', name: 'UK Healthcare'),
+    OpenStruct.new(id: 'dh', name: 'Default')
+  ] %>
+  <%= f.govuk_collection_radio_buttons :theme,
+    themes,
+    :id,
+    :name,
+    legend: { text: 'Pick a design history style' } %>
+
+  <% legend = -> {
+    tag.legend class: 'govuk-fieldset__legend govuk-fieldset__legend--m' do
+      [tag.span("Comments"), govuk_tag(text: "Beta", colour: "blue")]
+        .join(" ").html_safe
+    end
+  } %>
+
+  <%= f.govuk_check_boxes_fieldset :comments_enabled,
+    multiple: false,
+    legend: legend do %>
+    <p>
+      Comments are in beta. We're still building out their functionality.
+    </p>
+
+    <p>Currently, comments are:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>public</li>
+      <li>not moderated</li>
+      <li>not threaded</li>
+      <li>not editable</li>
+      <li>not deletable</li>
+    </ul>
+
+    <%= f.govuk_check_box :comments_enabled, 1, 0, multiple: false,
+      link_errors: true, label: { text: 'Enable comments' } %>
+  <% end %>
+
+  <%= f.govuk_submit project.persisted? ? "Save changes" :
+                                          "Create design history" %>
 <% end %>
