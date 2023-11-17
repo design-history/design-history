@@ -31,6 +31,13 @@
 
         <% if admin && current_user %>
           <ul id="navigation" class="govuk-header__navigation-list">
+            <% if current_user.team.present? %>
+              <li class="govuk-header__navigation-item
+                         app-header__navigation-item">
+                <%= link_to "Your team", team_path(current_user.team),
+                  class: 'govuk-header__link' %>
+              </li>
+            <% end %>
             <li class="govuk-header__navigation-item
                        app-header__navigation-item">
               <%= link_to "Your design histories", projects_path,
