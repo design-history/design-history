@@ -1,0 +1,15 @@
+<% content_for :content do %>
+  <div class="govuk-width-container">
+    <%= yield :breadcrumbs %>
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+      <%= render "layouts/banners" %>
+
+      <%= content_layout.call do %>
+        <%= yield %>
+      <% end %>
+    </main>
+  </div>
+<% end %>
+
+<%= render template: 'layouts/base' %>
