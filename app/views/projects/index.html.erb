@@ -1,6 +1,6 @@
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
-    <h1 class="govuk-heading-l">Your design histories</h1>
+    <%= h1 "Your design histories", class: "govuk-heading-l" %>
 
     <% if @projects.any? %>
       <ul class="govuk-list govuk-!-margin-bottom-6">

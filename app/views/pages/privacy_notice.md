@@ -1,3 +1,5 @@
+<% content_for(:page_title, "Privacy notice") %>
+
 # Privacy notice
 
 Last updated on: 28 April 2023

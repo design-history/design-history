@@ -6,15 +6,13 @@
   }) %>
 <% end %>
 
-<%= content_for :page_title, "Manage design history access" %>
-
 <%= govuk_row do %>
   <%= govuk_two_thirds do %>
     <%= form_with(model: @project,
                   url: project_manage_access_path(@project)) do |f| %>
       <%= f.govuk_error_summary %>
 
-      <h1 class="govuk-heading-xl">Manage access</h1>
+      <%= h1 "Manage access", class: "govuk-heading-xl" %>
 
       <%= f.govuk_radio_buttons_fieldset(:visibility,
           legend: { size: 'm', text: 'Who can see this design history' }) do %>

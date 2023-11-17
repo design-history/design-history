@@ -4,7 +4,4 @@
   }) %>
 <% end %>
 
-<% title = "New design history" %>
-<%= content_for :page_title, title %>
-
-<%= render "form", project: @project, title: title, editing: false %>
+<%= render "form", project: @project %>
