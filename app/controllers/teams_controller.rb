@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   def show
-    @add_user_form = AddUserForm.new
   end
 
   # GET /teams/new
@@ -23,14 +22,19 @@ class TeamsController < ApplicationController
     end
   end
 
-  # POST /teams/1/add-user
+  # GET /teams/1/add-user
   def add_user
+    @add_user_form = AddUserForm.new
+  end
+
+  # POST /teams/1/add-user
+  def add_user_create
     @add_user_form = AddUserForm.new(add_user_params)
     @add_user_form.team = @team
     if @add_user_form.save
       redirect_to @team, notice: "User added"
     else
-      render :show, status: :unprocessable_entity
+      render :add_user, status: :unprocessable_entity
     end
   end
 
