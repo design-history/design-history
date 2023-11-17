@@ -67,7 +67,7 @@ RSpec.describe "Teams" do
   end
 
   def then_i_see_the_create_a_team_page
-    expect(page).to have_content "New team"
+    expect(page).to have_content "Create a new team"
   end
 
   def when_i_submit_a_name
