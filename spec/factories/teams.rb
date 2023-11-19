@@ -9,6 +9,6 @@
 #
 FactoryBot.define do
   factory :team do
-    name { FactoryBot::Company.bs.capitalize }
+    name { Faker::Company.bs.capitalize }
   end
 end
