@@ -7,7 +7,7 @@ $govuk-new-link-styles: true;
 $govuk-assets-path: "/";
 
 $govuk-button-background-colour: $app-button-colour;
-@import "govuk-frontend/govuk/all";
+@import "govuk-frontend/dist/govuk/all";
 
 @import "button-link";
 @import "email";
