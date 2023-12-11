@@ -4,18 +4,17 @@
   <div class="govuk-header__container govuk-width-container">
     <div class="govuk-header__logo">
       <% if admin || @project.nil? %>
-        <a class="govuk-header__link govuk-header__link--homepage" href="/">
-          <span class="govuk-header__logotype"><%= t("service.name") %></span>
+        <a href="/" class="govuk-header__link govuk-header__link--homepage
+                           govuk-!-font-weight-bold">
+          <%= t("service.name") %>
         </a>
       <% else %>
-        <span class="govuk-header__logotype">
-          <span class="govuk-header__logotype-text">
-            <span class="govuk-caption-m app-!-inherit-colour">
-              Design History</span>
-            <a href="/" class="govuk-header__link govuk-header__link--homepage">
-              <%= @project.title %></a>
-          </span>
+        <span class="govuk-caption-m app-!-inherit-colour">
+          Design History
         </span>
+        <a href="/" class="govuk-header__link govuk-header__link--homepage
+                           govuk-!-font-weight-bold">
+          <%= @project.title %></a>
       <% end %>
     </div>
 
