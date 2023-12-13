@@ -14,6 +14,27 @@
         row.with_value { @team.name }
       end
 
+      if @team.subdomain.present?
+        summary_list.with_row do |row|
+          row.with_key { "Domain" }
+          row.with_value {
+            govuk_link_to(humanize_design_history_link(@team),
+                          design_history_link(@team))
+          }
+          row.with_action(text: "Edit",
+                          href: edit_team_domain_path(@team),
+                          visually_hidden_text: "the team domain")
+        end
+      else
+        summary_list.with_row do |row|
+          row.with_key { "Domain" }
+          row.with_value { "Not setup" }
+          row.with_action(text: "Setup",
+                          href: start_team_domain_path(@team),
+                          visually_hidden_text: "a team domain")
+        end
+      end
+
       summary_list.with_row do |row|
         row.with_key { "Users" }
         row.with_value { @team.users.map(&:email).join(", ") }
