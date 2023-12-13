@@ -22,6 +22,9 @@ RSpec.describe "Team domain" do
 
     when_i_click_back
     then_i_see_the_team_page
+
+    when_i_click_the_domain
+    then_i_see_the_public_team_page
   end
 
   private
@@ -80,5 +83,15 @@ RSpec.describe "Team domain" do
 
   def when_i_click_back
     click_link "Back"
+  end
+
+  def when_i_click_the_domain
+    click_link "this.app.local"
+  end
+
+  def then_i_see_the_public_team_page
+    expect(page).to have_content @team.name
+    expect(page).to have_content @dh1.title
+    expect(page).to have_content @dh2.title
   end
 end

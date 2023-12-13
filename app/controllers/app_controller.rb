@@ -1,11 +1,16 @@
 class AppController < ApplicationController
-  before_action :set_project
+  before_action :set_team
+  before_action :set_project, unless: -> { @team.present? }
   before_action :check_password, except: %i[confirm_password]
 
   layout "app"
 
   def index
-    @posts = @project.posts.where(published: true).order(published_at: :desc)
+    if @team.present?
+      @projects = @team.projects.where(password: nil).order(title: :asc)
+    else
+      @posts = @project.posts.where(published: true).order(published_at: :desc)
+    end
   end
 
   def show
@@ -28,11 +33,16 @@ class AppController < ApplicationController
 
   private
 
+  def set_team
+    @team = Team.find_by(subdomain: request.subdomain)
+  end
+
   def set_project
     @project = Project.find_by!(subdomain: request.subdomain)
   end
 
   def check_password
+    return if @team.present?
     return unless @project.private?
     return if session[:password] == @project.password
 
