@@ -40,6 +40,10 @@ or set it with content_for(:page_title)."
     tag.div(class: "govuk-grid-column-two-thirds-from-desktop", &block)
   end
 
+  def govuk_one_half(&block)
+    tag.div(class: "govuk-grid-column-one-half-from-desktop", &block)
+  end
+
   def is_admin?
     request.domain == Rails.application.config.admin_domain
   end
