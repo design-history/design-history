@@ -21,6 +21,10 @@ Rails.application.routes.draw do
       get "/add-user", action: :add_user, on: :member
       post "/add-user", action: :add_user_create, on: :member
       post "/add-project", action: :add_project, on: :member
+
+      resource :team_domain, path: "domain", as: "domain" do
+        get "/start", action: :start
+      end
     end
 
     resources :projects do

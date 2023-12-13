@@ -1,0 +1,8 @@
+<% content_for :breadcrumbs do %>
+  <%= govuk_back_link(href: start_team_domain_path(@team)) %>
+<% end %>
+
+<% title = "#{@team.errors.any? ? "Error: " : "" }New team domain" %>
+<%= content_for :page_title, title %>
+
+<%= render "form", team: @team %>

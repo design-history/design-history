@@ -1,0 +1,22 @@
+<% content_for :breadcrumbs do %>
+  <%= govuk_back_link(href: team_path(@team)) %>
+<% end %>
+
+<%= h1 "Setup a team domain" %>
+
+<p>
+  You can set up a shared domain for your team. It will display a page that
+  links to your team’s design histories.
+</p>
+
+<p>
+  All team pages are publicly accessible. Only your public design histories
+  will appear in the list.
+</p>
+
+<p>
+  Your design histories will continue to be accessible using their own domains.
+  If they are set to be private, they will continue to be password protected.
+</p>
+
+<%= govuk_button_link_to "Continue", new_team_domain_path(@team) %>

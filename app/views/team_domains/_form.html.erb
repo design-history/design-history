@@ -1,0 +1,35 @@
+<%= form_with model: @team, url: team_domain_path(@team) do |f| %>
+  <%= f.govuk_error_summary %>
+
+  <%= h1 "Choose a subdomain and style", class: 'govuk-heading-l' %>
+
+  <%= f.govuk_text_field :subdomain,
+    label: {
+      text: 'Team subdomain',
+      class: 'govuk-label govuk-label--s'
+    },
+    hint: {
+      text: '[your-subdomain].designhistory.app'
+    }
+  %>
+
+  <% themes = [
+    OpenStruct.new(id: 'gov', name: 'UK Government'),
+    OpenStruct.new(id: 'nhs', name: 'UK Healthcare'),
+    OpenStruct.new(id: 'dh', name: 'Default')
+  ] %>
+  <%= f.govuk_collection_radio_buttons :theme,
+    themes,
+    :id,
+    :name,
+    legend: {
+      text: 'Pick a team style',
+    },
+    hint: {
+      text: @theme_is_preselected &&
+        'We’ve pre-selected the one that matches all your design histories.'
+    }
+  %>
+
+  <%= f.govuk_submit "Submit" %>
+<% end %>
