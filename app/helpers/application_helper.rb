@@ -44,15 +44,15 @@ or set it with content_for(:page_title)."
     request.domain == Rails.application.config.admin_domain
   end
 
-  def design_history_link(project)
+  def design_history_link(entity)
     protocol = Rails.env.production? ? "https" : "http"
-    link = humanize_design_history_link(project)
+    link = humanize_design_history_link(entity)
     port = Rails.env.production? ? "" : ":#{request.port}"
     "#{protocol}://#{link}#{port}"
   end
 
-  def humanize_design_history_link(project)
-    subdomain = project.subdomain
+  def humanize_design_history_link(entity)
+    subdomain = entity.subdomain
     domain = Rails.application.config.app_domain
     "#{subdomain}.#{domain}"
   end
