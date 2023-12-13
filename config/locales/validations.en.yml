@@ -60,6 +60,15 @@ en:
             name:
               blank: Enter a name
               too_long: Enter a name that is less than 50 characters long
+            subdomain:
+              blank: Enter a subdomain
+              too_long: Enter a subdomain that is less than 50 characters long
+              invalid: Enter a subdomain in the correct format, like
+                your-subdomain
+              exclusion: The subdomain is in use
+              taken: The subdomain is in use
+            theme:
+              inclusion: Choose one of the styles
         comment:
           attributes:
             body:

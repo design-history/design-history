@@ -18,4 +18,28 @@ class Team < ApplicationRecord
   has_many :projects, as: :owner
 
   validates :name, presence: true, length: { maximum: 50 }
+
+  with_options on: :update do
+    validates :subdomain,
+              presence: true,
+              length: {
+                maximum: 50
+              },
+              exclusion: {
+                in: %w[www the our]
+              },
+              format: {
+                with: /\A[a-z0-9-]+\z/
+              },
+              uniqueness: true
+    validates :theme, inclusion: { in: %w[dh gov nhs] }
+  end
+  before_validation :strip_domain_and_protocol_from_subdomain,
+                    on: %i[update]
+
+  private
+
+  def strip_domain_and_protocol_from_subdomain
+    self.subdomain = subdomain.gsub(%r{\Ahttps?://}, "").gsub(/\..*\z/, "")
+  end
 end
