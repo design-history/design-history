@@ -14,7 +14,7 @@
 <% end %>
 
 <%= govuk_row do %>
-  <div class="govuk-grid-column-full">
+  <%= govuk_two_thirds do %>
     <header class="app-document-header">
       <%= h1 page_title: "#{@post.title} - #{@project.title}",
              class: "app-document-header__title govuk-heading-xl" do %>
@@ -32,8 +32,10 @@
         <%= govuk_tag(text: "Draft", colour: "grey") %>
       <% end %>
     </aside>
-  </div>
+  <% end %>
+<% end %>
 
+<%= govuk_row do %>
   <%= govuk_two_thirds do %>
     <article class="app-markdown">
       <%= GovukMarkdown.render(@post.body).html_safe %>
