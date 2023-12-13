@@ -1,44 +1,5 @@
-<%= content_for :page_title, @project.title %>
-
-<% content_for :masthead do %>
-  <%= render(AppMastheadComponent.new(
-    classes: 'app-masthead--large govuk-!-padding-top-4',
-    title: { text: @project.title + " design history" },
-    description: { html: @project.description }
-  )) %>
-<% end %>
-
-<h2 class="govuk-heading-l">Posts</h2>
-
-<%= govuk_row do %>
-  <%= govuk_two_thirds do %>
-    <ol class="govuk-list app-posts">
-      <% @posts.each do |post| %>
-        <li class="app-posts__item">
-          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
-            <%= govuk_link_to app_post_path(post.to_param) do %>
-              <%= post.title %>
-            <% end %>
-          </h2>
-          <p class="app-posts__date govuk-!-font-size-16">
-            <time
-              datetime="<%= post.updated_at.iso8601 %>">
-              <%= post.published_at.strftime("%-d %B %Y") %></time>
-          </p>
-        </li>
-      <% end %>
-    </ol>
-  <% end %>
-
-  <%= govuk_one_third do %>
-    <% if @project.related_links.present? %>
-      <nav class="app-related-links" role="navigation"
-           aria-labelledby="related-content">
-        <h2 class="app-related-links__main-heading" id="related-content">
-          Related content
-        </h2>
-        <%= GovukMarkdown.render(@project.related_links).html_safe %>
-      </nav>
-    <% end %>
-  <% end %>
+<% if @projects.present? %>
+  <%= render 'projects', projects: @projects %>
+<% else %>
+  <%= render 'posts', posts: @posts, project: @project %>
 <% end %>

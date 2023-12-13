@@ -1,4 +1,4 @@
-<% content_for :theme, @project.theme %>
+<% content_for :theme, @project&.theme || @team.theme %>
 
 <%= render partial: 'layouts/common_layout', locals: {
   content_layout: -> { yield }

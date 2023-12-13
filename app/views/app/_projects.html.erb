@@ -1,0 +1,23 @@
+<%= content_for :page_title, @team.name %>
+
+<% content_for :masthead do %>
+  <%= render(AppMastheadComponent.new(
+    classes: 'app-masthead--large govuk-!-padding-top-4',
+    title: { text: @team.name + " design history" }
+  )) %>
+<% end %>
+
+<h2 class="govuk-heading-l">Services</h2>
+
+<%= govuk_row do %>
+  <% @projects.each do |project| %>
+    <%= govuk_one_half do %>
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+        <%= govuk_link_to project.title, design_history_link(project) %>
+      </h3>
+      <p>
+        <%= project.description %>
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
