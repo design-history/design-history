@@ -51,4 +51,16 @@ class User < ApplicationRecord
   def team_projects
     Project.where owner: team
   end
+
+  def groups
+    own_groups.or team_groups
+  end
+
+  def own_groups
+    Group.where owner: self
+  end
+
+  def team_groups
+    Group.where owner: team
+  end
 end

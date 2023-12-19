@@ -1,0 +1,2 @@
+class Group < Project
+end
