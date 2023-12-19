@@ -44,7 +44,8 @@ class Project < ApplicationRecord
   validates :password, presence: true, if: -> { visibility == "private" }
   validates :theme, inclusion: { in: %w[dh gov nhs] }
   before_validation :strip_domain_and_protocol_from_subdomain,
-                    on: %i[create update]
+                    on: %i[create update],
+                    if: -> { subdomain.present? }
 
   def private?
     password.present?
