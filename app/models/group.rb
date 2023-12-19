@@ -1,2 +1,25 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id               :bigint           not null, primary key
+#  comments_enabled :boolean          default(FALSE)
+#  description      :string
+#  owner_type       :string           not null
+#  password         :string
+#  related_links    :text             default("")
+#  subdomain        :string
+#  theme            :string           default("dh"), not null
+#  title            :string
+#  type             :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  owner_id         :bigint           not null
+#
+# Indexes
+#
+#  index_projects_on_owner      (owner_type,owner_id)
+#  index_projects_on_subdomain  (subdomain) UNIQUE
+#
 class Group < Project
 end

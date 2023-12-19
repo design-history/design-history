@@ -11,6 +11,7 @@
 #  subdomain        :string
 #  theme            :string           default("dh"), not null
 #  title            :string
+#  type             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  owner_id         :bigint           not null
