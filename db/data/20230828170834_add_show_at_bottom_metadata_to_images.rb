@@ -2,7 +2,7 @@
 
 class AddShowAtBottomMetadataToImages < ActiveRecord::Migration[7.0]
   def up
-    ActiveStorage::Blob.all.each do |blob|
+    ActiveStorage::Blob.all.find_each do |blob|
       blob.custom_metadata.merge!({ show_at_bottom: "1" })
       blob.save!
     end
