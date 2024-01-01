@@ -6,7 +6,7 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "esbuild": "^0.19.10",
     "govuk-frontend": "^5.0.0",
-    "sass": "^1.69.5"
+    "sass": "^1.69.6"
   },
   "scripts": {
     "build:css": "sass $(cat ./app/assets/stylesheets/themes.txt) --no-source-map --load-path=node_modules --quiet-deps",
