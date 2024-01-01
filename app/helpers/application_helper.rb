@@ -70,7 +70,7 @@ or set it with content_for(:page_title)."
   end
 
   def image_alt_text_fallback(image)
-    (image.custom_metadata["alt_text"].presence || image_title(image))
+    image.custom_metadata["alt_text"].presence || image_title(image)
   end
 
   def image_caption(image)

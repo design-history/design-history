@@ -1,6 +1,6 @@
 class UseOwnerOnProjects < ActiveRecord::Migration[7.0]
   def up
-    Project.all.each do |project|
+    Project.all.find_each do |project|
       project.owner = project.user
       project.save!
     end
