@@ -17,7 +17,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = current_user.own_projects.new
+    @project = if params[:type] == "group"
+      current_user.own_groups.new
+    else
+      current_user.own_projects.new
+    end
   end
 
   # GET /projects/1/edit
