@@ -2,13 +2,13 @@
   <%= f.govuk_error_summary %>
 
   <% if project.persisted? %>
-    <%= h1 page_title: "Change design history details",
+    <%= h1 page_title: "Change #{project.label} details",
            class: "govuk-heading-l" do %>
       <span class="govuk-caption-l"><%= project.title %></span>
       Change details
     <% end %>
   <% else %>
-    <%= h1 "New design history", class: "govuk-heading-l" %>
+    <%= h1 "New #{project.label}", class: "govuk-heading-l" %>
   <% end %>
 
   <%= f.govuk_text_field :title,
@@ -20,7 +20,7 @@
     } %>
   <%= f.govuk_text_field :subdomain,
     label: {
-      text: 'Design history subdomain',
+      text: "#{project.label.upcase_first} subdomain",
       class: 'govuk-label govuk-label--s'
     },
     hint: {
@@ -46,7 +46,7 @@
     themes,
     :id,
     :name,
-    legend: { text: 'Pick a design history style' } %>
+    legend: { text: "Pick a #{project.label} style" } %>
 
   <% if project.persisted? %>
     <% legend = -> {
@@ -79,5 +79,5 @@
   <% end %>
 
   <%= f.govuk_submit project.persisted? ? "Save changes" :
-                                          "Create design history" %>
+                                          "Create #{project.label}" %>
 <% end %>

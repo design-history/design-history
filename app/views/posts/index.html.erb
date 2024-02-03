@@ -45,7 +45,7 @@
         row.with_key { 'Visibility' }
         row.with_value { @project.private? ? "Private" : "Public" }
         row.with_action(text: "Manage access",
-                   href: project_manage_access_path(@project))
+                        href: project_manage_access_path(@project))
       end
     end %>
   </div>

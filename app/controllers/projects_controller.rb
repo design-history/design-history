@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.own_projects.new(project_params)
     if @project.save
-      redirect_to @project, notice: "Your design history has been created"
+      redirect_to @project, notice: "Your #{@project.label} has been created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   def destroy
     @project.destroy!
-    redirect_to projects_url, notice: "Your design history has been deleted"
+    redirect_to projects_url, notice: "Your #{@project.label} has been deleted"
   end
 
   private

@@ -62,6 +62,10 @@ class Project < ApplicationRecord
     password.present?
   end
 
+  def label
+    type&.downcase || "design history"
+  end
+
   private
 
   def strip_domain_and_protocol_from_subdomain
