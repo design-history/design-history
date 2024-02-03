@@ -6,7 +6,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = current_user.projects.all.order(:title)
+    @projects = current_user.projects.where(type: nil).order(:title)
+    @groups = current_user.groups.all.order(:title)
   end
 
   # GET /projects/1
