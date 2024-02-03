@@ -15,17 +15,27 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  owner_id         :bigint           not null
+#  project_id       :bigint
 #
 # Indexes
 #
-#  index_projects_on_owner      (owner_type,owner_id)
-#  index_projects_on_subdomain  (subdomain) UNIQUE
+#  index_projects_on_owner       (owner_type,owner_id)
+#  index_projects_on_project_id  (project_id)
+#  index_projects_on_subdomain   (subdomain) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (project_id => projects.id)
 #
 class Project < ApplicationRecord
   belongs_to :owner, polymorphic: true
   has_many :posts, dependent: :destroy
 
   attr_accessor :visibility
+
+  scope :ungrouped, -> { where(project_id: nil, type: nil) }
+
+  belongs_to :group, foreign_key: :project_id, optional: true
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :subdomain,
