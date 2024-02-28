@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_projects, only: %i[new create]
   before_action :set_project, only: %i[edit update destroy]
 
-  layout "two_thirds", only: %i[index new edit]
+  layout "two_thirds", only: %i[index new edit create update]
 
   # GET /projects
   def index
@@ -17,11 +18,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = if params[:type] == "group"
-      current_user.own_groups.new
-    else
-      current_user.own_projects.new
-    end
+    @project = @projects.new
   end
 
   # GET /projects/1/edit
@@ -30,9 +27,10 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = current_user.own_projects.new(project_params)
+    @project = @projects.new(project_params)
     if @project.save
-      redirect_to @project, notice: "Your #{@project.label} has been created"
+      redirect_to project_path(@project),
+        notice: "Your #{@project.label} has been created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,7 +39,8 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: "Your changes have been saved"
+      redirect_to project_path(@project),
+        notice: "Your changes have been saved"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -55,12 +54,20 @@ class ProjectsController < ApplicationController
 
   private
 
+  def set_projects
+    @projects = if params[:type] == "group"
+      current_user.own_groups
+    else
+      current_user.own_projects
+    end
+  end
+
   def set_project
     @project = current_user.projects.find(params[:id])
   end
 
   def project_params
-    params.require(:project).permit(
+    params.fetch(:project, params.require(:group)).permit(
       :title,
       :subdomain,
       :description,

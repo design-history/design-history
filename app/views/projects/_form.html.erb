@@ -1,4 +1,5 @@
-<%= form_with(model: project) do |f| %>
+<%= form_with(url: projects_path(type: project.type.downcase),
+              model: project) do |f| %>
   <%= f.govuk_error_summary %>
 
   <% if project.persisted? %>
@@ -32,10 +33,13 @@
       class: 'govuk-label govuk-label--s'
     }
   %>
-  <%= f.govuk_text_area :related_links, rows: 4,
-    label: { text: 'Related content', size: 's' },
-    hint: { text: 'Use markdown for links. These will appear in the
-                   sidebar' } %>
+
+  <% unless project.kind_of?(Group) %>
+    <%= f.govuk_text_area :related_links, rows: 4,
+      label: { text: 'Related content', size: 's' },
+      hint: { text: 'Use markdown for links. These will appear in the
+                     sidebar' } %>
+  <% end %>
 
   <% themes = [
     OpenStruct.new(id: 'gov', name: 'UK Government'),
@@ -48,7 +52,7 @@
     :name,
     legend: { text: "Pick a #{project.label} style" } %>
 
-  <% if project.persisted? %>
+  <% if project.persisted? && !project.kind_of?(Group) %>
     <% legend = -> {
       tag.legend class: 'govuk-fieldset__legend govuk-fieldset__legend--m' do
         [tag.span("Comments"), govuk_tag(text: "Beta", colour: "blue")]
