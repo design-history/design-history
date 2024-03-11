@@ -3,7 +3,7 @@
   "private": "true",
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo-rails": "^8.0.3",
+    "@hotwired/turbo-rails": "^8.0.4",
     "esbuild": "^0.20.1",
     "govuk-frontend": "^5.2.0",
     "sass": "^1.71.1"
