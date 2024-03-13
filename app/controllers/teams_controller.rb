@@ -45,7 +45,7 @@ class TeamsController < ApplicationController
     project = Project.find(add_project_params)
     project.update!(owner: @team)
     redirect_to project_manage_access_path(project),
-                notice: "Design history was added to your team"
+      notice: "#{project.label.upcase_first} was added to your team"
   end
 
   private

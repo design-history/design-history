@@ -13,7 +13,7 @@
   <%= h1 "Manage access", class: "govuk-heading-xl" %>
 
   <%= f.govuk_radio_buttons_fieldset(:visibility,
-      legend: { size: 'm', text: 'Who can see this design history' }) do %>
+    legend: { size: 'm', text: "Who can see this #{@project.label}) do %>
     <%= f.govuk_radio_button :visibility, 'public',
       checked: @project.password.blank? || @project.visibility == 'public',
       label: { text: 'Everyone (public)' },
@@ -32,13 +32,13 @@
 <h2>Teams</h2>
 
 <% if @project.owner == current_user.team %>
-  <p>This design history belongs to your team. Anyone can edit.</p>
+  <p>This <%= @project.label %> belongs to your team. Anyone can edit.</p>
 <% else %>
-  <p>This design history belongs to you. Only you can edit it.</p>
+  <p>This <%= @project.label %> belongs to you. Only you can edit it.</p>
 
   <% if current_user.team.present? %>
     <p>
-      You can add this design history to your team.
+      You can add this <%= @project.label %> to your team.
     </p>
 
     <%= govuk_button_to "Add to team",

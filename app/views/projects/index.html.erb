@@ -1,12 +1,13 @@
-<%= h1 "Your design histories", class: "govuk-heading-l" %>
+<%= h1 "Your design histories and groups", class: "govuk-heading-l" %>
 
 <% if @projects.any? %>
+  <h2 class="govuk-heading-m govuk-visually-hidden">Design histories</h2>
   <ul class="govuk-list govuk-!-margin-bottom-6">
     <% @projects.each do |project| %>
       <li>
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
           <%= govuk_link_to project.title, project_path(project) %>
-        </h2>
+        </h3>
         <p>
           <%= project.description %>
         </p>
@@ -15,6 +16,30 @@
   </ul>
   <p>
     <%= govuk_button_link_to "New design history", new_project_path %>
+  </p>
+
+  <h2 class="govuk-heading-m">Groups</h2>
+  <% if @groups.empty? %>
+    <p>
+      Groups are a way to organise and present your design histories. They have
+      their own domain and link to your design histories.
+    </p>
+  <% else %>
+    <ul class="govuk-list govuk-!-margin-bottom-6">
+      <% @groups.each do |group| %>
+        <li>
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+            <%= govuk_link_to group.title, project_path(group) %>
+          </h3>
+          <p>
+            <%= group.description %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p>
+    <%= govuk_button_link_to "New group", new_project_path(type: "group") %>
   </p>
 <% else %>
   <p class="govuk-body">
