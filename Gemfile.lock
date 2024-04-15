@@ -207,7 +207,7 @@ GEM
       fugit (>= 1.1)
       railties (>= 6.0.0)
       thor (>= 0.14.1)
-    govuk-components (5.3.0)
+    govuk-components (5.3.1)
       html-attributes-utils (~> 1.0.0, >= 1.0.0)
       pagy (>= 6, < 8)
       view_component (>= 3.9, < 3.12)
