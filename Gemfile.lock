@@ -223,7 +223,7 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    hotwire-livereload (1.3.2)
+    hotwire-livereload (1.4.0)
       actioncable (>= 6.0.0)
       listen (>= 3.0.0)
       railties (>= 6.0.0)
