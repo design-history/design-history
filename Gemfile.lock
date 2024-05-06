@@ -148,7 +148,7 @@ GEM
     cuprite (0.14.3)
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
-    data_migrate (9.3.0)
+    data_migrate (9.4.0)
       activerecord (>= 6.1)
       railties (>= 6.1)
     date (3.3.4)
@@ -241,8 +241,8 @@ GEM
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
     io-console (0.7.2)
-    irb (1.12.0)
-      rdoc
+    irb (1.13.1)
+      rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jaro_winkler (1.5.6)
     jmespath (1.6.2)
@@ -360,7 +360,7 @@ GEM
       psych (>= 4.0.0)
     redcarpet (3.6.0)
     regexp_parser (2.9.0)
-    reline (0.5.3)
+    reline (0.5.5)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -520,7 +520,7 @@ DEPENDENCIES
   capybara!
   cssbundling-rails
   cuprite
-  data_migrate (= 9.3.0)
+  data_migrate (= 9.4.0)
   debug
   devise
   dotenv-rails
