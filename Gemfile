@@ -49,7 +49,7 @@ group :development do
 end
 
 group :test do
-  gem "capybara", github: "teamcapybara/capybara", ref: "52eaece"
+  gem "capybara"
   gem "cuprite"
   gem "rspec"
   gem "rspec-rails"
