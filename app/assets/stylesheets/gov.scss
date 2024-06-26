@@ -1,17 +1,15 @@
 @import "govuk-frontend/dist/govuk/base";
 
-$app-brand-colour: govuk-colour("blue");
-$app-button-colour: govuk-colour("green");
-
+// App component settings
 $app-header-background-colour: govuk-colour("black");
-$app-header-bar-colour: $app-brand-colour;
-$app-header-border-width: 10px;
+$app-header-border-colour: $govuk-brand-colour;
+$app-header-border-width: govuk-spacing(2);
 
-$app-masthead-colour: $app-brand-colour;
+$app-masthead-background-colour: $govuk-brand-colour;
 $app-masthead-text-colour: govuk-colour("white");
 
-$app-tint-colour: govuk-colour("light-grey");
-
-$app-upload-colour: $app-brand-colour;
+$app-footer-background-colour: $govuk-canvas-background-colour;
+$app-footer-border-colour: $govuk-border-colour;
+$app-footer-border-width: 1px;
 
 @import "application";

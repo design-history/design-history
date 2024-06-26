@@ -1,4 +1,6 @@
 .app-header {
+  border-bottom-width: $app-header-border-width;
+
   &--design-history {
     background: $app-header-background-colour;
 
@@ -9,14 +11,15 @@
     }
 
     .govuk-header__container {
-      border-bottom: $app-header-border-width solid $app-header-bar-colour;
+      border-bottom: $app-header-border-width solid $app-header-border-colour;
+      margin-bottom: #{$app-header-border-width * -1};
     }
   }
 
   &--admin {
-    padding-top: 40px;
-    padding-bottom: $app-header-border-width;
-    border-bottom: $app-header-border-width solid $app-header-bar-colour;
+    padding-top: govuk-spacing(7);
+    padding-bottom: govuk-spacing(2);
+    border-bottom: $app-header-border-width solid $app-header-border-colour;
 
     .govuk-header__container {
       border-bottom-width: 0;

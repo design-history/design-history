@@ -1,17 +1,50 @@
 @import "govuk-frontend/dist/govuk/base";
 
-$app-brand-colour: #005eb8;
-$app-button-colour: $app-brand-colour;
+// NHS colour palette
+$color_nhsuk-black: #212b32;
+$color_nhsuk-blue: #005eb8;
+$color_nhsuk-dark-blue: #002f5c;
+$color_nhsuk-dark-pink: #7c2855;
+$color_nhsuk-green: #007f3b;
+$color_nhsuk-purple: #330072;
+$color_nhsuk-red: #d5281b;
+$color_nhsuk-yellow: #ffeb3b;
+$color_nhsuk-grey-1: #4c6272;
+$color_nhsuk-grey-4: #d8dde0;
+$color_nhsuk-grey-5: #f0f4f5;
 
-$app-header-background-colour: $app-brand-colour;
-$app-header-bar-colour: govuk-colour("white");
-$app-header-border-width: 2px;
+// GOV.UK Frontend settings
+$govuk-brand-colour: $color_nhsuk-blue;
+$govuk-canvas-background-colour: $color_nhsuk-grey-4;
+$govuk-body-background-colour: $color_nhsuk-grey-5;
+$govuk-text-colour: $color_nhsuk-black;
+$govuk-secondary-text-colour: $color_nhsuk-grey-1;
+$govuk-focus-colour: $color_nhsuk-yellow;
+$govuk-focus-text-colour: $color_nhsuk-black;
+$govuk-error-colour: $color_nhsuk-red;
+$govuk-success-colour: $color_nhsuk-green;
+$govuk-border-colour: $color_nhsuk-grey-4;
+$govuk-input-border-colour: $color_nhsuk-grey-1;
+$govuk-link-colour: $color_nhsuk-blue;
+$govuk-link-visited-colour: $color_nhsuk-purple;
+$govuk-link-hover-colour: $color_nhsuk-dark-pink;
+$govuk-link-active-colour: $color_nhsuk-dark-blue;
 
-$app-masthead-colour: $app-brand-colour;
+$govuk-gutter: 32px;
+$govuk-border-width: 4px;
+$govuk-border-width-wide: 8px;
+$govuk-focus-width: 4px;
+
+// App component settings
+$app-header-background-colour: $govuk-brand-colour;
+$app-header-border-colour: rgba(govuk-colour("white"), 0.2);
+$app-header-border-width: 1px;
+
+$app-masthead-background-colour: $govuk-brand-colour;
 $app-masthead-text-colour: govuk-colour("white");
 
-$app-tint-colour: govuk-colour("light-grey");
-
-$app-upload-colour: $app-brand-colour;
+$app-footer-background-colour: $govuk-canvas-background-colour;
+$app-footer-border-colour: $govuk-brand-colour;
+$app-footer-border-width: $govuk-border-width;
 
 @import "application";

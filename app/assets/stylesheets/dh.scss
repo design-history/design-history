@@ -1,17 +1,19 @@
 @import "govuk-frontend/dist/govuk/base";
 
-$app-brand-colour: #288080;
-$app-button-colour: $app-brand-colour;
+// GOV.UK Frontend settings
+$govuk-brand-colour: #288080;
+$govuk-canvas-background-colour: #e0efef;
 
+// App component settings
 $app-header-background-colour: govuk-colour("black");
-$app-header-bar-colour: $app-button-colour;
-$app-header-border-width: 10px;
+$app-header-border-colour: $govuk-brand-colour;
+$app-header-border-width: govuk-spacing(2);
 
-$app-masthead-colour: #c1dede;
+$app-masthead-background-colour: #c1dede;
 $app-masthead-text-colour: govuk-colour("black");
 
-$app-tint-colour: govuk-tint($app-masthead-colour, 50%);
-
-$app-upload-colour: $app-masthead-colour;
+$app-footer-background-colour: $govuk-canvas-background-colour;
+$app-footer-border-colour: transparent;
+$app-footer-border-width: 1px;
 
 @import "application";

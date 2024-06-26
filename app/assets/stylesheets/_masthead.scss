@@ -2,7 +2,7 @@
   @include govuk-responsive-padding(8, "bottom");
   padding-top: 0;
   color: $app-masthead-text-colour;
-  background-color: $app-masthead-colour;
+  background-color: $app-masthead-background-colour;
   margin-top: govuk-spacing(-2);
 
   &__title {

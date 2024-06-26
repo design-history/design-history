@@ -3,10 +3,8 @@ $govuk-font-family: "Inter", "HelveticaNeue", "Helvetica Neue", "Arial",
   "Helvetica", sans-serif;
 
 $govuk-global-styles: true;
-$govuk-new-link-styles: true;
 $govuk-assets-path: "/";
 
-$govuk-button-background-colour: $app-button-colour;
 @import "govuk-frontend/dist/govuk/all";
 
 @import "button-link";
@@ -25,10 +23,6 @@ $govuk-button-background-colour: $app-button-colour;
   white-space: nowrap;
 }
 
-.app-design-history {
-  background-color: $app-tint-colour;
-}
-
 .app-metadata {
   @include govuk-font($size: 16, $line-height: 1.5);
   color: $govuk-secondary-text-colour;
@@ -39,14 +33,14 @@ $govuk-button-background-colour: $app-button-colour;
 }
 
 .app-waitlist-container {
-  background-color: govuk-tint($app-masthead-colour, 50%);
+  background-color: govuk-tint($app-masthead-background-colour, 50%);
   padding: govuk-spacing(4) 0 govuk-spacing(8);
   margin-top: govuk-spacing(8);
   margin-bottom: govuk-spacing(3);
 }
 
 .app-holding-screenshot {
-  border-bottom: 20px solid $app-header-bar-colour;
+  border-bottom: govuk-spacing(4) solid $govuk-brand-colour;
   margin-top: govuk-spacing(4);
   max-width: 100%;
   margin-bottom: -38px;
