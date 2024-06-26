@@ -1,7 +1,7 @@
 .app-footer {
   .govuk-footer {
-    border-width: 0;
-    background-color: $app-tint-colour;
+    background-color: $app-footer-background-colour;
+    border-top: $app-footer-border-width solid $app-footer-border-colour;
   }
 
   // Reset display: flex and margins

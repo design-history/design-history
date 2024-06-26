@@ -1,8 +1,8 @@
 .app-upload {
   input[type="file"] {
-    background-color: govuk-tint($app-upload-colour, 80%);
+    background-color: govuk-colour("light-grey");
     box-sizing: border-box;
-    border: 2px dashed $app-upload-colour;
+    border: 2px dashed $govuk-border-colour;
     padding: govuk-spacing(4);
     width: 100%;
   }
