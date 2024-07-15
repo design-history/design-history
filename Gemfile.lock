@@ -512,7 +512,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   friendly_id
-  good_job (~> 4.0)
+  good_job
   govuk-components
   govuk_design_system_formbuilder
   govuk_markdown
