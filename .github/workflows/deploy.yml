@@ -8,6 +8,9 @@ jobs:
   deploy:
     name: Fly
     runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-group
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
