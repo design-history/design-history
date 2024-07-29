@@ -84,7 +84,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    avo (3.10.5)
+    avo (3.10.9)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -155,7 +155,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
-    docile (1.4.0)
+    docile (1.4.1)
     dotenv (3.1.2)
     dotenv-rails (3.1.2)
       dotenv (= 3.1.2)
@@ -257,8 +257,8 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    meta-tags (2.21.0)
-      actionpack (>= 6.0.0, < 7.2)
+    meta-tags (2.22.0)
+      actionpack (>= 6.0.0, < 8.1)
     method_source (1.1.0)
     mini_magick (4.11.0)
     mini_mime (1.1.5)
@@ -278,9 +278,9 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.6-arm64-darwin)
+    nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.6-x86_64-linux)
+    nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (8.6.3)
@@ -297,7 +297,7 @@ GEM
       railties (>= 7.0.0)
     psych (5.1.2)
       stringio
-    public_suffix (6.0.0)
+    public_suffix (6.0.1)
     puma (6.4.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
