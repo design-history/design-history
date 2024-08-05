@@ -84,7 +84,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    avo (3.10.9)
+    avo (3.10.10)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -303,7 +303,7 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
-    racc (1.8.0)
+    racc (1.8.1)
     rack (3.1.7)
     rack-session (2.0.0)
       rack (>= 3.0.0)
@@ -492,7 +492,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yard (0.9.36)
-    zeitwerk (2.6.16)
+    zeitwerk (2.6.17)
 
 PLATFORMS
   arm64-darwin-21
