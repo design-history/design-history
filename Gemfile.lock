@@ -80,7 +80,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    avo (3.11.4)
+    avo (3.11.7)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -260,7 +260,7 @@ GEM
     method_source (1.1.0)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.24.1)
+    minitest (5.25.1)
     msgpack (1.7.2)
     multipart-post (2.4.1)
     net-http (0.4.1)
