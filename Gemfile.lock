@@ -80,7 +80,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    avo (3.12.0)
+    avo (3.13.3)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -255,7 +255,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    meta-tags (2.22.0)
+    meta-tags (2.22.1)
       actionpack (>= 6.0.0, < 8.1)
     method_source (1.1.0)
     mini_magick (4.13.2)
@@ -280,7 +280,7 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    pagy (9.0.9)
+    pagy (9.1.0)
     parallel (1.25.1)
     parser (3.3.3.0)
       ast (~> 2.4.1)
