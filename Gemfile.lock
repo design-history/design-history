@@ -80,7 +80,7 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    avo (3.13.3)
+    avo (3.13.6)
       actionview (>= 6.1)
       active_link_to
       activerecord (>= 6.1)
@@ -88,9 +88,9 @@ GEM
       addressable
       docile
       inline_svg
-      literal (~> 0.2)
       meta-tags
       pagy (>= 7.0.0)
+      prop_initializer (>= 0.2.0)
       turbo-rails (>= 2.0.0)
       turbo_power (>= 0.6.0)
       view_component (>= 3.7.0)
@@ -243,7 +243,6 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
-    literal (0.2.1)
     logger (1.6.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -287,6 +286,8 @@ GEM
       racc
     pg (1.5.8)
     prettier_print (1.2.1)
+    prop_initializer (0.2.0)
+      zeitwerk (>= 2.6.18)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
