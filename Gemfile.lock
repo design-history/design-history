@@ -137,7 +137,7 @@ GEM
     cuprite (0.15.1)
       capybara (~> 3.0)
       ferrum (~> 0.15.0)
-    data_migrate (11.0.0)
+    data_migrate (11.1.0)
       activerecord (>= 6.1)
       railties (>= 6.1)
     date (3.3.4)
@@ -489,7 +489,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yard (0.9.36)
-    zeitwerk (2.7.0)
+    zeitwerk (2.7.1)
 
 PLATFORMS
   arm64-darwin-21
@@ -505,7 +505,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   cuprite
-  data_migrate (= 11.0.0)
+  data_migrate (= 11.1.0)
   debug
   devise
   dotenv-rails
