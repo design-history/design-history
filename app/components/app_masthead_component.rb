@@ -9,12 +9,14 @@ class AppMastheadComponent < ViewComponent::Base
     title: nil
   )
     super
+    option = Struct.new(:html, :text, :classes, keyword_init: true)
+
     @breadcrumbs = breadcrumbs # TODO
     @classes = classes
-    @description = OpenStruct.new(description)
+    @description = description.nil? ? nil : option.new(description)
     @image = image # TODO
     @phase_banner = phase_banner # TODO
     @start_button = start_button # TODO
-    @title = OpenStruct.new(title)
+    @title = title.nil? ? nil : option.new(title)
   end
 end

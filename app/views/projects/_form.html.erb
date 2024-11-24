@@ -37,11 +37,12 @@
     hint: { text: 'Use markdown for links. These will appear in the
                    sidebar' } %>
 
+  <% theme = Struct.new(:id, :name, keyword_init: true) %>
   <% themes = [
-    OpenStruct.new(id: 'gov', name: 'UK Government'),
-    OpenStruct.new(id: 'nhs', name: 'UK Healthcare'),
-    OpenStruct.new(id: 'dh', name: 'Default')
-  ] %>
+       theme.new(id: 'gov', name: 'UK Government'),
+       theme.new(id: 'nhs', name: 'UK Healthcare'),
+       theme.new(id: 'dh', name: 'Default')
+     ] %>
   <%= f.govuk_collection_radio_buttons :theme,
     themes,
     :id,
