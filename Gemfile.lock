@@ -229,7 +229,7 @@ GEM
     inline_svg (1.10.0)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
-    io-console (0.7.2)
+    io-console (0.8.0)
     irb (1.14.1)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
@@ -262,7 +262,7 @@ GEM
     method_source (1.1.0)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
-    minitest (5.25.2)
+    minitest (5.25.4)
     msgpack (1.7.2)
     multipart-post (2.4.1)
     net-http (0.4.1)
@@ -277,9 +277,9 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.16.8-arm64-darwin)
+    nokogiri (1.17.0-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.8-x86_64-linux)
+    nokogiri (1.17.0-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (9.3.2)
@@ -296,7 +296,8 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.2.0)
+    psych (5.2.1)
+      date
       stringio
     public_suffix (6.0.1)
     puma (6.5.0)
@@ -418,10 +419,10 @@ GEM
       ffi (~> 1.12)
       logger
     securerandom (0.4.0)
-    sentry-rails (5.21.0)
+    sentry-rails (5.22.0)
       railties (>= 5.0)
-      sentry-ruby (~> 5.21.0)
-    sentry-ruby (5.21.0)
+      sentry-ruby (~> 5.22.0)
+    sentry-ruby (5.22.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     solargraph (0.50.0)
@@ -471,7 +472,7 @@ GEM
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     uri (0.13.1)
-    useragent (0.16.10)
+    useragent (0.16.11)
     view_component (3.20.0)
       activesupport (>= 5.2.0, < 8.1)
       concurrent-ruby (~> 1.0)
