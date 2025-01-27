@@ -428,7 +428,7 @@ GEM
     sentry-ruby (5.22.1)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    solargraph (0.51.0)
+    solargraph (0.51.1)
       backport (~> 1.2)
       benchmark
       bundler (~> 2.0)
