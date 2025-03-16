@@ -7,17 +7,6 @@ A service that helps you build a design history.
 This project isn't ready to see yet; we're building it in the open. Don't
 expect much.
 
-## How the application works
-
-We keep track of architecture decisions in [Architecture Decision Records
-(ADRs)](/adr/).
-
-We use `rladr` to generate the boilerplate for new records:
-
-```bash
-bin/bundle exec rladr new title
-```
-
 ## Setup
 
 Set up your environment keys:
