@@ -16,9 +16,10 @@ Capybara.javascript_driver = :cuprite_custom
 Capybara.register_driver(:cuprite_custom) do |app|
   Capybara::Cuprite::Driver.new(
     app,
+    process_timeout: 60,
+    timeout: 60,
     url_blacklist: %w[fonts.googleapis.com],
     window_size: [1200, 800],
-    timeout: 60
   )
 end
 
