@@ -141,7 +141,7 @@ GEM
     cuprite (0.15.1)
       capybara (~> 3.0)
       ferrum (~> 0.15.0)
-    data_migrate (11.2.0)
+    data_migrate (11.3.0)
       activerecord (>= 6.1)
       railties (>= 6.1)
     date (3.4.1)
@@ -283,9 +283,9 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.4-arm64-darwin)
+    nokogiri (1.18.5-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.4-x86_64-linux-gnu)
+    nokogiri (1.18.5-x86_64-linux-gnu)
       racc (~> 1.4)
     observer (0.1.2)
     orm_adapter (0.5.0)
@@ -359,7 +359,7 @@ GEM
       ffi (~> 1.0)
     rbs (3.8.1)
       logger
-    rdoc (6.12.0)
+    rdoc (6.13.0)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
     regexp_parser (2.10.0)
@@ -530,7 +530,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   cuprite
-  data_migrate (= 11.2.0)
+  data_migrate (= 11.3.0)
   debug
   devise
   dotenv-rails
