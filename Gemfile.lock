@@ -212,7 +212,7 @@ GEM
       activemodel (>= 6.1)
       activesupport (>= 6.1)
       html-attributes-utils (~> 1)
-    govuk_markdown (2.0.2)
+    govuk_markdown (2.0.3)
       activesupport
       redcarpet
     haml (6.1.1)
@@ -365,7 +365,7 @@ GEM
     rdoc (6.14.0)
       erb
       psych (>= 4.0.0)
-    redcarpet (3.6.0)
+    redcarpet (3.6.1)
     regexp_parser (2.10.0)
     reline (0.6.1)
       io-console (~> 0.5)
