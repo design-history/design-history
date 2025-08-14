@@ -114,8 +114,6 @@ class ProjectsController < ApplicationController
     image_dir = "images/#{post.slug}"
 
     post.ordered_images.each_with_index do |image, index|
-      next if image.custom_metadata&.dig('show_at_bottom')
-
       original_filename = image.filename.to_s
       extension = File.extname(original_filename)
       base_name = image.custom_metadata&.dig('title') || File.basename(original_filename, extension)
