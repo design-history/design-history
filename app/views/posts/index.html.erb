@@ -111,3 +111,22 @@
     <% end %>
   </div>
 </section>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h3>Export</h3>
+
+    <p>
+      You can export your public design history posts as a zip of markdown and
+      image files.
+    </p>
+
+    <p>
+      The format is compatible with the <a href="https://x-govuk.github.io/govuk-design-history/">govuk-design-history-template</a>.
+      You can drag and drop the contents of the zip into the <code>app</code>
+      folder.
+    </p>
+
+    <%= govuk_button_link_to "Export this design history", export_project_path(@project), download: true %>
+  </div>
+</div>

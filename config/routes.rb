@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :projects do
       get "/manage-access", to: "manage_access#edit"
       patch "/manage-access", to: "manage_access#update"
+      get "/export", to: "projects#export", on: :member
 
       resources :posts do
         resources :images, controller: "post_images" do
