@@ -299,7 +299,8 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.9)
+    pg (1.6.1-arm64-darwin)
+    pg (1.6.1-x86_64-linux)
     pp (0.6.2)
       prettyprint
     prettier_print (1.2.1)
@@ -554,7 +555,7 @@ DEPENDENCIES
   hotwire-livereload
   image_processing
   jsbundling-rails
-  pg (~> 1.5)
+  pg (~> 1.6)
   prettier_print
   propshaft
   puma (~> 6.6)
