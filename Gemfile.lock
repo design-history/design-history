@@ -443,7 +443,7 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
-    rubyzip (2.4.1)
+    rubyzip (3.0.2)
     securerandom (0.4.1)
     sentry-rails (5.26.0)
       railties (>= 5.0)
@@ -564,7 +564,7 @@ DEPENDENCIES
   rspec-rails
   rubocop-govuk
   ruby-openai
-  rubyzip (~> 2.3)
+  rubyzip (~> 3.0)
   sentry-rails
   sentry-ruby
   solargraph
