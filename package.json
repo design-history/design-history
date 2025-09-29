@@ -5,7 +5,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.18",
     "esbuild": "^0.25.10",
-    "govuk-frontend": "^5.11.2",
+    "govuk-frontend": "^5.12.0",
     "sass": "^1.93.2"
   },
   "scripts": {
