@@ -449,7 +449,7 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
-    rubyzip (3.2.0)
+    rubyzip (3.2.2)
     securerandom (0.4.1)
     sentry-rails (6.1.0)
       railties (>= 5.2.0)
