@@ -510,7 +510,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.0.3)
+    uri (1.0.4)
     useragent (0.16.11)
     view_component (3.21.0)
       activesupport (>= 5.2.0, < 8.1)
