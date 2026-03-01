@@ -1,11 +1,8 @@
 # Design history
 
+> **⚠️ Deprecated: ⚠️** designhistory.io is being sunsetted in October 2026. Contact @tvararu for help migrating to [x-govuk/govuk-design-history](https://github.com/x-govuk/govuk-design-history).
+
 A service that helps you build a design history.
-
-## 🚧 Under active construction 🚧
-
-This project isn't ready to see yet; we're building it in the open. Don't
-expect much.
 
 ## Setup
 
