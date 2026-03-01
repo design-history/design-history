@@ -40,6 +40,22 @@
 
     <%= render "layouts/header", admin: is_admin? %>
 
+    <div class="govuk-width-container">
+      <div class="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            designhistory.io is being sunsetted in October 2026
+          </h2>
+          <div class="govuk-error-summary__body">
+            <p class="govuk-body">
+              Contact <%= mail_to "theo@vararu.org", class: "govuk-link" %> for more information, or for help migrating to
+              <%= link_to "x-govuk/govuk-design-history", "https://github.com/x-govuk/govuk-design-history", class: "govuk-link" %>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= yield :masthead %>
 
     <%= content_for?(:content) ? yield(:content) : yield %>
